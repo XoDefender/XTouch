@@ -1,0 +1,17 @@
+#Server
+ip = 127.0.0.1
+port = 60000
+
+#Model
+saveFolder = /home/xodefender/Apps/XTouchAsio/XTouchServer/models/
+testModelFolder = nullptr
+
+#Screenshot
+saveScreenshotFolder = ../src/Screenshots/
+saveScreenshotPrefix = img
+
+#LoginFile
+loginFilePath = ../src/LoginData
+
+#DownloadStepFile
+downloadStepFile = 0

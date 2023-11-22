@@ -1,0 +1,233 @@
+button
+{
+    box-shadow: none;
+}
+
+.TopText {
+    font-size: 25px;
+}
+
+.CancelBtn {
+    background: url('./Img/cancel.jpeg') no-repeat center;
+    outline: none;
+    border: 0;
+    background-size: 20px;
+}
+
+.CategorieBtn {
+    border: 1px solid black;
+    border-radius: 0;
+    background: rgb(243, 243, 243);
+}
+
+.CategorieBtn:hover {
+    background: rgba(51, 103, 256, 0.3);
+    border: 1px solid #3367F6;
+    color: #3367F6;
+}
+
+.SortBtn {
+    background: none;
+    border: 0;
+    outline: none;
+    color: black;
+}
+
+.SortBtn:hover {
+    background: #F2F2F2;
+    color: #3367F6;
+}
+
+.SortContainer {
+    background-color: #e5ecff;
+    border-radius: 10px;
+}
+
+.FilterBtn1 {
+    border: none;
+    outline: none;
+
+    background: url('./Img/all1.png') no-repeat 0% 50%;
+    font-size: 20px;
+}
+
+.FilterBtn2 {
+    border: none;
+    outline: none;
+    
+    background: url('./Img/fav1.png') no-repeat 0% 50%;
+    font-size: 20px;
+}
+
+.FilterBtn1:hover {
+    background: url('./Img/all2.png') no-repeat 0% 50%;
+    color: #3367F6;
+}
+
+.FilterBtn2:hover {
+    background: url('./Img/fav2.png') no-repeat 0% 50%;
+    color: #3367F6;
+}
+
+.SortBtn1 {
+    border: none;
+    outline: none;
+
+    background: url('./Img/recent1.png') no-repeat 0% 50%;
+    border: 0;
+    font-size: 20px;
+}
+
+.SortBtn2 {
+    border: none;
+    outline: none;
+
+    background: url('./Img/date1.png') no-repeat 0% 50%;
+    border: 0;
+    font-size: 20px;
+}
+
+.SortBtn3 {
+    border: none;
+    outline: none;
+
+    background: url('./Img/alphabet1.png') no-repeat 0% 50%;
+    border: 0;
+    font-size: 20px;
+}
+
+.SortBtn1:hover {
+    background: url('./Img/recent2.png') no-repeat 0% 50%;
+    color: #3367F6;
+}
+
+.SortBtn2:hover {
+    background: url('./Img/date2.png') no-repeat 0% 50%;
+    color: #3367F6;
+}
+
+.SortBtn3:hover {
+    background: url('./Img/alphabet2.png') no-repeat 0% 50%;
+    color: #3367F6;
+}
+
+.ControlBtnIco {
+    background-color: #e5ecff;
+    background-image: url('./Img/iconify.png');
+    background-repeat: no-repeat;
+    background-size: 36px;
+    background-position: center;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.ControlBtnCross {
+    background-color: #e5ecff;
+    background-image: url('./Img/cross.png');
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: center;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.QuitSearchBtn {
+    font-size: 15px;
+    border: none;
+    outline: none;
+    background: white;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.07);
+
+    background-image: url('./Img/QuitSearch.png');
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: 50% 40%;
+}
+
+.SearchInputContainer {
+    border-radius: 10px;
+    background: none;
+}
+
+entry 
+{
+    background: white;
+}
+
+.SearchInput {
+    outline: none;
+    border: none;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.07);
+    font-size: 22px;
+}
+
+scrollbar slider {
+    min-height: 16px;
+    background-color: #3367F6;
+    border-radius: 60px;
+}
+
+scrollbar trough {
+    background-color: #dae2ff;
+    border-radius: 60px;
+    margin-top: 10px;
+}
+
+.ScrolledWindow {
+    border: none;
+    outline: none;
+}
+
+.GridElementWrapper {
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.07);
+    background-color: white;
+}
+
+.StarButton {
+    border: none;
+    outline: none;
+    background: url('./Img/star1.png') no-repeat center;
+    margin-right: 10px;
+}
+
+.FooterText {
+    color: #3367F6;
+}
+
+.HeaderText {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+}
+
+.SearchResultsText
+{
+    font-weight: 600;
+    font-size: 25px;
+    color: black;
+}
+
+window
+{
+    background-color: #f9f9f9;
+}
+
+.ClearInputBtn
+{
+    background-color: #e5ecff;
+    background-image: url('./Img/cross.png');
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: center;
+    border-radius: 0px 10px 10px 0px;
+}
+
+.DenyFileLoginMsg
+{
+    color:red;
+    font-size: 25px;
+}
+
+.ScrolledWindowViewport
+{
+    background-color: #f9f9f9;
+}

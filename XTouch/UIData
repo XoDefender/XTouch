@@ -1,0 +1,7 @@
+../src/Windows/LoginWindow/LoginWindow.glade
+../src/Windows/AdminWindow/AdminWindow.glade
+../src/Windows/MainWindow/MainWindow.glade
+../src/Windows/ViewportWindow/ViewportWindow.glade
+../src/Windows/MainWindow/MainScreen/style.css
+../src/Windows/MainWindow/InFolderScreen/style.css
+../src/Windows/ViewportWindow/style.css

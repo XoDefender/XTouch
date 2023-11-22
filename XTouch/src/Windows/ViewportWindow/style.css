@@ -1,0 +1,144 @@
+.ModelNameBlock {
+    background-color: white;
+    border: 0;
+    border-bottom: 1px solid rgb(212, 211, 211);
+    color: black;
+    font-size: 20px;
+}
+
+.FileTreeWrapper {
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    background-clip: padding-box;
+}
+
+.ScrollWindow {
+    border: 0;
+}
+
+.ScaleBar slider {
+    min-width: 30px;
+    min-height: 30px;
+    background-color: rgb(63, 89, 255);
+}
+
+.ScaleBar contents trough slider{
+    background: url('./img/scale.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.ScaleBar contents trough
+{
+    background: #4065ED;
+}
+
+.ScaleBar highlight
+{
+    background: #4065ED;
+    border:none;
+    outline: none;
+}
+
+.ControlsBox
+{
+    background-color: white;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.07);
+}
+
+.ScreenshotBtn
+{
+    border: 1px solid #F5F5F5;
+    background: url('./img/Screenshot.png') no-repeat center;
+}
+
+.ViewUpBtn
+{
+    border: 1px solid #F5F5F5;
+    background: url('./img/vUP.png') no-repeat center;
+}
+
+.ViewRightBtn
+{
+    border: 1px solid #F5F5F5;
+    background: url('./img/vRight.png') no-repeat center;
+}
+
+.ViewPerspectiveBtn
+{
+    border: 1px solid #F5F5F5;
+    background: url('./img/vPerspective.png') no-repeat center;
+}
+
+.ViewForwardBtn
+{
+    border: 1px solid #F5F5F5;
+    background: url('./img/viewForward.png') no-repeat center;
+}
+
+.CenterBtn
+{
+    border: 1px solid #F5F5F5;
+    background: url('./img/Center.png') no-repeat center;
+}
+
+.ExplodeBtn
+{
+    border: 1px solid #F5F5F5;
+    background: url('./img/Explode.png') no-repeat center;
+}
+
+.HideControlsBtn
+{
+    background-color: #e5ecff;
+
+    background-image: url('./img/HideControls.png');
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 50% 50%;
+}
+
+.HideTreeBtn
+{
+    background-color: #e5ecff;
+
+    background-image: url('./img/HideTree.png');
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 30% 50%;
+}
+
+.ShowTreeBtn
+{
+    background: white;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    background-image: url('./img/layerIcon.png');
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 50% 20%;
+}
+
+.ShowControlsBtn
+{
+    background: white;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+    background-image: url('./img/layerIcon.png');
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 50% 82%;
+}
+
+.ShowControlsCon
+{
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.ShowTreeCon
+{
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+}
