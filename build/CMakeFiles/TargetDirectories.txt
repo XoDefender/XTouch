@@ -1,0 +1,11 @@
+/home/xodefender/Apps/XTouch/build/CMakeFiles/edit_cache.dir
+/home/xodefender/Apps/XTouch/build/CMakeFiles/rebuild_cache.dir
+/home/xodefender/Apps/XTouch/build/XTouchClient/CMakeFiles/client.dir
+/home/xodefender/Apps/XTouch/build/XTouchClient/CMakeFiles/edit_cache.dir
+/home/xodefender/Apps/XTouch/build/XTouchClient/CMakeFiles/rebuild_cache.dir
+/home/xodefender/Apps/XTouch/build/XTouchClient/src/paint/CMakeFiles/paint.dir
+/home/xodefender/Apps/XTouch/build/XTouchClient/src/paint/CMakeFiles/edit_cache.dir
+/home/xodefender/Apps/XTouch/build/XTouchClient/src/paint/CMakeFiles/rebuild_cache.dir
+/home/xodefender/Apps/XTouch/build/XTouchServer/CMakeFiles/server.dir
+/home/xodefender/Apps/XTouch/build/XTouchServer/CMakeFiles/edit_cache.dir
+/home/xodefender/Apps/XTouch/build/XTouchServer/CMakeFiles/rebuild_cache.dir

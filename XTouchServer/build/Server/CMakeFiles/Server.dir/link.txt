@@ -1,1 +1,0 @@
-/usr/bin/c++ -export-dynamic CMakeFiles/Server.dir/server.cxx.o -o Server  -lmysqlclient -lmysqlcppconn 

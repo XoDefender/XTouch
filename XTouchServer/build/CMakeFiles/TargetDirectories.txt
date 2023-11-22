@@ -1,5 +1,0 @@
-/home/xodefender/Apps/XTouchAsio/XTouchServer/build/CMakeFiles/edit_cache.dir
-/home/xodefender/Apps/XTouchAsio/XTouchServer/build/CMakeFiles/rebuild_cache.dir
-/home/xodefender/Apps/XTouchAsio/XTouchServer/build/Server/CMakeFiles/Server.dir
-/home/xodefender/Apps/XTouchAsio/XTouchServer/build/Server/CMakeFiles/edit_cache.dir
-/home/xodefender/Apps/XTouchAsio/XTouchServer/build/Server/CMakeFiles/rebuild_cache.dir

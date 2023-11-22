@@ -1,0 +1,1 @@
+/usr/bin/c++ -export-dynamic CMakeFiles/server.dir/src/server.cxx.o CMakeFiles/server.dir/src/SessionManager.cxx.o -o ../bin/server/server  -lmysqlclient -lmysqlcppconn 

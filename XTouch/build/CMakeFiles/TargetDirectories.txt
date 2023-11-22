@@ -1,6 +1,0 @@
-/home/xodefender/Apps/XTouchAsio/XTouch/build/CMakeFiles/XTouch.dir
-/home/xodefender/Apps/XTouchAsio/XTouch/build/CMakeFiles/edit_cache.dir
-/home/xodefender/Apps/XTouchAsio/XTouch/build/CMakeFiles/rebuild_cache.dir
-/home/xodefender/Apps/XTouchAsio/XTouch/build/src/Paint/CMakeFiles/Paint.dir
-/home/xodefender/Apps/XTouchAsio/XTouch/build/src/Paint/CMakeFiles/edit_cache.dir
-/home/xodefender/Apps/XTouchAsio/XTouch/build/src/Paint/CMakeFiles/rebuild_cache.dir
