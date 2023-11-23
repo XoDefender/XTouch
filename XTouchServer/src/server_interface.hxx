@@ -71,10 +71,20 @@ public:
 						}
 
 						SessionManager::GetInstance()->RegisterUser(std::string(clientIp), clientPort);
+
+						event.events = EPOLLIN;
+						event.data.fd = clientSocketFd;
+						epoll_ctl(efd, EPOLL_CTL_ADD, clientSocketFd, &event);
+
+						char w_buff[255] = "Accept";
+        				write(clientSocketFd, w_buff, sizeof(w_buff));
 					}
 					else
 					{
-						std::cout << "Client put data to socket\n";
+						char data[255];
+						int read_len = read(events[i].data.fd, data, sizeof(data));
+						data[read_len] = '\0';
+						std::cout << data << std::endl;
 					}
 				}
 			}
