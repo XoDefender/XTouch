@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -7,7 +8,9 @@ public:
     SessionManager(SessionManager &) = delete;
     void operator=(const SessionManager &) = delete;
 
-    SessionManager *GetInstance();
+    static SessionManager *GetInstance();
+
+    void RegisterUser(std::string ip, int port);
 
 private:
     SessionManager();
@@ -19,6 +22,7 @@ private:
         std::string password;
         std::string group;
         std::string ip;
+        int port;
         std::string activeModel;
     };
     
