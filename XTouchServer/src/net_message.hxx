@@ -7,7 +7,8 @@ namespace net
 	struct message_header
 	{
 		T id{};
-		uint32_t size = 0;
+		uint32_t dataSize;
+		uint32_t size;
 	};
 
 	template <typename T>

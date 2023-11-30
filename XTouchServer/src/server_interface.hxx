@@ -106,13 +106,36 @@ public:
 		int readlen = read(clientFd, buffer, sizeof(buffer));
 
 		int headerVal = 0;
+		int iDataSize = 0;
 		memcpy(&headerVal, buffer, 4);
+		memcpy(&iDataSize, buffer + 4, 4);
 
-		omsg << buffer + 4;
+		omsg.body.resize(iDataSize);
+		memcpy(omsg.body.data(), buffer + 8, iDataSize);
+
 		omsg.header.id = (MsgTypes)headerVal;
 
 		if(errno != EAGAIN && !readlen) return -1;
 		return 0;
+	}
+
+	void ProcessRequest(net::message<MsgTypes> &imsg)
+	{
+		switch (imsg.header.id)
+		{
+		case MsgTypes::PasswordLogin:
+		{
+			char login[50];
+			char pass[50];
+			imsg >> pass;
+			imsg >> login;
+
+			break;
+		}
+		
+		default:
+			break;
+		}
 	}
 
 	void Start()
@@ -138,8 +161,7 @@ public:
 						}
 						else
 						{
-							std::cout << "Header = " << (int)omsg.header.id << std::endl;
-							std::cout << "Message = " << omsg.body.data() << std::endl;
+							ProcessRequest(omsg);
 						}
 					}
 				}
