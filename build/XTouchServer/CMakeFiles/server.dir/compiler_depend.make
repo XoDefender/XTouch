@@ -554,6 +554,7 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
   /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h \
   /usr/include/x86_64-linux-gnu/bits/netdb.h \
   /usr/include/arpa/inet.h \
+  ../XTouchServer/src/net_message.hxx \
   ../XTouchServer/src/net_message_types.hxx \
   ../XTouchServer/src/SessionManager.hxx
 
@@ -1193,6 +1194,8 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 ../XTouchServer/src/net_common.hxx:
 
 /usr/include/c++/11/bits/stl_raw_storage_iter.h:
+
+../XTouchServer/src/net_message.hxx:
 
 /usr/include/c++/11/bits/shared_ptr_atomic.h:
 

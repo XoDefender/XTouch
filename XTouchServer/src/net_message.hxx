@@ -34,7 +34,7 @@ namespace net
 			}
 			size_t i = msg.body.size();
 			msg.body.resize(msg.body.size() + actualSize + 1);
-			std::memcpy(msg.body.data() + i, data, actualSize + 1);
+			memcpy(msg.body.data() + i, data, actualSize + 1);
 			msg.header.size = msg.size();
 			return msg;
 		}
@@ -44,7 +44,7 @@ namespace net
 			int actualSize = data.size();
 			size_t i = msg.body.size();
 			msg.body.resize(msg.body.size() + actualSize);
-			std::memcpy(msg.body.data() + i, data.c_str(), actualSize);
+			memcpy(msg.body.data() + i, data.c_str(), actualSize);
 			msg.header.size = msg.size();
 
 			return msg;
@@ -81,7 +81,7 @@ namespace net
 			}
 
 			int i = msg.body.size() - (sizeToCopy + 1);
-			std::memcpy(data, msg.body.data() + i, sizeToCopy + 1);
+			memcpy(data, msg.body.data() + i, sizeToCopy + 1);
 			msg.body.resize(i);
 			msg.header.size = msg.size();
 

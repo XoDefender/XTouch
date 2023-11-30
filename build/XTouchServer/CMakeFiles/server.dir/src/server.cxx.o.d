@@ -261,5 +261,6 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: \
  /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h \
  /usr/include/x86_64-linux-gnu/bits/netdb.h /usr/include/arpa/inet.h \
+ /home/xodefender/Apps/XTouch/XTouchServer/src/net_message.hxx \
  /home/xodefender/Apps/XTouch/XTouchServer/src/net_message_types.hxx \
  /home/xodefender/Apps/XTouch/XTouchServer/src/SessionManager.hxx

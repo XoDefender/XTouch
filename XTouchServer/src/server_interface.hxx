@@ -87,19 +87,32 @@ public:
 		}
 	}
 
-	void SendMessage(std::string message, int clientFd)
+	void SendMessage(std::string message, MsgTypes type, int clientFd)
 	{
-		write(clientFd, message.data(), message.size());
+		net::message<MsgTypes> imsg;
+		imsg.header.id = type;
+		imsg << message.data();
+
+		char buffer[sizeof(imsg.header.id) + imsg.body.size()];
+		memcpy((void *)buffer, &imsg.header.id, sizeof(imsg.header.id));
+		memcpy((void *)(buffer + sizeof(imsg.header.id)), imsg.body.data(), imsg.body.size());
+
+		write(clientFd, buffer, sizeof(imsg.header.id) + imsg.body.size());
 	}
 
-	int ReadMessage(int clientFd)
+	int ReadMessage(int clientFd, net::message<MsgTypes> &omsg)
 	{
-		char buffer[256];
+		char buffer[1024];
 		int readlen = read(clientFd, buffer, sizeof(buffer));
-		std::cout<<buffer<<std::endl;
 
-		if(errno != EAGAIN) return -1;
-		else return 0;
+		int headerVal = 0;
+		memcpy(&headerVal, buffer, 4);
+
+		omsg << buffer + 4;
+		omsg.header.id = (MsgTypes)headerVal;
+
+		if(errno != EAGAIN && !readlen) return -1;
+		return 0;
 	}
 
 	void Start()
@@ -114,12 +127,20 @@ public:
 					if (events[i].data.fd == socket_fd)
 					{
 						int clientFd = ConnectClient();
-						SendMessage("Hello from server", clientFd);
+						SendMessage("Hello from server", MsgTypes::ServerAccept, clientFd);
 					}
 					else
 					{
-						if(ReadMessage(events[i].data.fd) == -1)
+						net::message<MsgTypes> omsg;
+						if (ReadMessage(events[i].data.fd, omsg) == -1)
+						{
 							DisconnectClient(events[i].data.fd);
+						}
+						else
+						{
+							std::cout << "Header = " << (int)omsg.header.id << std::endl;
+							std::cout << "Message = " << omsg.body.data() << std::endl;
+						}
 					}
 				}
 			}
