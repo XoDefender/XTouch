@@ -11,8 +11,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/xodefender/Apps/XTouch/XTouchClient/src/paint/paint.cpp" "XTouchClient/src/paint/CMakeFiles/paint.dir/paint.cpp.o" "gcc" "XTouchClient/src/paint/CMakeFiles/paint.dir/paint.cpp.o.d"
   )
 
-# Targets to which this target links which contain Fortran sources.
-set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES
+# Targets to which this target links.
+set(CMAKE_TARGET_LINKED_INFO_FILES
   )
 
 # Fortran module output directory.

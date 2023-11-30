@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 class SessionManager
 {
@@ -10,7 +11,8 @@ public:
 
     static SessionManager *GetInstance();
 
-    void RegisterUser(std::string ip, int port);
+    void RegisterUser(std::string ip, int port, int fd);
+    void UnregisterUser(std::string ip, int port);
 
 private:
     SessionManager();
@@ -24,6 +26,7 @@ private:
         std::string ip;
         int port;
         std::string activeModel;
+        int fd;
     };
     
     static SessionManager *instance;

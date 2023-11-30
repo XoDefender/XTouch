@@ -44,6 +44,64 @@ public:
 
 	virtual ~server_interface() {}
 
+	int ConnectClient()
+	{
+		struct sockaddr clientSocketData;
+		socklen_t clientSocketDataSize = sizeof(clientSocketData);
+		int clientSocketFd = accept(socket_fd, &clientSocketData, &clientSocketDataSize);
+		char clientIp[INET_ADDRSTRLEN];
+		uint16_t clientPort;
+		if (clientSocketData.sa_family == AF_INET)
+		{
+			struct sockaddr_in *clientSocketDataIp4 = (struct sockaddr_in *)&clientSocketData;
+			clientPort = ntohs(clientSocketDataIp4->sin_port);
+			inet_ntop(AF_INET, &(clientSocketDataIp4->sin_addr), clientIp, INET_ADDRSTRLEN);
+		}
+
+		std::cout << "Client connected = Ip: " << std::string(clientIp) << "  Port: " << clientPort << std::endl;
+
+		SessionManager::GetInstance()->RegisterUser(std::string(clientIp), clientPort, clientSocketFd);
+
+		event.events = EPOLLIN;
+		event.data.fd = clientSocketFd;
+		epoll_ctl(efd, EPOLL_CTL_ADD, clientSocketFd, &event);
+
+		return clientSocketFd;
+	}
+
+	void DisconnectClient(int clientFd)
+	{
+		struct sockaddr_in peerAddress;
+		socklen_t peerAddressLength = sizeof(peerAddress);
+		if (getpeername(clientFd, reinterpret_cast<sockaddr *>(&peerAddress), &peerAddressLength) == 0)
+		{
+			std::string clientIp = std::string(inet_ntoa(peerAddress.sin_addr));
+			int clientPort = ntohs(peerAddress.sin_port);
+
+			std::cout << "Client disconnected Ip: " << std::string(clientIp) << "  Port: " << clientPort << std::endl;
+
+			SessionManager::GetInstance()->UnregisterUser(clientIp, clientPort);
+
+			close(clientFd);
+			epoll_ctl(efd, EPOLL_CTL_DEL, clientFd, NULL);
+		}
+	}
+
+	void SendMessage(std::string message, int clientFd)
+	{
+		write(clientFd, message.data(), message.size());
+	}
+
+	int ReadMessage(int clientFd)
+	{
+		char buffer[256];
+		int readlen = read(clientFd, buffer, sizeof(buffer));
+		std::cout<<buffer<<std::endl;
+
+		if(errno != EAGAIN) return -1;
+		else return 0;
+	}
+
 	void Start()
 	{
 		try
@@ -55,36 +113,13 @@ public:
 				{
 					if (events[i].data.fd == socket_fd)
 					{
-						std::cout << "New conection\n";
-						struct sockaddr clientSocketData;
-						socklen_t clientSocketDataSize = sizeof(clientSocketData);
-						int clientSocketFd;
-						clientSocketFd = accept(socket_fd, &clientSocketData, &clientSocketDataSize);
-
-						char clientIp[INET_ADDRSTRLEN];
-						uint16_t clientPort;
-						if (clientSocketData.sa_family == AF_INET)
-						{
-							struct sockaddr_in *clientSocketDataIp4 = (struct sockaddr_in *)&clientSocketData;
-							clientPort = ntohs(clientSocketDataIp4->sin_port);
-							inet_ntop(AF_INET, &(clientSocketDataIp4->sin_addr), clientIp, INET_ADDRSTRLEN);
-						}
-
-						SessionManager::GetInstance()->RegisterUser(std::string(clientIp), clientPort);
-
-						event.events = EPOLLIN;
-						event.data.fd = clientSocketFd;
-						epoll_ctl(efd, EPOLL_CTL_ADD, clientSocketFd, &event);
-
-						char w_buff[255] = "Accept";
-        				write(clientSocketFd, w_buff, sizeof(w_buff));
+						int clientFd = ConnectClient();
+						SendMessage("Hello from server", clientFd);
 					}
 					else
 					{
-						char data[255];
-						int read_len = read(events[i].data.fd, data, sizeof(data));
-						data[read_len] = '\0';
-						std::cout << data << std::endl;
+						if(ReadMessage(events[i].data.fd) == -1)
+							DisconnectClient(events[i].data.fd);
 					}
 				}
 			}
