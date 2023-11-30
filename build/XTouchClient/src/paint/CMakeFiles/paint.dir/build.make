@@ -98,7 +98,6 @@ bin/client/paint/paint: /usr/lib/x86_64-linux-gnu/libgdkmm-3.0.so
 bin/client/paint/paint: /usr/lib/x86_64-linux-gnu/libgiomm-2.4.so
 bin/client/paint/paint: /usr/lib/x86_64-linux-gnu/libgtk-3.so
 bin/client/paint/paint: /usr/lib/x86_64-linux-gnu/libgdk-3.so
-bin/client/paint/paint: /usr/lib/x86_64-linux-gnu/libz.so
 bin/client/paint/paint: /usr/lib/x86_64-linux-gnu/libatk-1.0.so
 bin/client/paint/paint: /usr/lib/x86_64-linux-gnu/libcairo-gobject.so
 bin/client/paint/paint: /usr/lib/x86_64-linux-gnu/libgio-2.0.so

@@ -48,7 +48,7 @@ void ModelFileManager::GetDataFromServer()
     ofstream stepFile;
     stepFile.open(relativeFilePath);
 
-    olc::net::message<MsgTypes> iMsg;
+    net::message<MsgTypes> iMsg;
 
     if (!global::downloadStepFile)
     {
@@ -62,7 +62,7 @@ void ModelFileManager::GetDataFromServer()
         iMsg << global::currentFileName.c_str();
     }
 
-    olc::net::message<MsgTypes> oMsg = Client::GetInstance().SendRequestToServer(MsgTypes::GetModelFile, iMsg);
+    net::message<MsgTypes> oMsg = Client::GetInstance().SendRequestToServer(MsgTypes::GetModelFile, iMsg);
 
     char fileData[oMsg.size()];
 

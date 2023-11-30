@@ -1,6 +1,5 @@
 #include "global.hxx"
 
-using namespace sql;
 using namespace std;
 using namespace Glib;
 

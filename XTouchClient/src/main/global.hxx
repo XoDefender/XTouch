@@ -1,12 +1,5 @@
 #include <gtkmm.h>
 
-#include <mysql.h>
-#include </usr/include/mysql-cppconn-8/jdbc/mysql_connection.h>
-#include <cppconn/driver.h>
-#include <cppconn/exception.h>
-#include <cppconn/resultset.h>
-#include <cppconn/statement.h>
-
 extern class LoginWindow *loginWindow;
 extern class AdminWindow *adminWindow;
 extern class MainWindow *mainWindow;

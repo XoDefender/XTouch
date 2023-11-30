@@ -8,7 +8,7 @@ public:
     bool isServerActive = true;
 
 public:
-    virtual void FillGrid(MsgTypes msgType, olc::net::message<MsgTypes> iMsg = Client::GetInstance().GetEmptyMessage()) = 0;
+    virtual void FillGrid(MsgTypes msgType, net::message<MsgTypes> iMsg = Client::GetInstance().GetEmptyMessage()) = 0;
 
     void ClearGrid(Gtk::Grid *grid)
     {
@@ -23,7 +23,7 @@ public:
 
     void SortData(MsgTypes msgType, bool &isSortAsc, std::string sortAsc, std::string sortDesc)
     {
-        olc::net::message<MsgTypes> iMsg;
+        net::message<MsgTypes> iMsg;
 
         if (msgType == MsgTypes::SortFiles)
             iMsg << global::currentModelFolder.c_str();

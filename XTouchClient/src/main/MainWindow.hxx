@@ -47,7 +47,7 @@ private:
     void CSSConnection();
     void ProcessWidgets();
 
-    void FillGrid(MsgTypes msgType, olc::net::message<MsgTypes> iMsg = Client::GetInstance().GetEmptyMessage()) override;
+    void FillGrid(MsgTypes msgType, net::message<MsgTypes> iMsg = Client::GetInstance().GetEmptyMessage()) override;
 
     void OnSortBtnClick(bool &isSortAsc,
                         std::string sortAsc,

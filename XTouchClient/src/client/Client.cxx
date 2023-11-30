@@ -1,5 +1,5 @@
 #include "Client.hxx"
-#include "../global.hxx"
+#include "../main/global.hxx"
 
 using namespace std;
 
@@ -16,41 +16,36 @@ Client &Client::GetInstance()
     return client;
 }
 
-olc::net::message<MsgTypes> Client::SendRequestToServer(MsgTypes msgType, olc::net::message<MsgTypes> msg)
+net::message<MsgTypes> Client::SendRequestToServer(MsgTypes msgType, net::message<MsgTypes> msg)
 {
-    msg.header.id = msgType;
-
-    Send(msg);
-
+    SendMessage(msg, msgType);
     return StartMessageLoop();
 }
 
-olc::net::message<MsgTypes> Client::StartMessageLoop()
+net::message<MsgTypes> Client::StartMessageLoop()
 {
-    while (true)
+    while (1)
     {
-        if (IsConnected())
+        int activeEvents = epoll_wait(efd, events, 1, -1);
+        for (int i = 0; i < activeEvents; i++)
         {
-            if (!Incoming().empty())
+            net::message<MsgTypes> omsg;
+            if(ReadMessage(clientfd, omsg) == -1)
             {
-                auto msg = Incoming().pop_front().msg;
-
-                if (msg.size() <= 0) continue;
-                else
-                {
-                    return msg;
-                }
+                std::cout<<"Error reading the message\n";
             }
-        }
-        else
-        {
-            Disconnect();
-            throw std::string("The server is not active!");
+            else return omsg;
         }
     }
 }
 
-olc::net::message<MsgTypes> Client::GetEmptyMessage()
+net::message<MsgTypes> Client::GetEmptyMessage()
 {
     return emptyMsg;
+}
+
+MsgTypes operator|(MsgTypes first_type, MsgTypes second_type)
+{
+    using underlying_type = std::underlying_type_t<MsgTypes>;
+    return static_cast<MsgTypes>(static_cast<underlying_type>(first_type) | static_cast<underlying_type>(second_type));
 }

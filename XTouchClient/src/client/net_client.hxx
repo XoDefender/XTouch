@@ -1,109 +1,98 @@
 #pragma once
-#include "net_common.hxx"
 
-namespace olc
+namespace net
 {
-	namespace net
+	template <typename T>
+	class net_client
 	{
-		template <typename T>
-		class client_interface
+	public:
+		net_client()
 		{
-		public:
-			client_interface()
-			{
-			}
+		}
 
-			virtual ~client_interface()
-			{
-				// If the client is destroyed, always try and disconnect from server / new
-				// Disconnect();
-			}
+		virtual ~net_client()
+		{
+			Disconnect();
+		}
 
-		public:
-			// Connect to server with hostname/ip-address and port
-			bool Connect(const std::string &host, const uint16_t port)
+	public:
+		bool Connect(const char *ipAddress, const char *portNum)
+		{
+			try
 			{
-				try
+				addrinfo hints, *p;
+				memset(&hints, 0, sizeof(hints));
+				hints.ai_family = AF_UNSPEC;
+				hints.ai_socktype = SOCK_STREAM;
+				hints.ai_flags = AI_PASSIVE;
+
+				int gAddRes = getaddrinfo(ipAddress, portNum, &hints, &p);
+
+				clientfd = socket(p->ai_family, p->ai_socktype, p->ai_protocol);
+
+				if (clientfd == -1) throw;
+
+				int connect_reply = connect(clientfd, p->ai_addr, p->ai_addrlen);
+				if (connect_reply == -1)
 				{
-					// added in order to connect after being disconnected
-					m_context.restart();
-
-					// Resolve hostname/ip-address into tangiable physical address
-					asio::ip::tcp::resolver resolver(m_context);
-					asio::ip::tcp::resolver::results_type endpoints = resolver.resolve(host, std::to_string(port));
-
-					// Create connection
-					m_connection = std::make_unique<connection<T>>(connection<T>::owner::client, m_context, asio::ip::tcp::socket(m_context), m_qMessagesIn);
-
-					// Tell the connection object to connect to server
-					m_connection->ConnectToServer(endpoints);
-
-					// Start Context Thread
-					thrContext = std::thread([this]()
-											 { m_context.run(); });
+					close(clientfd);
+					throw;
 				}
-				catch (std::exception &e)
+				else
 				{
-					std::cerr << "Client Exception: " << e.what() << "\n";
-					return false;
+					efd = epoll_create1(0);
+					event.events = EPOLLIN;
+					event.data.fd = clientfd;
+					epoll_ctl(efd, EPOLL_CTL_ADD, clientfd, &event);
 				}
+
 				return true;
 			}
-
-			// Disconnect from server
-			void Disconnect()
+			catch (...)
 			{
-				// If connection exists, and it's connected then...
-				if (IsConnected())
-				{
-					// ...disconnect from server gracefully
-					m_connection->Disconnect();
-				}
-
-				// Either way, we're also done with the asio context...
-				m_context.stop();
-				// ...and its thread
-				if (thrContext.joinable())
-					thrContext.join();
-
-				// Destroy the connection object
-				m_connection.release();
+				return false;
 			}
+		}
 
-			// Check if client is actually connected to a server
-			bool IsConnected()
-			{
-				if (m_connection)
-					return m_connection->IsConnected();
-				else
-					return false;
-			}
+		void Disconnect()
+		{
+		}
 
-		public:
-			// Send message to server
-			void Send(const message<T> &msg)
-			{
-				if (IsConnected())
-					m_connection->Send(msg);
-			}
+	public:
+		void SendMessage(net::message<MsgTypes> imsg, MsgTypes type)
+		{
+			imsg.header.id = type;
+			char buffer[sizeof(imsg.header.id) + imsg.body.size()];
+			memcpy((void *)buffer, &imsg.header.id, sizeof(imsg.header.id));
+			memcpy((void *)(buffer + sizeof(imsg.header.id)), imsg.body.data(), imsg.body.size());
 
-			// Retrieve queue of messages from server
-			tsqueue<owned_message<T>> &Incoming()
-			{
-				return m_qMessagesIn;
-			}
+			write(clientfd, buffer, sizeof(imsg.header.id) + imsg.body.size());
+		}
 
-		protected:
-			// asio context handles the data transfer...
-			asio::io_context m_context;
-			// ...but needs a thread of its own to execute its work commands
-			std::thread thrContext;
-			// The client has a single instance of a "connection" object, which handles data transfer
-			std::unique_ptr<connection<T>> m_connection;
+		int ReadMessage(int clientFd, net::message<MsgTypes> &omsg)
+		{
+			char buffer[1024];
+			int readlen = read(clientFd, buffer, sizeof(buffer));
 
-		private:
-			// This is the thread safe queue of incoming messages from server
-			tsqueue<owned_message<T>> m_qMessagesIn;
-		};
-	}
+			int headerVal = 0;
+			int iDataSize = 0;
+			memcpy(&headerVal, buffer, 4);
+			memcpy(&iDataSize, buffer + 4, 4);
+
+			omsg.body.resize(iDataSize);
+			memcpy(omsg.body.data(), buffer + 8, iDataSize);
+
+			omsg.header.id = (MsgTypes)headerVal;
+
+			if (errno != EAGAIN && !readlen)
+				return -1;
+			return 0;
+		}
+
+	protected:
+		int clientfd;
+		int efd;
+		epoll_event event;
+		epoll_event events[1];
+	};
 }

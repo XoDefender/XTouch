@@ -5,10 +5,10 @@
 #include "net_modules.hxx"
 
 template <typename T>
-class server_interface
+class net_server
 {
 public:
-	server_interface(uint16_t port, int maxConnections)
+	net_server(uint16_t port, int maxConnections)
 	{
 		try
 		{
@@ -42,7 +42,7 @@ public:
 		}
 	}
 
-	virtual ~server_interface() {}
+	virtual ~net_server() {}
 
 	int ConnectClient()
 	{
@@ -129,6 +129,9 @@ public:
 			char pass[50];
 			imsg >> pass;
 			imsg >> login;
+
+			std::cout<<pass<<std::endl;
+			std::cout<<login<<std::endl;
 
 			break;
 		}

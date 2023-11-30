@@ -11,7 +11,6 @@
 #include "InFolderWindow.hxx"
 #include "ModelFileManager.hxx"
 
-using namespace sql;
 using namespace std;
 
 string GetSubstringAfterSeparator(char separator, string data, int offsetAfterSeparator = 0)
@@ -98,7 +97,7 @@ int main(int argc, char *argv[])
 
     try
     {
-        Client::GetInstance().Connect(global::serverIp, global::serverPort);
+        Client::GetInstance().Connect(global::serverIp.c_str(), to_string(global::serverPort).c_str());
         loginWindow->OpenWindow(LoginState::Server);
     }
     catch (...)

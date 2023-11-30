@@ -1,18 +1,18 @@
 #pragma once
 
 #include <memory>
-#include <thread>
-#include <mutex>
-#include <deque>
-#include <optional>
-#include <vector>
+#include <cstring>
 #include <iostream>
-#include <algorithm>
-#include <chrono>
-#include <cstdint>
-#include <fstream>
+#include <string>
 
-#define ASIO_STANDALONE
-#include <asio.hpp>
-#include <asio/ts/buffer.hpp>
-#include <asio/ts/internet.hpp>
+#include <arpa/inet.h>
+#include <netdb.h>
+
+#include <sys/socket.h>
+#include <sys/types.h>
+#include <sys/epoll.h>
+
+#include <unistd.h>
+#include <fcntl.h>
+
+#include <vector>

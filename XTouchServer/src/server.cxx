@@ -1,11 +1,11 @@
-#include "server_interface.hxx"
+#include "net_server.hxx"
 
 using namespace std;
 
-class CustomServer : public server_interface<MsgTypes>
+class CustomServer : public net_server<MsgTypes>
 {
 public:
-	CustomServer(uint16_t nPort) : server_interface<MsgTypes>(nPort, 10)
+	CustomServer(uint16_t nPort) : net_server<MsgTypes>(nPort, 10)
 	{
 	}
 

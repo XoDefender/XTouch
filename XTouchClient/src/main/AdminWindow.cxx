@@ -8,7 +8,6 @@
 
 #include "AdminWindow.hxx"
 
-using namespace sql;
 using namespace std;
 
 // Нужно добавить обработку на сервере
@@ -16,9 +15,9 @@ void AdminWindow::AddUser()
 {
     // if (loginInput->get_text() != "" && passwordInput->get_text() != "")
     // {
-    //     olc::net::message<MsgTypes> iMsg;
+    //     net::message<MsgTypes> iMsg;
     //     iMsg << loginInput->get_text().c_str() << passwordInput->get_text().c_str();
-    //     olc::net::message<MsgTypes> oMsg = Client::GetInstance().SendRequestToServer(MsgTypes::AddUserToTable, iMsg);
+    //     net::message<MsgTypes> oMsg = Client::GetInstance().SendRequestToServer(MsgTypes::AddUserToTable, iMsg);
     //     cout << oMsg.body.data() << endl;
     // }
 }

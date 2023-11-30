@@ -10,7 +10,6 @@
 #include "AdminWindow.hxx"
 
 using namespace std;
-using namespace sql;
 
 void LoginWindow::ProcessQueries()
 {
@@ -18,9 +17,9 @@ void LoginWindow::ProcessQueries()
     {
     case LoginState::Server:
     {
-        olc::net::message<MsgTypes> iMsg;
+        net::message<MsgTypes> iMsg;
         iMsg << global::currentUserName.c_str() << passwordInput->get_text();
-        olc::net::message<MsgTypes> oMsg = Client::GetInstance().SendRequestToServer(MsgTypes::PasswordLogin, iMsg);
+        net::message<MsgTypes> oMsg = Client::GetInstance().SendRequestToServer(MsgTypes::PasswordLogin, iMsg);
         
         if (oMsg.header.id == MsgTypes::ServerAccept)
         {

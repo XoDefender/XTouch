@@ -227,7 +227,7 @@ XTouchServer/CMakeFiles/server.dir/src/SessionManager.cxx.o: ../XTouchServer/src
 
 XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.cxx \
   /usr/include/stdc-predef.h \
-  ../XTouchServer/src/server_interface.hxx \
+  ../XTouchServer/src/net_server.hxx \
   /usr/include/c++/11/iostream \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -763,6 +763,8 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 
 /usr/include/c++/11/bits/ostream.tcc:
 
+/usr/include/wchar.h:
+
 /usr/include/c++/11/bits/cxxabi_init_exception.h:
 
 /usr/include/x86_64-linux-gnu/bits/epoll.h:
@@ -916,8 +918,6 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
-
-/usr/include/c++/11/bits/stl_iterator_base_types.h:
 
 /usr/include/c++/11/cstdlib:
 
@@ -1181,9 +1181,9 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 
 /usr/include/c++/11/bits/erase_if.h:
 
-/usr/include/wchar.h:
+/usr/include/c++/11/bits/stl_iterator_base_types.h:
 
-../XTouchServer/src/server_interface.hxx:
+../XTouchServer/src/net_server.hxx:
 
 ../XTouchServer/src/net_modules.hxx:
 

@@ -5,7 +5,6 @@
 #include "MainWindow.hxx"
 #include "InFolderWindow.hxx"
 
-using namespace sql;
 using namespace std;
 
 MainWindow::ModelCard::ModelCard(Gtk::Grid *grid,
@@ -64,9 +63,9 @@ void MainWindow::ModelCard::ChangeFavoriteState(const MsgTypes &msgType, const b
 {
     try
     {
-        olc::net::message<MsgTypes> iMsg;
+        net::message<MsgTypes> iMsg;
         iMsg << modelName.c_str();
-        olc::net::message<MsgTypes> oMsg = Client::GetInstance().SendRequestToServer(msgType, iMsg);
+        net::message<MsgTypes> oMsg = Client::GetInstance().SendRequestToServer(msgType, iMsg);
     }
     catch (...)
     {
@@ -149,7 +148,7 @@ void MainWindow::OnInputKeyPress()
     {
         ClearGrid(grid);
 
-        olc::net::message<MsgTypes> iMsg;
+        net::message<MsgTypes> iMsg;
         iMsg << search_input->get_text().c_str();
 
         FillGrid(MsgTypes::GetModelByName, iMsg);
@@ -170,7 +169,7 @@ void MainWindow::OnQuitSearchBtnClick()
     isInSearch = false;
 }
 
-void MainWindow::FillGrid(MsgTypes msgType, olc::net::message<MsgTypes> iMsg)
+void MainWindow::FillGrid(MsgTypes msgType, net::message<MsgTypes> iMsg)
 {
     if (!isServerActive) return;
 
@@ -178,7 +177,7 @@ void MainWindow::FillGrid(MsgTypes msgType, olc::net::message<MsgTypes> iMsg)
 
     MainWindow::modelCards.clear();
 
-    olc::net::message<MsgTypes> oMsg = Client::GetInstance().SendRequestToServer(msgType, iMsg);
+    net::message<MsgTypes> oMsg = Client::GetInstance().SendRequestToServer(msgType, iMsg);
 
     int columns = 0;
     int rows = 3;

@@ -7,7 +7,6 @@
 #include "InFolderWindow.hxx"
 #include "ModelFileManager.hxx"
 
-using namespace sql;
 using namespace std;
 
 InFolderWindow::FileBlock::FileBlock(Gtk::Widget *widget, std::string fileName, std::string categoryName, std::string dateName)
@@ -185,7 +184,7 @@ void InFolderWindow::ResetFileBlockSelection(string downloadStatusText)
     downloadAnimationConn.disconnect();
 }
 
-void InFolderWindow::FillGrid(MsgTypes msgType, olc::net::message<MsgTypes> iMsg)
+void InFolderWindow::FillGrid(MsgTypes msgType, net::message<MsgTypes> iMsg)
 {
     if (!isServerActive)
         return;
@@ -193,7 +192,7 @@ void InFolderWindow::FillGrid(MsgTypes msgType, olc::net::message<MsgTypes> iMsg
     fileNames.clear();
     ClearGrid(grid);
 
-    olc::net::message<MsgTypes> oMsg;
+    net::message<MsgTypes> oMsg;
 
     try
     {
@@ -292,7 +291,7 @@ void InFolderWindow::OnUpdateFilesBtnClick()
         std::remove(relativeFilePath.c_str());
     }
 
-    olc::net::message<MsgTypes> iMsg;
+    net::message<MsgTypes> iMsg;
     iMsg << global::currentModelName.c_str();
     FillGrid(MsgTypes::GetModelFiles, iMsg);
 }
@@ -371,7 +370,7 @@ InFolderWindow::InFolderWindow()
 
 void InFolderWindow::OpenWindow()
 {
-    olc::net::message<MsgTypes> iMsg;
+    net::message<MsgTypes> iMsg;
     iMsg << global::currentModelName.c_str();
 
     FillGrid(MsgTypes::GetModelFiles, iMsg);

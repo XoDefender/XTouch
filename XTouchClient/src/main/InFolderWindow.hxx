@@ -44,7 +44,7 @@ private:
     void CSSConnection();
     void ProcessWidgets();
 
-    void FillGrid(MsgTypes msgType, olc::net::message<MsgTypes> iMsg = Client::GetInstance().GetEmptyMessage()) override;
+    void FillGrid(MsgTypes msgType, net::message<MsgTypes> iMsg = Client::GetInstance().GetEmptyMessage()) override;
 
     void CreateFileBlockOnGrid(int row, std::string fileName, std::string categoryName, std::string dateName);
     bool OnFileBlockClick(GdkEventButton *widget, Gtk::EventBox *clickedWidget);
