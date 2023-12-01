@@ -1,7 +1,7 @@
-../src/Windows/LoginWindow/LoginWindow.glade
-../src/Windows/AdminWindow/AdminWindow.glade
-../src/Windows/MainWindow/MainWindow.glade
-../src/Windows/ViewportWindow/ViewportWindow.glade
-../src/Windows/MainWindow/MainScreen/style.css
-../src/Windows/MainWindow/InFolderScreen/style.css
-../src/Windows/ViewportWindow/style.css
+/home/xodefender/Apps/XTouch/XTouchClient/res/Windows/LoginWindow/LoginWindow.glade
+/home/xodefender/Apps/XTouch/XTouchClient/res/Windows/AdminWindow/AdminWindow.glade
+/home/xodefender/Apps/XTouch/XTouchClient/res/Windows/MainWindow/MainWindow.glade
+/home/xodefender/Apps/XTouch/XTouchClient/res/Windows/ViewportWindow/ViewportWindow.glade
+/home/xodefender/Apps/XTouch/XTouchClient/res/Windows/MainWindow/MainScreen/style.css
+/home/xodefender/Apps/XTouch/XTouchClient/res/Windows/MainWindow/InFolderScreen/style.css
+/home/xodefender/Apps/XTouch/XTouchClient/res/Windows/ViewportWindow/style.css

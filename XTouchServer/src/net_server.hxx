@@ -87,17 +87,15 @@ public:
 		}
 	}
 
-	void SendMessage(std::string message, MsgTypes type, int clientFd)
+	void SendMessage(net::message<MsgTypes> imsg, MsgTypes type, int clientFd)
 	{
-		net::message<MsgTypes> imsg;
 		imsg.header.id = type;
-		imsg << message.data();
-
-		char buffer[sizeof(imsg.header.id) + imsg.body.size()];
+		char buffer[sizeof(imsg.header) + imsg.size()];
 		memcpy((void *)buffer, &imsg.header.id, sizeof(imsg.header.id));
-		memcpy((void *)(buffer + sizeof(imsg.header.id)), imsg.body.data(), imsg.body.size());
+		memcpy((void *)(buffer + sizeof(imsg.header.size)), &imsg.header.size, sizeof(imsg.header.size));
+		if(imsg.size()) memcpy((void *)(buffer + sizeof(imsg.header)), imsg.body.data(), imsg.size());
 
-		write(clientFd, buffer, sizeof(imsg.header.id) + imsg.body.size());
+		write(clientFd, buffer, sizeof(imsg.header) + imsg.size());
 	}
 
 	int ReadMessage(int clientFd, net::message<MsgTypes> &omsg)
@@ -112,14 +110,14 @@ public:
 
 		omsg.body.resize(iDataSize);
 		memcpy(omsg.body.data(), buffer + 8, iDataSize);
-
 		omsg.header.id = (MsgTypes)headerVal;
 
-		if(errno != EAGAIN && !readlen) return -1;
+		if (errno != EAGAIN && !readlen)
+			return -1;
 		return 0;
 	}
 
-	void ProcessRequest(net::message<MsgTypes> &imsg)
+	void ProcessRequest(net::message<MsgTypes> &imsg, int clientFd)
 	{
 		switch (imsg.header.id)
 		{
@@ -130,12 +128,14 @@ public:
 			imsg >> pass;
 			imsg >> login;
 
-			std::cout<<pass<<std::endl;
-			std::cout<<login<<std::endl;
+			std::cout << pass << std::endl;
+			std::cout << login << std::endl;
+
+			SendMessage(imsg, MsgTypes::ServerAccept, clientFd);
 
 			break;
 		}
-		
+
 		default:
 			break;
 		}
@@ -153,7 +153,6 @@ public:
 					if (events[i].data.fd == socket_fd)
 					{
 						int clientFd = ConnectClient();
-						SendMessage("Hello from server", MsgTypes::ServerAccept, clientFd);
 					}
 					else
 					{
@@ -164,7 +163,7 @@ public:
 						}
 						else
 						{
-							ProcessRequest(omsg);
+							ProcessRequest(omsg, events[i].data.fd);
 						}
 					}
 				}

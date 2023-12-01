@@ -43,7 +43,7 @@ bool PassFileDataToVector(string filePath, vector<string> &data, char ignoreStin
 void ParseGladeData()
 {
     vector<string> fileData;
-    PassFileDataToVector("../UIData", fileData);
+    PassFileDataToVector("/home/xodefender/Apps/XTouch/XTouchClient/res/UIData", fileData);
 
     global::loginWindowUI = fileData[0];
     global::adminWindowUI = fileData[1];
@@ -57,7 +57,7 @@ void ParseGladeData()
 void ParseGlobalData()
 {
     vector<string> fileData;
-    PassFileDataToVector("../Config", fileData, '#');
+    PassFileDataToVector("/home/xodefender/Apps/XTouch/XTouchClient/res/Config", fileData, '#');
 
     global::serverIp = GetSubstringAfterSeparator('=', fileData[0], 2);
     global::serverPort = stoi(GetSubstringAfterSeparator('=', fileData[1], 2));

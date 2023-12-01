@@ -62,11 +62,12 @@ namespace net
 		void SendMessage(net::message<MsgTypes> imsg, MsgTypes type)
 		{
 			imsg.header.id = type;
-			char buffer[sizeof(imsg.header.id) + imsg.body.size()];
+			char buffer[sizeof(imsg.header) + imsg.size()];
 			memcpy((void *)buffer, &imsg.header.id, sizeof(imsg.header.id));
-			memcpy((void *)(buffer + sizeof(imsg.header.id)), imsg.body.data(), imsg.body.size());
+			memcpy((void *)(buffer + sizeof(imsg.header.size)), &imsg.header.size, sizeof(imsg.header.size));
+			if(imsg.size()) memcpy((void *)(buffer + sizeof(imsg.header)), imsg.body.data(), imsg.size());
 
-			write(clientfd, buffer, sizeof(imsg.header.id) + imsg.body.size());
+			write(clientfd, buffer, sizeof(imsg.header) + imsg.size());
 		}
 
 		int ReadMessage(int clientFd, net::message<MsgTypes> &omsg)

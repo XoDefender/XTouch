@@ -349,7 +349,7 @@ void InFolderWindow::CacheDownloadAnimationFrames(int framesAmount)
     for (int i = 1; i < framesAmount + 1; i++)
     {
         string imgName = to_string(i) + ".png";
-        string path = "../src/Windows/MainWindow/InFolderScreen/Img/DownloadAnimation/" + imgName;
+        string path = "/home/xodefender/Apps/XTouch/XTouchClient/res/Windows/MainWindow/InFolderScreen/Img/DownloadAnimation/" + imgName;
         Glib::RefPtr<Gdk::Pixbuf> img = Gdk::Pixbuf::create_from_file(path);
         downloadAnimImages.push_back(img);
     }

@@ -18,11 +18,22 @@ void LoginWindow::ProcessQueries()
     case LoginState::Server:
     {
         net::message<MsgTypes> iMsg;
-        iMsg << global::currentUserName.c_str() << passwordInput->get_text();
+        iMsg << global::currentUserName.c_str() << global::currentUserHash.c_str();
         net::message<MsgTypes> oMsg = Client::GetInstance().SendRequestToServer(MsgTypes::PasswordLogin, iMsg);
         
         if (oMsg.header.id == MsgTypes::ServerAccept)
         {
+            if(oMsg.size() > 0)
+            {
+                char req[256];
+                oMsg >> req;
+                cout<<req<<endl;
+            }
+            else
+            {
+                cout<<"Empty respond\n";
+            }
+
             window->hide();
             mainWindow->OpenWindow();
         }

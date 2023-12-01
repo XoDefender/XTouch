@@ -6,7 +6,6 @@ namespace net
 	struct message_header
 	{
 		T id{};
-		uint32_t dataSize;
 		uint32_t size;
 	};
 
@@ -45,6 +44,7 @@ namespace net
 			size_t i = msg.body.size();
 			msg.body.resize(msg.body.size() + actualSize);
 			memcpy(msg.body.data() + i, data.c_str(), actualSize);
+
 			msg.header.size = msg.size();
 
 			return msg;

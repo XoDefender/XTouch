@@ -30,11 +30,14 @@ net::message<MsgTypes> Client::StartMessageLoop()
         for (int i = 0; i < activeEvents; i++)
         {
             net::message<MsgTypes> omsg;
-            if(ReadMessage(clientfd, omsg) == -1)
+            if(ReadMessage(events[i].data.fd, omsg) == -1)
             {
                 std::cout<<"Error reading the message\n";
             }
-            else return omsg;
+            else
+            {
+                return omsg;
+            }
         }
     }
 }
