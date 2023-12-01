@@ -1,5 +1,5 @@
 #MySQL
 ip = tcp://127.0.0.1:3306
-name = xodefender
+name = root
 password = 030748qwe
 schema = xtouch

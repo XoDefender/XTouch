@@ -554,10 +554,197 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
   /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h \
   /usr/include/x86_64-linux-gnu/bits/netdb.h \
   /usr/include/arpa/inet.h \
+  /usr/include/mysql/mysql.h \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
+  /usr/include/mysql/field_types.h \
+  /usr/include/mysql/my_list.h \
+  /usr/include/mysql/mysql_com.h \
+  /usr/include/mysql/my_command.h \
+  /usr/include/mysql/my_compress.h \
+  /usr/include/mysql/udf_registration_types.h \
+  /usr/include/mysql/client_plugin.h \
+  /usr/include/mysql/plugin_auth_common.h \
+  /usr/include/mysql/mysql_version.h \
+  /usr/include/mysql/mysql_time.h \
+  /usr/include/mysql/errmsg.h \
+  /usr/include/mysql_connection.h \
+  /usr/include/cppconn/connection.h \
+  /usr/include/c++/11/map \
+  /usr/include/c++/11/bits/stl_tree.h \
+  /usr/include/c++/11/bits/stl_map.h \
+  /usr/include/c++/11/bits/stl_multimap.h \
+  /usr/include/cppconn/build_config.h \
+  /usr/include/cppconn/warning.h \
+  /usr/include/cppconn/sqlstring.h \
+  /usr/include/cppconn/variant.h \
+  /usr/include/c++/11/list \
+  /usr/include/c++/11/bits/stl_list.h \
+  /usr/include/c++/11/bits/list.tcc \
+  /usr/include/cppconn/exception.h \
+  /usr/include/boost/shared_ptr.hpp \
+  /usr/include/boost/smart_ptr/shared_ptr.hpp \
+  /usr/include/boost/smart_ptr/detail/shared_count.hpp \
+  /usr/include/boost/smart_ptr/bad_weak_ptr.hpp \
+  /usr/include/boost/config.hpp \
+  /usr/include/boost/config/user.hpp \
+  /usr/include/boost/config/detail/select_compiler_config.hpp \
+  /usr/include/boost/config/compiler/gcc.hpp \
+  /usr/include/c++/11/cstddef \
+  /usr/include/boost/config/detail/select_stdlib_config.hpp \
+  /usr/include/c++/11/version \
+  /usr/include/boost/config/stdlib/libstdcpp3.hpp \
+  /usr/include/boost/config/detail/select_platform_config.hpp \
+  /usr/include/boost/config/platform/linux.hpp \
+  /usr/include/boost/config/detail/posix_features.hpp \
+  /usr/include/boost/config/detail/suffix.hpp \
+  /usr/include/boost/config/helper_macros.hpp \
+  /usr/include/boost/smart_ptr/detail/sp_counted_base.hpp \
+  /usr/include/boost/smart_ptr/detail/sp_has_gcc_intrinsics.hpp \
+  /usr/include/boost/smart_ptr/detail/sp_has_sync_intrinsics.hpp \
+  /usr/include/boost/smart_ptr/detail/sp_counted_base_gcc_atomic.hpp \
+  /usr/include/boost/smart_ptr/detail/sp_typeinfo_.hpp \
+  /usr/include/boost/cstdint.hpp \
+  /usr/include/boost/smart_ptr/detail/sp_counted_impl.hpp \
+  /usr/include/boost/smart_ptr/detail/sp_noexcept.hpp \
+  /usr/include/boost/checked_delete.hpp \
+  /usr/include/boost/core/checked_delete.hpp \
+  /usr/include/boost/core/addressof.hpp \
+  /usr/include/boost/smart_ptr/detail/sp_disable_deprecated.hpp \
+  /usr/include/boost/throw_exception.hpp \
+  /usr/include/boost/assert/source_location.hpp \
+  /usr/include/boost/current_function.hpp \
+  /usr/include/boost/config/workaround.hpp \
+  /usr/include/boost/exception/exception.hpp \
+  /usr/include/boost/smart_ptr/detail/sp_convertible.hpp \
+  /usr/include/boost/smart_ptr/detail/sp_nullptr_t.hpp \
+  /usr/include/boost/assert.hpp \
+  /usr/include/assert.h \
+  /usr/include/boost/smart_ptr/detail/spinlock_pool.hpp \
+  /usr/include/boost/smart_ptr/detail/spinlock.hpp \
+  /usr/include/boost/smart_ptr/detail/spinlock_gcc_atomic.hpp \
+  /usr/include/boost/smart_ptr/detail/yield_k.hpp \
+  /usr/include/boost/smart_ptr/detail/sp_thread_pause.hpp \
+  /usr/include/boost/smart_ptr/detail/sp_thread_sleep.hpp \
+  /usr/include/boost/config/pragma_message.hpp \
+  /usr/include/boost/smart_ptr/detail/operator_bool.hpp \
+  /usr/include/boost/smart_ptr/detail/local_sp_deleter.hpp \
+  /usr/include/boost/smart_ptr/detail/local_counted_base.hpp \
+  /usr/include/boost/scoped_ptr.hpp \
+  /usr/include/boost/smart_ptr/scoped_ptr.hpp \
+  /usr/include/cppconn/driver.h \
+  /usr/include/cppconn/connection.h \
+  /usr/include/cppconn/exception.h \
+  /usr/include/cppconn/resultset.h \
+  /usr/include/cppconn/config.h \
+  /usr/include/inttypes.h \
+  /usr/include/cppconn/resultset_metadata.h \
+  /usr/include/cppconn/datatype.h \
+  /usr/include/cppconn/statement.h \
+  /usr/include/cppconn/resultset.h \
   ../XTouchServer/src/net_message.hxx \
   ../XTouchServer/src/net_message_types.hxx \
   ../XTouchServer/src/SessionManager.hxx
 
+
+/usr/include/cppconn/resultset_metadata.h:
+
+/usr/include/inttypes.h:
+
+/usr/include/cppconn/config.h:
+
+/usr/include/cppconn/driver.h:
+
+/usr/include/boost/smart_ptr/scoped_ptr.hpp:
+
+/usr/include/boost/scoped_ptr.hpp:
+
+/usr/include/boost/smart_ptr/detail/local_sp_deleter.hpp:
+
+/usr/include/boost/smart_ptr/detail/local_counted_base.hpp:
+
+/usr/include/boost/smart_ptr/detail/operator_bool.hpp:
+
+/usr/include/boost/smart_ptr/detail/sp_thread_sleep.hpp:
+
+/usr/include/boost/smart_ptr/detail/sp_thread_pause.hpp:
+
+/usr/include/boost/smart_ptr/detail/spinlock.hpp:
+
+/usr/include/boost/smart_ptr/detail/spinlock_pool.hpp:
+
+/usr/include/boost/assert.hpp:
+
+/usr/include/boost/smart_ptr/detail/sp_nullptr_t.hpp:
+
+/usr/include/boost/exception/exception.hpp:
+
+/usr/include/boost/current_function.hpp:
+
+/usr/include/boost/assert/source_location.hpp:
+
+/usr/include/boost/smart_ptr/detail/sp_disable_deprecated.hpp:
+
+/usr/include/boost/core/addressof.hpp:
+
+/usr/include/boost/checked_delete.hpp:
+
+/usr/include/boost/smart_ptr/detail/sp_counted_impl.hpp:
+
+/usr/include/boost/smart_ptr/detail/sp_typeinfo_.hpp:
+
+/usr/include/boost/smart_ptr/detail/sp_counted_base_gcc_atomic.hpp:
+
+/usr/include/boost/smart_ptr/detail/sp_has_sync_intrinsics.hpp:
+
+/usr/include/boost/config/platform/linux.hpp:
+
+/usr/include/cppconn/resultset.h:
+
+/usr/include/boost/config/detail/select_platform_config.hpp:
+
+/usr/include/boost/config/stdlib/libstdcpp3.hpp:
+
+/usr/include/c++/11/version:
+
+/usr/include/boost/config/detail/select_compiler_config.hpp:
+
+/usr/include/boost/smart_ptr/bad_weak_ptr.hpp:
+
+/usr/include/boost/smart_ptr/detail/shared_count.hpp:
+
+/usr/include/cppconn/exception.h:
+
+/usr/include/c++/11/bits/list.tcc:
+
+/usr/include/c++/11/bits/stl_list.h:
+
+/usr/include/cppconn/variant.h:
+
+/usr/include/boost/cstdint.hpp:
+
+/usr/include/cppconn/build_config.h:
+
+/usr/include/boost/smart_ptr/shared_ptr.hpp:
+
+/usr/include/c++/11/bits/stl_multimap.h:
+
+/usr/include/c++/11/bits/stl_map.h:
+
+/usr/include/c++/11/map:
+
+/usr/include/mysql/errmsg.h:
+
+/usr/include/mysql/mysql_time.h:
+
+/usr/include/mysql/plugin_auth_common.h:
+
+/usr/include/mysql/my_compress.h:
+
+/usr/include/mysql/my_command.h:
+
+/usr/include/mysql/mysql_com.h:
+
+/usr/include/mysql/field_types.h:
 
 /usr/include/arpa/inet.h:
 
@@ -566,6 +753,8 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 /usr/include/rpc/netdb.h:
 
 /usr/include/netinet/in.h:
+
+/usr/include/cppconn/connection.h:
 
 /usr/include/netdb.h:
 
@@ -601,15 +790,23 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h:
 
+/usr/include/cppconn/statement.h:
+
 /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h:
 
 /usr/include/c++/11/fstream:
 
 /usr/include/c++/11/optional:
 
+/usr/include/mysql_connection.h:
+
 /usr/include/c++/11/bits/deque.tcc:
 
+/usr/include/boost/config/compiler/gcc.hpp:
+
 /usr/include/c++/11/deque:
+
+/usr/include/boost/config/detail/posix_features.hpp:
 
 /usr/include/c++/11/mutex:
 
@@ -625,6 +822,8 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 
 /usr/include/c++/11/bits/semaphore_base.h:
 
+/usr/include/boost/smart_ptr/detail/sp_has_gcc_intrinsics.hpp:
+
 /usr/include/c++/11/semaphore:
 
 /usr/include/c++/11/atomic:
@@ -634,6 +833,8 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 /usr/include/c++/11/thread:
 
 /usr/include/c++/11/pstl/glue_memory_defs.h:
+
+/usr/include/c++/11/list:
 
 /usr/include/c++/11/bits/uses_allocator_args.h:
 
@@ -646,6 +847,8 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 /usr/include/x86_64-linux-gnu/asm/unistd_64.h:
 
 /usr/include/x86_64-linux-gnu/sys/syscall.h:
+
+/usr/include/c++/11/bits/stl_tree.h:
 
 /usr/include/syscall.h:
 
@@ -662,6 +865,8 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h:
 
 /usr/include/c++/11/bits/locale_classes.h:
+
+/usr/include/boost/config/pragma_message.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
 
@@ -688,6 +893,8 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 /usr/include/pthread.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/gthr-default.h:
+
+/usr/include/boost/core/checked_delete.hpp:
 
 /usr/include/c++/11/ext/concurrence.h:
 
@@ -720,6 +927,10 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 /usr/include/c++/11/cctype:
 
 /usr/include/c++/11/unordered_map:
+
+/usr/include/cppconn/datatype.h:
+
+/usr/include/boost/shared_ptr.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
@@ -759,6 +970,8 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 
 /usr/include/c++/11/bits/ranges_cmp.h:
 
+/usr/include/boost/smart_ptr/detail/sp_noexcept.hpp:
+
 /usr/include/c++/11/clocale:
 
 /usr/include/c++/11/bits/ostream.tcc:
@@ -766,6 +979,8 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 /usr/include/wchar.h:
 
 /usr/include/c++/11/bits/cxxabi_init_exception.h:
+
+/usr/include/boost/throw_exception.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/epoll.h:
 
@@ -823,11 +1038,17 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
 
+/usr/include/boost/config/workaround.hpp:
+
+/usr/include/mysql/mysql.h:
+
 /usr/include/c++/11/iostream:
 
 /usr/include/c++/11/bits/node_handle.h:
 
 /usr/include/x86_64-linux-gnu/bits/time64.h:
+
+/usr/include/cppconn/warning.h:
 
 /usr/include/c++/11/ext/type_traits.h:
 
@@ -843,6 +1064,8 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 
 /usr/include/c++/11/pstl/pstl_config.h:
 
+/usr/include/mysql/client_plugin.h:
+
 /usr/include/c++/11/bits/allocator.h:
 
 /usr/include/c++/11/bits/char_traits.h:
@@ -852,6 +1075,8 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 /usr/include/linux/errno.h:
 
 /usr/include/c++/11/functional:
+
+/usr/include/boost/config.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
 
@@ -891,6 +1116,10 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 
 /usr/include/x86_64-linux-gnu/bits/long-double.h:
 
+/usr/include/boost/smart_ptr/detail/yield_k.hpp:
+
+/usr/include/boost/smart_ptr/detail/spinlock_gcc_atomic.hpp:
+
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
 
 /usr/include/c++/11/cwchar:
@@ -925,6 +1154,8 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 
 /usr/include/x86_64-linux-gnu/bits/wchar.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h:
+
 /usr/include/x86_64-linux-gnu/bits/local_lim.h:
 
 /usr/include/c++/11/bits/locale_facets.h:
@@ -956,6 +1187,8 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 /usr/include/c++/11/bits/move.h:
 
 /usr/include/c++/11/bits/hash_bytes.h:
+
+/usr/include/assert.h:
 
 /usr/include/c++/11/numbers:
 
@@ -989,11 +1222,15 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 
 /usr/include/stdlib.h:
 
+/usr/include/mysql/my_list.h:
+
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 
 /usr/include/x86_64-linux-gnu/sys/types.h:
 
 /usr/include/c++/11/ext/aligned_buffer.h:
+
+/usr/include/boost/config/detail/select_stdlib_config.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/byteswap.h:
 
@@ -1053,11 +1290,15 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 
 /usr/include/x86_64-linux-gnu/bits/errno.h:
 
+/usr/include/boost/config/user.hpp:
+
 /usr/include/sched.h:
 
 /usr/include/wctype.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h:
+
+/usr/include/mysql/mysql_version.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
 
@@ -1069,9 +1310,15 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 
 /usr/include/c++/11/bits/basic_string.tcc:
 
+/usr/include/boost/config/detail/suffix.hpp:
+
 /usr/include/c++/11/bits/locale_classes.tcc:
 
 /usr/include/c++/11/system_error:
+
+/usr/include/boost/smart_ptr/detail/sp_convertible.hpp:
+
+/usr/include/c++/11/cstddef:
 
 /usr/include/c++/11/bits/stl_vector.h:
 
@@ -1081,9 +1328,13 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h:
 
+/usr/include/boost/smart_ptr/detail/sp_counted_base.hpp:
+
 /usr/include/c++/11/pstl/glue_algorithm_defs.h:
 
 /usr/include/c++/11/stdexcept:
+
+/usr/include/cppconn/sqlstring.h:
 
 /usr/include/string.h:
 
@@ -1167,6 +1418,8 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 
 /usr/include/c++/11/bits/hashtable_policy.h:
 
+/usr/include/mysql/udf_registration_types.h:
+
 /usr/include/c++/11/bits/codecvt.h:
 
 /usr/include/c++/11/bits/basic_ios.tcc:
@@ -1184,6 +1437,8 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 /usr/include/c++/11/bits/stl_iterator_base_types.h:
 
 ../XTouchServer/src/net_server.hxx:
+
+/usr/include/boost/config/helper_macros.hpp:
 
 ../XTouchServer/src/net_modules.hxx:
 
