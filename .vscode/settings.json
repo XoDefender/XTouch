@@ -75,6 +75,11 @@
         "numbers": "cpp",
         "cinttypes": "cpp",
         "typeindex": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "forward_list": "cpp",
+        "io_context": "cpp",
+        "netfwd": "cpp",
+        "socket": "cpp",
+        "timer": "cpp"
     }
 }

@@ -554,6 +554,8 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
   /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h \
   /usr/include/x86_64-linux-gnu/bits/netdb.h \
   /usr/include/arpa/inet.h \
+  /usr/include/c++/11/sstream \
+  /usr/include/c++/11/bits/sstream.tcc \
   /usr/include/mysql/mysql.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
   /usr/include/mysql/field_types.h \
@@ -843,6 +845,8 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 /usr/include/c++/11/bits/std_mutex.h:
 
 /usr/include/x86_64-linux-gnu/bits/syscall.h:
+
+/usr/include/c++/11/sstream:
 
 /usr/include/x86_64-linux-gnu/asm/unistd_64.h:
 
@@ -1399,6 +1403,8 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 ../XTouchServer/src/SessionManager.cxx:
 
 /usr/include/c++/11/array:
+
+/usr/include/c++/11/bits/sstream.tcc:
 
 /usr/include/x86_64-linux-gnu/sys/epoll.h:
 

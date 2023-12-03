@@ -4,6 +4,9 @@
 #include <iostream>
 #include "net_modules.hxx"
 
+using namespace std;
+using namespace sql;
+
 template <typename T>
 class net_server
 {
@@ -69,22 +72,26 @@ public:
 		return clientSocketFd;
 	}
 
-	void DisconnectClient(int clientFd)
+	sockaddr_in GetSocketInfo(int socket)
 	{
 		struct sockaddr_in peerAddress;
 		socklen_t peerAddressLength = sizeof(peerAddress);
-		if (getpeername(clientFd, reinterpret_cast<sockaddr *>(&peerAddress), &peerAddressLength) == 0)
-		{
-			std::string clientIp = std::string(inet_ntoa(peerAddress.sin_addr));
-			int clientPort = ntohs(peerAddress.sin_port);
+		getpeername(socket, reinterpret_cast<sockaddr *>(&peerAddress), &peerAddressLength);
+		return peerAddress;
+	}
 
-			std::cout << "Client disconnected Ip: " << std::string(clientIp) << "  Port: " << clientPort << std::endl;
+	void DisconnectClient(int clientFd)
+	{
+		struct sockaddr_in peerAddress = GetSocketInfo(clientFd);
+		std::string clientIp = std::string(inet_ntoa(peerAddress.sin_addr));
+		int clientPort = ntohs(peerAddress.sin_port);
 
-			SessionManager::GetInstance()->UnregisterUser(clientIp, clientPort);
+		std::cout << "Client disconnected Ip: " << std::string(clientIp) << "  Port: " << clientPort << std::endl;
 
-			close(clientFd);
-			epoll_ctl(efd, EPOLL_CTL_DEL, clientFd, NULL);
-		}
+		SessionManager::GetInstance()->UnregisterUser(clientIp, clientPort);
+
+		close(clientFd);
+		epoll_ctl(efd, EPOLL_CTL_DEL, clientFd, NULL);
 	}
 
 	void SendMessage(net::message<MsgTypes> imsg, MsgTypes type, int clientFd)
@@ -93,7 +100,8 @@ public:
 		char buffer[sizeof(imsg.header) + imsg.size()];
 		memcpy((void *)buffer, &imsg.header.id, sizeof(imsg.header.id));
 		memcpy((void *)(buffer + sizeof(imsg.header.size)), &imsg.header.size, sizeof(imsg.header.size));
-		if(imsg.size()) memcpy((void *)(buffer + sizeof(imsg.header)), imsg.body.data(), imsg.size());
+		if (imsg.size())
+			memcpy((void *)(buffer + sizeof(imsg.header)), imsg.body.data(), imsg.size());
 
 		write(clientFd, buffer, sizeof(imsg.header) + imsg.size());
 	}
@@ -123,15 +131,80 @@ public:
 		{
 		case MsgTypes::PasswordLogin:
 		{
-			char login[50];
-			char pass[50];
-			imsg >> pass;
-			imsg >> login;
+			char userName[1024];
+			char userPassword[1024];
 
-			std::cout << pass << std::endl;
-			std::cout << login << std::endl;
+			imsg >> userPassword >> userName;
+
+			std::ostringstream queryStruct;
+			queryStruct << "select user_group from users where user_name='" << userName << "' and user_password='" << userPassword << "'";
+			std::string query = queryStruct.str();
+
+			sql::ResultSet *res = stmt->executeQuery(query);
+			if (res->next())
+			{
+				struct sockaddr_in peerAddress = GetSocketInfo(clientFd);
+				std::string clientIp = std::string(inet_ntoa(peerAddress.sin_addr));
+				int clientPort = ntohs(peerAddress.sin_port);
+				SessionUser *user = nullptr;
+				if (user = SessionManager::GetInstance()->GetUser(clientIp, clientPort))
+				{
+					user->name = userName;
+					user->password = userPassword;
+					user->group = res->getString(1);
+					SendMessage(imsg, MsgTypes::ServerAccept, clientFd);
+				}
+			}
+			else
+				SendMessage(imsg, MsgTypes::ServerDeny, clientFd);
+
+			break;
+		}
+		case MsgTypes::GetModels:
+		{
+			struct sockaddr_in peerAddress = GetSocketInfo(clientFd);
+			std::string clientIp = std::string(inet_ntoa(peerAddress.sin_addr));
+			int clientPort = ntohs(peerAddress.sin_port);
+			SessionUser *user = SessionManager::GetInstance()->GetUser(clientIp, clientPort);
+
+			int modelsAmount = 0;
+
+			string query;
+			query = "select model_name, model_folder, model_create_date from models where model_name != '' and model_available_from = 'user'";
+
+			sql::ResultSet *res = stmt->executeQuery(query);
+			while (res->next())
+				modelsAmount++;
+			string modelsAmountStr = to_string(modelsAmount);
+
+			res = stmt->executeQuery(query);
+			while (res->next())
+			{
+				string fileName = res->getString(1);
+				string categoryName = res->getString(2);
+				string dateName = res->getString(3);
+
+				imsg << fileName.c_str() << categoryName.c_str() << dateName.c_str();
+
+				ostringstream queryStruct;
+				queryStruct << "select * from favorites where user_name ='" << user->name << "' and model_name ='" << fileName.c_str() << "'";
+				string querySelectFavorites = queryStruct.str();
+
+				sql::ResultSet *isModelFavoriteRes = stmt->executeQuery(querySelectFavorites);
+
+				if (isModelFavoriteRes->next())
+					imsg << "true";
+				else
+					imsg << "false";
+
+				delete isModelFavoriteRes;
+			}
+
+			imsg << modelsAmountStr.c_str();
 
 			SendMessage(imsg, MsgTypes::ServerAccept, clientFd);
+
+			delete res;
 
 			break;
 		}
@@ -141,7 +214,8 @@ public:
 		}
 	}
 
-	void Start()
+	void
+	Start()
 	{
 		try
 		{
