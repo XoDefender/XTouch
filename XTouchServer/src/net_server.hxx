@@ -80,6 +80,14 @@ public:
 		return peerAddress;
 	}
 
+	SessionUser *GetUser(int userSocket)
+	{
+		struct sockaddr_in peerAddress = GetSocketInfo(userSocket);
+		std::string clientIp = std::string(inet_ntoa(peerAddress.sin_addr));
+		int clientPort = ntohs(peerAddress.sin_port);
+		return SessionManager::GetInstance()->GetUser(clientIp, clientPort);
+	}
+
 	void DisconnectClient(int clientFd)
 	{
 		struct sockaddr_in peerAddress = GetSocketInfo(clientFd);
@@ -143,11 +151,8 @@ public:
 			sql::ResultSet *res = stmt->executeQuery(query);
 			if (res->next())
 			{
-				struct sockaddr_in peerAddress = GetSocketInfo(clientFd);
-				std::string clientIp = std::string(inet_ntoa(peerAddress.sin_addr));
-				int clientPort = ntohs(peerAddress.sin_port);
-				SessionUser *user = nullptr;
-				if (user = SessionManager::GetInstance()->GetUser(clientIp, clientPort))
+				SessionUser *user;
+				if (user = GetUser(clientFd))
 				{
 					user->name = userName;
 					user->password = userPassword;
@@ -162,10 +167,7 @@ public:
 		}
 		case MsgTypes::GetModels:
 		{
-			struct sockaddr_in peerAddress = GetSocketInfo(clientFd);
-			std::string clientIp = std::string(inet_ntoa(peerAddress.sin_addr));
-			int clientPort = ntohs(peerAddress.sin_port);
-			SessionUser *user = SessionManager::GetInstance()->GetUser(clientIp, clientPort);
+			SessionUser *user = GetUser(clientFd);
 
 			int modelsAmount = 0;
 
@@ -201,6 +203,41 @@ public:
 			}
 
 			imsg << modelsAmountStr.c_str();
+
+			SendMessage(imsg, MsgTypes::ServerAccept, clientFd);
+
+			delete res;
+
+			break;
+		}
+		case MsgTypes::GetModelFiles:
+		{
+			int filesAmountInt = 0;
+			char modelName[256];
+			imsg >> modelName;
+
+			ostringstream query_struct_check_user;
+			query_struct_check_user << "select model_file_name, model_folder from models where model_name = '"
+									<< modelName << "' and model_available_from = 'user'";
+
+			string query = query_struct_check_user.str();
+
+			ResultSet *res = stmt->executeQuery(query);
+
+			while (res->next())
+				filesAmountInt++;
+
+			string filesAmountString = to_string(filesAmountInt);
+
+			res = stmt->executeQuery(query);
+
+			while (res->next())
+			{
+				string fileName = res->getString(1);
+				imsg << fileName.c_str();
+			}
+
+			imsg << filesAmountString.c_str();
 
 			SendMessage(imsg, MsgTypes::ServerAccept, clientFd);
 
