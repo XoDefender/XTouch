@@ -246,6 +246,41 @@ public:
 			break;
 		}
 
+		case MsgTypes::ChangeModelFavState:
+		{
+			SessionUser *user = GetUser(clientFd);
+			char favAction[256];
+			char modelName[256];
+
+			imsg >> modelName >> favAction;
+
+			ostringstream queryStruct;
+			queryStruct << "select * from favorites where user_name ='" << user->name << "' and model_name ='" << modelName << "'";
+			string queryCheckIfFavorite = queryStruct.str();
+
+			ResultSet *res = stmt->executeQuery(queryCheckIfFavorite);
+			if (!res->next() && !strcmp(favAction, "add"))
+			{
+				ostringstream queryStruct;
+				queryStruct << "INSERT INTO favorites VALUES('" << user->name << "','" << modelName << "')";
+				string queryAddFavorite = queryStruct.str();
+				stmt->execute(queryAddFavorite);
+			}
+			else if (!strcmp(favAction, "remove"))
+			{
+				ostringstream queryStruct;
+				queryStruct << "DELETE FROM favorites WHERE user_name = '" << user->name << "' and model_name = '" << modelName << "'";
+				string queryDeleteFavorite = queryStruct.str();
+				stmt->execute(queryDeleteFavorite);
+			}
+
+			SendMessage(imsg, MsgTypes::ServerAccept, clientFd);
+
+			delete res;
+
+			break;
+		}
+
 		default:
 			break;
 		}

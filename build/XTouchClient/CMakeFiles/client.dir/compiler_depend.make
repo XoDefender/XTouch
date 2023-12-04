@@ -6547,8 +6547,6 @@ XTouchClient/CMakeFiles/client.dir/src/main/InFolderWindow.cxx.o: ../XTouchClien
   /usr/include/gtkmm-3.0/gtkmm/volumebutton.h \
   ../XTouchClient/src/main/MainWindow.hxx \
   ../XTouchClient/src/main/ControlPanel.hxx \
-  ../XTouchClient/src/main/SortDataManager.hxx \
-  ../XTouchClient/src/client/Client.hxx \
   ../XTouchClient/src/client/net_modules.hxx \
   ../XTouchClient/src/client/net_common.hxx \
   /usr/include/c++/11/cstring \
@@ -6577,6 +6575,7 @@ XTouchClient/CMakeFiles/client.dir/src/main/InFolderWindow.cxx.o: ../XTouchClien
   ../XTouchClient/src/client/net_message_types.hxx \
   ../XTouchClient/src/client/net_message.hxx \
   ../XTouchClient/src/client/net_client.hxx \
+  ../XTouchClient/src/client/Client.hxx \
   ../XTouchClient/src/main/InFolderWindow.hxx \
   ../XTouchClient/src/main/ModelFileManager.hxx \
   /usr/include/c++/11/thread \
@@ -8247,7 +8246,6 @@ XTouchClient/CMakeFiles/client.dir/src/main/LoginWindow.cxx.o: ../XTouchClient/s
   ../XTouchClient/src/main/LoginWindow.hxx \
   ../XTouchClient/src/main/MainWindow.hxx \
   ../XTouchClient/src/main/ControlPanel.hxx \
-  ../XTouchClient/src/main/SortDataManager.hxx \
   ../XTouchClient/src/main/AdminWindow.hxx
 
 XTouchClient/CMakeFiles/client.dir/src/main/MainWindow.cxx.o: ../XTouchClient/src/main/MainWindow.cxx \
@@ -9871,8 +9869,6 @@ XTouchClient/CMakeFiles/client.dir/src/main/MainWindow.cxx.o: ../XTouchClient/sr
   /usr/include/gtkmm-3.0/gtkmm/volumebutton.h \
   ../XTouchClient/src/main/MainWindow.hxx \
   ../XTouchClient/src/main/ControlPanel.hxx \
-  ../XTouchClient/src/main/SortDataManager.hxx \
-  ../XTouchClient/src/client/Client.hxx \
   ../XTouchClient/src/client/net_modules.hxx \
   ../XTouchClient/src/client/net_common.hxx \
   /usr/include/c++/11/cstring \
@@ -9901,6 +9897,7 @@ XTouchClient/CMakeFiles/client.dir/src/main/MainWindow.cxx.o: ../XTouchClient/sr
   ../XTouchClient/src/client/net_message_types.hxx \
   ../XTouchClient/src/client/net_message.hxx \
   ../XTouchClient/src/client/net_client.hxx \
+  ../XTouchClient/src/client/Client.hxx \
   ../XTouchClient/src/main/InFolderWindow.hxx
 
 XTouchClient/CMakeFiles/client.dir/src/main/ModelFileManager.cxx.o: ../XTouchClient/src/main/ModelFileManager.cxx \
@@ -12019,8 +12016,6 @@ XTouchClient/CMakeFiles/client.dir/src/main/ModelFileManager.cxx.o: ../XTouchCli
   ../XTouchClient/src/main/ViewerInteractor.hxx \
   ../XTouchClient/src/main/ControlPanel.hxx \
   ../XTouchClient/src/main/InFolderWindow.hxx \
-  ../XTouchClient/src/main/SortDataManager.hxx \
-  ../XTouchClient/src/client/Client.hxx \
   ../XTouchClient/src/client/net_modules.hxx \
   ../XTouchClient/src/client/net_common.hxx \
   /usr/include/arpa/inet.h \
@@ -12048,6 +12043,7 @@ XTouchClient/CMakeFiles/client.dir/src/main/ModelFileManager.cxx.o: ../XTouchCli
   ../XTouchClient/src/client/net_message_types.hxx \
   ../XTouchClient/src/client/net_message.hxx \
   ../XTouchClient/src/client/net_client.hxx \
+  ../XTouchClient/src/client/Client.hxx \
   ../XTouchClient/src/main/MainWindow.hxx \
   ../XTouchClient/src/main/ModelFileManager.hxx \
   /usr/include/c++/11/thread \
@@ -14292,8 +14288,6 @@ XTouchClient/CMakeFiles/client.dir/src/main/OcctGtkViewer.cxx.o: ../XTouchClient
   /usr/include/gtk-3.0/gdk/x11/gdkx-autocleanups.h \
   /usr/include/cairo/cairo-xlib.h \
   ../XTouchClient/src/main/InFolderWindow.hxx \
-  ../XTouchClient/src/main/SortDataManager.hxx \
-  ../XTouchClient/src/client/Client.hxx \
   ../XTouchClient/src/client/net_modules.hxx \
   ../XTouchClient/src/client/net_common.hxx \
   /usr/include/arpa/inet.h \
@@ -14321,6 +14315,7 @@ XTouchClient/CMakeFiles/client.dir/src/main/OcctGtkViewer.cxx.o: ../XTouchClient
   ../XTouchClient/src/client/net_message_types.hxx \
   ../XTouchClient/src/client/net_message.hxx \
   ../XTouchClient/src/client/net_client.hxx \
+  ../XTouchClient/src/client/Client.hxx \
   ../XTouchClient/src/main/MainWindow.hxx
 
 XTouchClient/CMakeFiles/client.dir/src/main/ViewerInteractor.cxx.o: ../XTouchClient/src/main/ViewerInteractor.cxx \
@@ -18278,7 +18273,6 @@ XTouchClient/CMakeFiles/client.dir/src/main/main.cxx.o: ../XTouchClient/src/main
   ../XTouchClient/src/main/AdminWindow.hxx \
   ../XTouchClient/src/main/MainWindow.hxx \
   ../XTouchClient/src/main/ControlPanel.hxx \
-  ../XTouchClient/src/main/SortDataManager.hxx \
   ../XTouchClient/src/main/InFolderWindow.hxx \
   ../XTouchClient/src/main/ModelFileManager.hxx \
   /usr/include/c++/11/thread \
@@ -19793,8 +19787,6 @@ XTouchClient/CMakeFiles/client.dir/src/main/main.cxx.o: ../XTouchClient/src/main
 /usr/include/gtk-3.0/gtk/gtkmenushell.h:
 
 /usr/include/c++/11/bits/stl_pair.h:
-
-../XTouchClient/src/main/SortDataManager.hxx:
 
 /usr/include/glibmm-2.4/glibmm/bytearray.h:
 

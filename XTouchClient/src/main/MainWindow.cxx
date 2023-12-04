@@ -4,6 +4,7 @@
 
 #include "MainWindow.hxx"
 #include "InFolderWindow.hxx"
+#include "../client/Client.hxx"
 
 using namespace std;
 
@@ -26,7 +27,6 @@ MainWindow::ModelCard::ModelCard(Gtk::Grid *grid,
     dateNameLabel->set_text(date_name);
     modelFolderPathLabel->set_text(category_name);
 
-    // сохраняем данные о сформированном блоке, чтобы потом достать их через объект
     modelName = model_name;
     dateName = date_name;
     modelFolderPath = category_name;
@@ -41,7 +41,7 @@ MainWindow::ModelCard::ModelCard(Gtk::Grid *grid,
 void MainWindow::ModelCard::MakeFavoriteBtnOn()
 {
     Glib::RefPtr<Gtk::CssProvider> css_provider = Gtk::CssProvider::create();
-    string favButtonStyle = ".StarButton {background: url('../src/Windows/MainWindow/MainScreen/Img/star2.png') no-repeat center;\
+    string favButtonStyle = ".StarButton {background: url('/home/xodefender/Apps/XTouch/XTouchClient/res/Windows/MainWindow/MainScreen/Img/star2.png') no-repeat center;\
                                                 outline: none;\
                                                 border: none;\
                                                 margin-right: 10px;}";
@@ -59,46 +59,36 @@ Gtk::Stack *MainWindow::GetWindowStack()
     return mainWindowStack;
 }
 
-void MainWindow::ModelCard::ChangeFavoriteState(const MsgTypes &msgType, const bool &isFavState, const string &isFavImg)
+void MainWindow::ModelCard::ChangeFavoriteState(const bool &isFavState, const string &isFavImg)
 {
-    try
-    {
-        net::message<MsgTypes> iMsg;
-        iMsg << modelName.c_str();
-        net::message<MsgTypes> oMsg = Client::GetInstance().SendRequestToServer(msgType, iMsg);
-    }
-    catch (...)
-    {
-        // mainWindow->ChangeServerStatus("Сервер недоступен");
-        return;
-    }
+    std::string action;
+    if(isFavState) action = "add";
+    else action = "remove";
+
+    net::message<MsgTypes> iMsg;
+    iMsg << action.data() << modelName.c_str();
+    net::message<MsgTypes> oMsg = Client::GetInstance().SendRequestToServer(MsgTypes::ChangeModelFavState, iMsg);
 
     Glib::RefPtr<Gtk::CssProvider> css_provider = Gtk::CssProvider::create();
-    string favButtonStyle = ".StarButton {background: url('../src/Windows/MainWindow/MainScreen/Img/" + isFavImg + string("') no-repeat center;\
+    string favButtonStyle = ".StarButton {background: url('/home/xodefender/Apps/XTouch/XTouchClient/res/Windows/MainWindow/MainScreen/Img/" + isFavImg + string("') no-repeat center;\
                                                 outline: none;\
                                                 border: none;\
                                                 margin-right: 10px;}");
 
     css_provider->load_from_data(favButtonStyle);
-    favoriteBtn->get_style_context()
-        ->add_provider(
-            css_provider, GTK_STYLE_PROVIDER_PRIORITY_USER);
+    favoriteBtn->get_style_context()->add_provider(css_provider, GTK_STYLE_PROVIDER_PRIORITY_USER);
 
     isFavoriteClicked = isFavState;
 }
 
-// Если модель не избранная, делаем ее таковой и наоборот
 void MainWindow::ModelCard::ProcessModelFavoriteState(Gtk::EventBox *clickedWidget)
 {
     for (int i = 0; i < MainWindow::modelCards.size(); i++)
     {
-        if (MainWindow::modelCards[i].modelBlock != clickedWidget)
-            continue;
+        if (MainWindow::modelCards[i].modelBlock != clickedWidget) continue;
 
-        if (!MainWindow::modelCards[i].isFavoriteClicked)
-            MainWindow::modelCards[i].ChangeFavoriteState(MsgTypes::AddModelToFavorite, true, "star2.png");
-        else
-            MainWindow::modelCards[i].ChangeFavoriteState(MsgTypes::RemoveModelFromFavorite, false, "star1.png");
+        if (!MainWindow::modelCards[i].isFavoriteClicked) MainWindow::modelCards[i].ChangeFavoriteState(true, "star2.png");
+        else MainWindow::modelCards[i].ChangeFavoriteState(false, "star1.png");
     }
 }
 
@@ -130,7 +120,6 @@ bool MainWindow::OnInputFocusIn(GdkEventFocus *focus)
     if (!isInSearch)
     {
         quitSearch->show();
-        sortContainer->hide();
         searchResultsText->show();
         clearInputBtn->show();
 
@@ -161,7 +150,6 @@ void MainWindow::OnQuitSearchBtnClick()
 
     quitSearch->hide();
     searchResultsText->hide();
-    sortContainer->show();
     clearInputBtn->hide();
 
     search_input->set_text("");
@@ -171,8 +159,6 @@ void MainWindow::OnQuitSearchBtnClick()
 
 void MainWindow::FillGrid(MsgTypes msgType, net::message<MsgTypes> iMsg)
 {
-    if (!isServerActive) return;
-
     ClearGrid(grid);
 
     MainWindow::modelCards.clear();
@@ -209,21 +195,15 @@ void MainWindow::FillGrid(MsgTypes msgType, net::message<MsgTypes> iMsg)
 
             oMsg >> isFavorite >> dateName >> categoryName >> fileName;
 
-            // создаем объект модели на основе данных, полученных с БД
             ModelCard model(grid, column, row, fileName, categoryName, dateName);
 
             string isFavoriteStr = isFavorite;
             if (isFavoriteStr == "true")
                 model.MakeFavoriteBtnOn();
 
-            // засовываем сформированный блок в массив, чтобы при клике идентифицировать нужный блок
             MainWindow::modelCards.push_back(model);
         }
     }
-
-    Glib::signal_timeout().connect([this]()
-                                   { isAnySortButtonClicked = false; return false; },
-                                   100);
 }
 
 void MainWindow::CSSConnection()
@@ -233,31 +213,6 @@ void MainWindow::CSSConnection()
     gtk_style_context_add_provider_for_screen(gdk_screen_get_default(),
                                               GTK_STYLE_PROVIDER(cssProvider),
                                               GTK_STYLE_PROVIDER_PRIORITY_USER);
-}
-
-void MainWindow::OnSortBtnClick(bool &isSortAsc, string sortAsc, string sortDesc)
-{
-    if (isAnySortButtonClicked)
-        return;
-
-    isAnySortButtonClicked = true;
-
-    if (!isFavoriteFilterClicked)
-        SortData(MsgTypes::SortModels, isSortAsc, sortAsc, sortDesc);
-    else
-        SortData(MsgTypes::SortFavoriteModels, isSortAsc, sortAsc, sortDesc);
-}
-
-void MainWindow::OnModelsFilterClick(MsgTypes msgType, bool isFavFilterState)
-{
-    if (isAnySortButtonClicked)
-        return;
-
-    isAnySortButtonClicked = true;
-
-    FillGrid(msgType);
-
-    isFavoriteFilterClicked = isFavFilterState;
 }
 
 bool MainWindow::ScrollModelListView(GdkEventMotion *theEvent, int scrollStep)
@@ -280,7 +235,6 @@ void MainWindow::TurnOnSearchMode()
     if (isInSearch)
     {
         quitSearch->show();
-        sortContainer->hide();
         searchResultsText->show();
         clearInputBtn->show();
     }
@@ -294,14 +248,7 @@ void MainWindow::ProcessWidgets()
     uiBuilder->get_widget<Gtk::Grid>("GridForModels", grid);
     uiBuilder->get_widget<Gtk::ScrolledWindow>("ScrolledWindow", scrolledWindow);
     uiBuilder->get_widget<Gtk::Entry>("SearchInput", search_input);
-    uiBuilder->get_widget<Gtk::Button>("SortRecent", openDateSortBtn);
-    uiBuilder->get_widget<Gtk::Button>("SortDate", createDateSortBtn);
-    uiBuilder->get_widget<Gtk::Button>("SortAlphabet", alphabetSortBtn);
-    uiBuilder->get_widget<Gtk::Button>("AllModelsFilter", allModelsFilter);
-    uiBuilder->get_widget<Gtk::Button>("FavoriteModelsFilter", favoriteModelsFilter);
-    // uiBuilder->get_widget<Gtk::Label>("ServerStatus", serverStatus);
     uiBuilder->get_widget<Gtk::Button>("QuitSearch", quitSearch);
-    uiBuilder->get_widget<Gtk::Box>("SortContainer", sortContainer);
     uiBuilder->get_widget<Gtk::Label>("SearchResultsText", searchResultsText);
     uiBuilder->get_widget<Gtk::EventBox>("ClearInputBtn", clearInputBtn);
 
@@ -320,26 +267,6 @@ void MainWindow::ProcessWidgets()
                                                        { search_input->set_text(""); return true; });
 
     quitSearch->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::OnQuitSearchBtnClick), false);
-
-    openDateSortBtn->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &MainWindow::OnSortBtnClick), isOpenDateSortAsc,
-                                                         "create_date asc",
-                                                         "create_date desc"));
-
-    createDateSortBtn->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &MainWindow::OnSortBtnClick), isCreateDateSortAsc,
-                                                           "create_date asc",
-                                                           "create_date desc"));
-
-    alphabetSortBtn->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &MainWindow::OnSortBtnClick), isAlphabetSortAsc,
-                                                         "model_name asc",
-                                                         "model_name desc"));
-
-    allModelsFilter->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &MainWindow::OnModelsFilterClick),
-                                                         MsgTypes::GetModels,
-                                                         false));
-
-    favoriteModelsFilter->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &MainWindow::OnModelsFilterClick),
-                                                              MsgTypes::GetFavoriteModels,
-                                                              true));
 
     scrolledWindow->add_events(Gdk::POINTER_MOTION_MASK |
                                Gdk::BUTTON_PRESS_MASK |

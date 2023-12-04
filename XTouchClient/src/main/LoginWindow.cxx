@@ -50,7 +50,6 @@ void LoginWindow::ProcessQueries()
         unsigned long adminPasswordHashed = 2338358718769850882;
         if (loginInput->get_text() == "Admin" && hash(passwordInput->get_text()) == adminPasswordHashed)
         {
-            mainWindow->isServerActive = false;
             window->hide();
             mainWindow->OpenWindow();
         }

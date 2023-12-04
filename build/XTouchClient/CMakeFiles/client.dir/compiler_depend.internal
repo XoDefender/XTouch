@@ -6551,8 +6551,6 @@ XTouchClient/CMakeFiles/client.dir/src/main/InFolderWindow.cxx.o
  /usr/include/gtkmm-3.0/gtkmm/volumebutton.h
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/MainWindow.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/ControlPanel.hxx
- /home/xodefender/Apps/XTouch/XTouchClient/src/main/SortDataManager.hxx
- /home/xodefender/Apps/XTouch/XTouchClient/src/client/Client.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/client/net_modules.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/client/net_common.hxx
  /usr/include/c++/11/cstring
@@ -6581,6 +6579,7 @@ XTouchClient/CMakeFiles/client.dir/src/main/InFolderWindow.cxx.o
  /home/xodefender/Apps/XTouch/XTouchClient/src/client/net_message_types.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/client/net_message.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/client/net_client.hxx
+ /home/xodefender/Apps/XTouch/XTouchClient/src/client/Client.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/InFolderWindow.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/ModelFileManager.hxx
  /usr/include/c++/11/thread
@@ -8252,7 +8251,6 @@ XTouchClient/CMakeFiles/client.dir/src/main/LoginWindow.cxx.o
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/LoginWindow.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/MainWindow.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/ControlPanel.hxx
- /home/xodefender/Apps/XTouch/XTouchClient/src/main/SortDataManager.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/AdminWindow.hxx
 
 XTouchClient/CMakeFiles/client.dir/src/main/MainWindow.cxx.o
@@ -9877,8 +9875,6 @@ XTouchClient/CMakeFiles/client.dir/src/main/MainWindow.cxx.o
  /usr/include/gtkmm-3.0/gtkmm/volumebutton.h
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/MainWindow.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/ControlPanel.hxx
- /home/xodefender/Apps/XTouch/XTouchClient/src/main/SortDataManager.hxx
- /home/xodefender/Apps/XTouch/XTouchClient/src/client/Client.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/client/net_modules.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/client/net_common.hxx
  /usr/include/c++/11/cstring
@@ -9907,6 +9903,7 @@ XTouchClient/CMakeFiles/client.dir/src/main/MainWindow.cxx.o
  /home/xodefender/Apps/XTouch/XTouchClient/src/client/net_message_types.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/client/net_message.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/client/net_client.hxx
+ /home/xodefender/Apps/XTouch/XTouchClient/src/client/Client.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/InFolderWindow.hxx
 
 XTouchClient/CMakeFiles/client.dir/src/main/ModelFileManager.cxx.o
@@ -12026,8 +12023,6 @@ XTouchClient/CMakeFiles/client.dir/src/main/ModelFileManager.cxx.o
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/ViewerInteractor.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/ControlPanel.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/InFolderWindow.hxx
- /home/xodefender/Apps/XTouch/XTouchClient/src/main/SortDataManager.hxx
- /home/xodefender/Apps/XTouch/XTouchClient/src/client/Client.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/client/net_modules.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/client/net_common.hxx
  /usr/include/arpa/inet.h
@@ -12055,6 +12050,7 @@ XTouchClient/CMakeFiles/client.dir/src/main/ModelFileManager.cxx.o
  /home/xodefender/Apps/XTouch/XTouchClient/src/client/net_message_types.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/client/net_message.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/client/net_client.hxx
+ /home/xodefender/Apps/XTouch/XTouchClient/src/client/Client.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/MainWindow.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/ModelFileManager.hxx
  /usr/include/c++/11/thread
@@ -14300,8 +14296,6 @@ XTouchClient/CMakeFiles/client.dir/src/main/OcctGtkViewer.cxx.o
  /usr/include/gtk-3.0/gdk/x11/gdkx-autocleanups.h
  /usr/include/cairo/cairo-xlib.h
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/InFolderWindow.hxx
- /home/xodefender/Apps/XTouch/XTouchClient/src/main/SortDataManager.hxx
- /home/xodefender/Apps/XTouch/XTouchClient/src/client/Client.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/client/net_modules.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/client/net_common.hxx
  /usr/include/arpa/inet.h
@@ -14329,6 +14323,7 @@ XTouchClient/CMakeFiles/client.dir/src/main/OcctGtkViewer.cxx.o
  /home/xodefender/Apps/XTouch/XTouchClient/src/client/net_message_types.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/client/net_message.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/client/net_client.hxx
+ /home/xodefender/Apps/XTouch/XTouchClient/src/client/Client.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/MainWindow.hxx
 
 XTouchClient/CMakeFiles/client.dir/src/main/ViewerInteractor.cxx.o
@@ -18289,7 +18284,6 @@ XTouchClient/CMakeFiles/client.dir/src/main/main.cxx.o
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/AdminWindow.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/MainWindow.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/ControlPanel.hxx
- /home/xodefender/Apps/XTouch/XTouchClient/src/main/SortDataManager.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/InFolderWindow.hxx
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/ModelFileManager.hxx
  /usr/include/c++/11/thread

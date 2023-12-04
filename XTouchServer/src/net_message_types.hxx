@@ -8,15 +8,10 @@ enum class MsgTypes : uint32_t
 	GetModels,
 	GetModelFiles,
 
-	AddModelToFavorite,
-	RemoveModelFromFavorite,
+	ChangeModelFavState,
 
 	GetModelByName,
 	GetFavoriteModels,
-
-	SortModels,
-	SortFavoriteModels,
-	SortFiles,
 
 	GetModelFile,
 };

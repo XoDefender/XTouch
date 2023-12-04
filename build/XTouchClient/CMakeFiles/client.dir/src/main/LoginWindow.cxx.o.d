@@ -1520,5 +1520,4 @@ XTouchClient/CMakeFiles/client.dir/src/main/LoginWindow.cxx.o: \
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/LoginWindow.hxx \
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/MainWindow.hxx \
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/ControlPanel.hxx \
- /home/xodefender/Apps/XTouch/XTouchClient/src/main/SortDataManager.hxx \
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/AdminWindow.hxx

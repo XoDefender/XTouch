@@ -101,11 +101,6 @@ void InFolderWindow::StartDownloadAnimation()
 
 bool InFolderWindow::OnFileBlockClick(GdkEventButton *widget, Gtk::EventBox *clickedWidget)
 {
-    if (isAnyFileBlockClicked)
-        return 0;
-
-    isAnyFileBlockClicked = true;
-
     StartDownloadAnimation();
 
     for (int i = 0; i < files.size(); i++)
@@ -178,17 +173,12 @@ void InFolderWindow::ResetFileBlockSelection(string downloadStatusText)
 
     clickedFileBlock->set_sensitive(true);
 
-    isAnyFileBlockClicked = false;
-
     downloadRevealer->set_reveal_child(false);
     downloadAnimationConn.disconnect();
 }
 
 void InFolderWindow::FillGrid(MsgTypes msgType, net::message<MsgTypes> iMsg)
 {
-    if (!isServerActive)
-        return;
-
     fileNames.clear();
     ClearGrid(grid);
 
@@ -237,22 +227,6 @@ void InFolderWindow::FillGrid(MsgTypes msgType, net::message<MsgTypes> iMsg)
             CreateFileBlockOnGrid(row, fileName, categoryName, dateName);
         }
     }
-
-    Glib::signal_timeout().connect([this]()
-                                   { isAnyFileBlockClicked = false; isAnySortButtonClicked = false; return false; },
-                                   100);
-}
-
-void InFolderWindow::OnSortBtnClick(bool &isSortAsc,
-                                    string sortAsc,
-                                    string sortDesc)
-{
-    if (isAnyFileBlockClicked || isAnySortButtonClicked)
-        return;
-
-    isAnySortButtonClicked = true;
-
-    SortData(MsgTypes::SortFiles, isSortAsc, sortAsc, sortDesc);
 }
 
 string InFolderWindow::ToXbfFileExtension(string fileName)
@@ -261,46 +235,8 @@ string InFolderWindow::ToXbfFileExtension(string fileName)
     return (fileNameWithoutExtension + ".xbf");
 }
 
-void InFolderWindow::OnUpdateFilesBtnClick()
-{
-    if (isAnyFileBlockClicked || isAnySortButtonClicked)
-        return;
-
-    isAnySortButtonClicked = true;
-
-    while (fileNames.size() != 0)
-    {
-        string fileToDelete = fileNames.back();
-        fileNames.pop_back();
-
-        ostringstream relativeFilePathStructure;
-
-        if (!global::downloadStepFile)
-        {
-            if (!(fileToDelete.find(".txt") != string::npos))
-                relativeFilePathStructure << global::saveFolderPath << ToXbfFileExtension(fileToDelete) << "";
-            else
-                relativeFilePathStructure << global::saveFolderPath << fileToDelete << "";
-        }
-        else
-        {
-            relativeFilePathStructure << global::saveFolderPath << fileToDelete << "";
-        }
-
-        string relativeFilePath = relativeFilePathStructure.str();
-        std::remove(relativeFilePath.c_str());
-    }
-
-    net::message<MsgTypes> iMsg;
-    iMsg << global::currentModelName.c_str();
-    FillGrid(MsgTypes::GetModelFiles, iMsg);
-}
-
 bool InFolderWindow::OnGoBackBtnClick(GdkEventButton *theEvent)
 {
-    if (isAnyFileBlockClicked)
-        return true;
-
     mainWindow->GetWindowStack()->set_visible_child("MainScreen");
     mainWindow->SetSearchInputFocus(true);
 
@@ -316,29 +252,9 @@ void InFolderWindow::ProcessWidgets()
     uiBuilder->get_widget<Gtk::Label>("MainFileName", fileNameInHeader);
     uiBuilder->get_widget<Gtk::Label>("DownloadStatus", downloadStatus);
     uiBuilder->get_widget<Gtk::EventBox>("BackBtn", goBackBtn);
-    uiBuilder->get_widget<Gtk::Button>("SortRecent1", openDateSortBtn);
-    uiBuilder->get_widget<Gtk::Button>("SortDate1", createDateSortBtn);
-    uiBuilder->get_widget<Gtk::Button>("SortAlphabet1", alphabetSortBtn);
-    uiBuilder->get_widget<Gtk::Button>("UpdateFilesBtn", updateFilesBtn);
     uiBuilder->get_widget<Gtk::Revealer>("DownloadRevealer", downloadRevealer);
     uiBuilder->get_widget<Gtk::Image>("DownloadImage", downloadImage);
 
-    openDateSortBtn->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &InFolderWindow::OnSortBtnClick),
-                                                         isOpenDateSortAsc,
-                                                         "create_date asc",
-                                                         "create_date desc"));
-
-    createDateSortBtn->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &InFolderWindow::OnSortBtnClick),
-                                                           isCreateDateSortAsc,
-                                                           "create_date asc",
-                                                           "create_date desc"));
-
-    alphabetSortBtn->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &InFolderWindow::OnSortBtnClick),
-                                                         isAlphabetSortAsc,
-                                                         "file_name asc",
-                                                         "file_name desc"));
-
-    updateFilesBtn->signal_clicked().connect(sigc::mem_fun(*this, &InFolderWindow::OnUpdateFilesBtnClick), false);
     goBackBtn->signal_button_press_event().connect(sigc::mem_fun(*this, &InFolderWindow::OnGoBackBtnClick), false);
 
     ProcessPanel(uiBuilder, mainWindow, "InFolderScreen");

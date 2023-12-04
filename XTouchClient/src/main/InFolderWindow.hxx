@@ -1,10 +1,9 @@
 #include "ControlPanel.hxx"
-#include "SortDataManager.hxx"
+#include "../client/net_modules.hxx"
 
 enum class MsgTypes : uint32_t;
 
-class InFolderWindow : public ControlPanel,
-                       public SortDataManager
+class InFolderWindow : public ControlPanel
 {
 public:
     Gtk::Label *downloadStatus;
@@ -27,10 +26,6 @@ private:
     Gtk::EventBox *fileTypeIcon;
 
     Gtk::EventBox *goBackBtn;
-    Gtk::Button *openDateSortBtn;
-    Gtk::Button *createDateSortBtn;
-    Gtk::Button *alphabetSortBtn;
-    Gtk::Button *updateFilesBtn;
     Gtk::Box *inFolderScreen;
 
     Gtk::Widget *clickedFileBlock;
@@ -44,14 +39,20 @@ private:
     void CSSConnection();
     void ProcessWidgets();
 
-    void FillGrid(MsgTypes msgType, net::message<MsgTypes> iMsg = Client::GetInstance().GetEmptyMessage()) override;
+    void FillGrid(MsgTypes msgType, net::message<MsgTypes> iMsg = Client::GetInstance().GetEmptyMessage());
+    void ClearGrid(Gtk::Grid *grid)
+    {
+        while (true)
+        {
+            if (grid->get_child_at(1, 1) != nullptr)
+                grid->remove_row(1);
+            else
+                break;
+        }
+    };
 
     void CreateFileBlockOnGrid(int row, std::string fileName, std::string categoryName, std::string dateName);
     bool OnFileBlockClick(GdkEventButton *widget, Gtk::EventBox *clickedWidget);
-
-    void OnSortBtnClick(bool &isSortAsc,
-                        std::string sortAsc,
-                        std::string sortDesc);
 
     void OnUpdateFilesBtnClick();
     bool OnGoBackBtnClick(GdkEventButton *theEvent);
@@ -65,13 +66,6 @@ private:
     std::string pathToFile;
 
     std::vector<std::string> fileNames;
-
-    bool isOpenDateSortAsc = true;
-    bool isCreateDateSortAsc = true;
-    bool isAlphabetSortAsc = true;
-
-    bool isAnyFileBlockClicked = false;
-    bool isAnySortButtonClicked = false;
 
     int animationIter = 0;
     sigc::connection downloadAnimationConn;

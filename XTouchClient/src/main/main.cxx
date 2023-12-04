@@ -3,8 +3,8 @@
 #include <fstream>
 
 #include "global.hxx"
-#include "Client.hxx"
 
+#include "Client.hxx"
 #include "LoginWindow.hxx"
 #include "AdminWindow.hxx"
 #include "MainWindow.hxx"

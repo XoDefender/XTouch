@@ -1495,10 +1495,8 @@ XTouchClient/CMakeFiles/client.dir/src/main/InFolderWindow.cxx.o: \
  /usr/include/gtkmm-3.0/gtkmm/volumebutton.h \
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/MainWindow.hxx \
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/ControlPanel.hxx \
- /home/xodefender/Apps/XTouch/XTouchClient/src/main/SortDataManager.hxx \
- /home/xodefender/Apps/XTouch/XTouchClient/../XTouchClient/src/client/Client.hxx \
- /home/xodefender/Apps/XTouch/XTouchClient/../XTouchClient/src/client/net_modules.hxx \
- /home/xodefender/Apps/XTouch/XTouchClient/../XTouchClient/src/client/net_common.hxx \
+ /home/xodefender/Apps/XTouch/XTouchClient/src/main/../client/net_modules.hxx \
+ /home/xodefender/Apps/XTouch/XTouchClient/src/main/../client/net_common.hxx \
  /usr/include/c++/11/cstring /usr/include/arpa/inet.h \
  /usr/include/netinet/in.h /usr/include/x86_64-linux-gnu/sys/socket.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
@@ -1517,9 +1515,10 @@ XTouchClient/CMakeFiles/client.dir/src/main/InFolderWindow.cxx.o: \
  /usr/include/x86_64-linux-gnu/bits/fcntl.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/linux/falloc.h \
- /home/xodefender/Apps/XTouch/XTouchClient/../XTouchClient/src/client/net_message_types.hxx \
- /home/xodefender/Apps/XTouch/XTouchClient/../XTouchClient/src/client/net_message.hxx \
- /home/xodefender/Apps/XTouch/XTouchClient/../XTouchClient/src/client/net_client.hxx \
+ /home/xodefender/Apps/XTouch/XTouchClient/src/main/../client/net_message_types.hxx \
+ /home/xodefender/Apps/XTouch/XTouchClient/src/main/../client/net_message.hxx \
+ /home/xodefender/Apps/XTouch/XTouchClient/src/main/../client/net_client.hxx \
+ /home/xodefender/Apps/XTouch/XTouchClient/src/main/../client/Client.hxx \
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/InFolderWindow.hxx \
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/ModelFileManager.hxx \
  /usr/include/c++/11/thread /usr/include/c++/11/stop_token \

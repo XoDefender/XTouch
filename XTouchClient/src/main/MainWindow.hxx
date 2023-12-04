@@ -1,11 +1,10 @@
 #include "ControlPanel.hxx"
-#include "SortDataManager.hxx"
+#include "../client/net_modules.hxx"
 
 enum class MsgTypes : uint32_t;
 
 class MainWindow : public Gtk::Window,
-                   public ControlPanel,
-                   public SortDataManager
+                   public ControlPanel
 {
 public:
     MainWindow();
@@ -22,13 +21,6 @@ private:
     Glib::RefPtr<Gtk::Builder> uiBuilder;
     Gtk::Grid *grid;
 
-    Gtk::Button *openDateSortBtn;
-    Gtk::Button *createDateSortBtn;
-    Gtk::Button *alphabetSortBtn;
-
-    Gtk::Button *allModelsFilter;
-    Gtk::Button *favoriteModelsFilter;
-
     Gtk::Button *searchBtn;
     Gtk::EventBox *clearInputBtn;
 
@@ -37,23 +29,24 @@ private:
     Gtk::ScrolledWindow *scrolledWindow;
     Glib::RefPtr<Gtk::Adjustment> position;
 
-    // Gtk::Label *serverStatus;
     Gtk::Label *searchResultsText;
-
     Gtk::Button *quitSearch;
-    Gtk::Box *sortContainer;
 
 private:
     void CSSConnection();
     void ProcessWidgets();
 
-    void FillGrid(MsgTypes msgType, net::message<MsgTypes> iMsg = Client::GetInstance().GetEmptyMessage()) override;
-
-    void OnSortBtnClick(bool &isSortAsc,
-                        std::string sortAsc,
-                        std::string sortDesc);
-
-    void OnModelsFilterClick(MsgTypes msgType, bool isFavFilterState);
+    void FillGrid(MsgTypes msgType, net::message<MsgTypes> iMsg = Client::GetInstance().GetEmptyMessage());
+    void ClearGrid(Gtk::Grid *grid)
+    {
+        while (true)
+        {
+            if (grid->get_child_at(1, 1) != nullptr)
+                grid->remove_row(1);
+            else
+                break;
+        }
+    };
 
     bool ScrollModelListView(GdkEventMotion *theEvent, int scrollStep);
 
@@ -62,14 +55,6 @@ private:
     void OnQuitSearchBtnClick();
 
 private:
-    bool isFavoriteFilterClicked = false;
-
-    bool isOpenDateSortAsc = true;
-    bool isCreateDateSortAsc = true;
-    bool isAlphabetSortAsc = true;
-
-    bool isAnySortButtonClicked = false;
-
     bool readyToScroll = false;
     float scrollDelta = 0.f;
     bool isInSearch = false;
@@ -100,9 +85,8 @@ public:
                   const char *category_name,
                   const char *date_name);
 
-        // Если модель не избранная, делаем ее таковой и наоборот
         void ProcessModelFavoriteState(Gtk::EventBox *clickedWidget);
-        void ChangeFavoriteState(const MsgTypes &msgType, const bool &isFavState, const std::string &isFavImg);
+        void ChangeFavoriteState(const bool &isFavState, const std::string &isFavImg);
         void MakeFavoriteBtnOn();
 
         bool OpenInFolderWindow(GdkEventButton *eventData, Gtk::EventBox *clickedWidget);

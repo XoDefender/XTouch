@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.39.0 -->
+<!-- Generated with glade 3.38.2 -->
 <interface>
   <requires lib="gtk+" version="3.24"/>
   <object class="GtkEventBox" id="FileBlock">
@@ -131,7 +131,7 @@
           <object class="GtkImage" id="DownloadImage">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
-            <property name="stock">gtk-missing-image</property>
+            <property name="pixbuf">InFolderScreen/Img/DownloadAnimation/1.png</property>
           </object>
         </child>
       </object>
@@ -328,157 +328,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkStack">
-            <property name="visible">True</property>
-            <property name="can-focus">False</property>
-            <child>
-              <object class="GtkBox" id="SortContainer1">
-                <property name="height-request">90</property>
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
-                <child>
-                  <object class="GtkBox">
-                    <property name="visible">True</property>
-                    <property name="can-focus">False</property>
-                    <property name="spacing">50</property>
-                    <child>
-                      <object class="GtkButton" id="UpdateFilesBtn">
-                        <property name="label" translatable="yes">Обновить</property>
-                        <property name="width-request">150</property>
-                        <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="receives-default">True</property>
-                        <property name="margin-top">30</property>
-                        <property name="margin-bottom">30</property>
-                        <property name="xalign">0.949999988079071</property>
-                        <style>
-                          <class name="UpdateFilesBtn"/>
-                        </style>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="padding">30</property>
-                        <property name="position">0</property>
-                      </packing>
-                    </child>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="pack-type">end</property>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkBox">
-                    <property name="visible">True</property>
-                    <property name="can-focus">False</property>
-                    <property name="spacing">50</property>
-                    <child>
-                      <object class="GtkButton" id="SortRecent1">
-                        <property name="label" translatable="yes">Недавние</property>
-                        <property name="width-request">145</property>
-                        <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="receives-default">True</property>
-                        <property name="margin-left">30</property>
-                        <property name="margin-right">30</property>
-                        <property name="margin-start">30</property>
-                        <property name="margin-end">30</property>
-                        <property name="margin-top">30</property>
-                        <property name="margin-bottom">30</property>
-                        <property name="xalign">0.949999988079071</property>
-                        <property name="yalign">0.5</property>
-                        <style>
-                          <class name="SortBtn1"/>
-                        </style>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">0</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkButton" id="SortDate1">
-                        <property name="label" translatable="yes">По дате создания</property>
-                        <property name="width-request">215</property>
-                        <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="receives-default">True</property>
-                        <property name="margin-right">30</property>
-                        <property name="margin-end">30</property>
-                        <property name="margin-top">30</property>
-                        <property name="margin-bottom">30</property>
-                        <property name="xalign">1</property>
-                        <style>
-                          <class name="SortBtn2"/>
-                        </style>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">1</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkButton" id="SortAlphabet1">
-                        <property name="label" translatable="yes">По алфавиту</property>
-                        <property name="width-request">172</property>
-                        <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="receives-default">True</property>
-                        <property name="margin-top">30</property>
-                        <property name="margin-bottom">30</property>
-                        <property name="xalign">0.949999988079071</property>
-                        <style>
-                          <class name="SortBtn3"/>
-                        </style>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">2</property>
-                      </packing>
-                    </child>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkLabel" id="ServerStatus1">
-                    <property name="visible">True</property>
-                    <property name="can-focus">False</property>
-                    <property name="justify">center</property>
-                  </object>
-                  <packing>
-                    <property name="expand">True</property>
-                    <property name="fill">True</property>
-                    <property name="position">2</property>
-                  </packing>
-                </child>
-                <style>
-                  <class name="SortContainer"/>
-                </style>
-              </object>
-              <packing>
-                <property name="name">page0</property>
-                <property name="title" translatable="yes">page0</property>
-              </packing>
-            </child>
-            <style>
-              <class name="SortContainer"/>
-            </style>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">2</property>
-          </packing>
+          <placeholder/>
         </child>
         <child>
           <object class="GtkScrolledWindow">
@@ -1005,6 +855,9 @@ NextPanel 75</property>
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <child>
+                  <placeholder/>
+                </child>
+                <child>
                   <object class="GtkBox">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
@@ -1058,85 +911,6 @@ NextPanel 75</property>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
                     <property name="pack-type">end</property>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkBox">
-                    <property name="visible">True</property>
-                    <property name="can-focus">False</property>
-                    <property name="spacing">50</property>
-                    <child>
-                      <object class="GtkButton" id="SortRecent">
-                        <property name="label" translatable="yes">Недавние</property>
-                        <property name="width-request">145</property>
-                        <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="receives-default">True</property>
-                        <property name="margin-left">30</property>
-                        <property name="margin-right">30</property>
-                        <property name="margin-start">30</property>
-                        <property name="margin-end">30</property>
-                        <property name="margin-top">30</property>
-                        <property name="margin-bottom">30</property>
-                        <property name="xalign">0.949999988079071</property>
-                        <property name="yalign">0.5</property>
-                        <style>
-                          <class name="SortBtn1"/>
-                        </style>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">0</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkButton" id="SortDate">
-                        <property name="label" translatable="yes">По дате создания</property>
-                        <property name="width-request">215</property>
-                        <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="receives-default">True</property>
-                        <property name="margin-right">30</property>
-                        <property name="margin-end">30</property>
-                        <property name="margin-top">30</property>
-                        <property name="margin-bottom">30</property>
-                        <property name="xalign">1</property>
-                        <style>
-                          <class name="SortBtn2"/>
-                        </style>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">1</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkButton" id="SortAlphabet">
-                        <property name="label" translatable="yes">По алфавиту</property>
-                        <property name="width-request">172</property>
-                        <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="receives-default">True</property>
-                        <property name="margin-top">30</property>
-                        <property name="margin-bottom">30</property>
-                        <property name="xalign">0.949999988079071</property>
-                        <style>
-                          <class name="SortBtn3"/>
-                        </style>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">2</property>
-                      </packing>
-                    </child>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
                     <property name="position">0</property>
                   </packing>
                 </child>

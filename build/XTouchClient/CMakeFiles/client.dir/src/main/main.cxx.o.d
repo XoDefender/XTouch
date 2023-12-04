@@ -1521,7 +1521,6 @@ XTouchClient/CMakeFiles/client.dir/src/main/main.cxx.o: \
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/AdminWindow.hxx \
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/MainWindow.hxx \
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/ControlPanel.hxx \
- /home/xodefender/Apps/XTouch/XTouchClient/src/main/SortDataManager.hxx \
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/InFolderWindow.hxx \
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/ModelFileManager.hxx \
  /usr/include/c++/11/thread /usr/include/c++/11/stop_token \
