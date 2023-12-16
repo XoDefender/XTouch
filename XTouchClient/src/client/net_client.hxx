@@ -30,7 +30,8 @@ namespace net
 
 				clientfd = socket(p->ai_family, p->ai_socktype, p->ai_protocol);
 
-				if (clientfd == -1) throw;
+				if (clientfd == -1)
+					throw;
 
 				int connect_reply = connect(clientfd, p->ai_addr, p->ai_addrlen);
 				if (connect_reply == -1)
@@ -65,14 +66,15 @@ namespace net
 			char buffer[sizeof(imsg.header) + imsg.size()];
 			memcpy((void *)buffer, &imsg.header.id, sizeof(imsg.header.id));
 			memcpy((void *)(buffer + sizeof(imsg.header.size)), &imsg.header.size, sizeof(imsg.header.size));
-			if(imsg.size()) memcpy((void *)(buffer + sizeof(imsg.header)), imsg.body.data(), imsg.size());
+			if (imsg.size())
+				memcpy((void *)(buffer + sizeof(imsg.header)), imsg.body.data(), imsg.size());
 
 			write(clientfd, buffer, sizeof(imsg.header) + imsg.size());
 		}
 
 		int ReadMessage(int clientFd, net::message<MsgTypes> &omsg)
 		{
-			char buffer[1024];
+			char buffer[8];
 			int readlen = read(clientFd, buffer, sizeof(buffer));
 
 			int headerVal = 0;
@@ -80,8 +82,17 @@ namespace net
 			memcpy(&headerVal, buffer, 4);
 			memcpy(&iDataSize, buffer + 4, 4);
 
+			char bufferData[iDataSize];
 			omsg.body.resize(iDataSize);
-			memcpy(omsg.body.data(), buffer + 8, iDataSize);
+
+			std::size_t totalBytesReceived = 0;
+			while (totalBytesReceived < iDataSize)
+			{
+				std::size_t bytesRead = read(clientFd, bufferData + totalBytesReceived, iDataSize);
+				totalBytesReceived += bytesRead;
+			}
+
+			memcpy(omsg.body.data(), bufferData, iDataSize);
 
 			omsg.header.id = (MsgTypes)headerVal;
 

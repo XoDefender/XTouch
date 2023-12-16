@@ -3,11 +3,11 @@ ip = 127.0.0.1
 port = 60000
 
 #Model
-saveFolder = /home/xodefender/Apps/XTouchAsio/XTouchServer/models/
+saveFolder = ../../../XTouchClient/res/models/
 testModelFolder = nullptr
 
 #Screenshot
-saveScreenshotFolder = ../src/Screenshots/
+saveScreenshotFolder = ../../../XTouchClient/res/screens/
 saveScreenshotPrefix = img
 
 #LoginFile

@@ -104,12 +104,13 @@ public:
 
 	void SendMessage(net::message<MsgTypes> imsg, MsgTypes type, int clientFd)
 	{
+		int msgSize = imsg.size();
 		imsg.header.id = type;
 		char buffer[sizeof(imsg.header) + imsg.size()];
 		memcpy((void *)buffer, &imsg.header.id, sizeof(imsg.header.id));
-		memcpy((void *)(buffer + sizeof(imsg.header.size)), &imsg.header.size, sizeof(imsg.header.size));
+		memcpy((void *)(buffer + sizeof(int)), &msgSize, sizeof(msgSize));
 		if (imsg.size())
-			memcpy((void *)(buffer + sizeof(imsg.header)), imsg.body.data(), imsg.size());
+			memcpy((void *)(buffer + 8), imsg.body.data(), imsg.size());
 
 		write(clientFd, buffer, sizeof(imsg.header) + imsg.size());
 	}
@@ -245,7 +246,6 @@ public:
 
 			break;
 		}
-
 		case MsgTypes::ChangeModelFavState:
 		{
 			SessionUser *user = GetUser(clientFd);
@@ -279,6 +279,24 @@ public:
 			delete res;
 
 			break;
+		}
+		case MsgTypes::GetModelFile:
+		{
+			char modelName[256];
+			imsg >> modelName;
+
+			string pathToFile = "../../../XTouchServer/res/models/";
+			pathToFile += modelName;
+
+			std::ifstream modelFile(pathToFile.c_str(), std::ios::binary | std::ios::ate);
+			std::streamsize fileSize = modelFile.tellg();
+			modelFile.seekg(0, std::ios::beg);
+			char *buffer = new char[fileSize];
+			modelFile.read(buffer, fileSize);
+			imsg.body.resize(fileSize);
+			memcpy(imsg.body.data(), buffer, fileSize);
+
+			SendMessage(imsg, MsgTypes::ServerAccept, clientFd);
 		}
 
 		default:

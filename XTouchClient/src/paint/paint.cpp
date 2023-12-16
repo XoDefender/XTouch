@@ -60,7 +60,7 @@ string ParseString(vector<string> data, int index)
 void ParseGlobalData()
 {
     fstream dataFile;
-    dataFile.open("/home/xodefender/Apps/XTouch/XTouchClient/res/Config");
+    dataFile.open("../../../../XTouchClient/res/Config");
 
     vector<string> fileData = {};
 
@@ -485,7 +485,7 @@ private:
                                     string previousBtnClass)
     {
         Glib::RefPtr<Gtk::CssProvider> cssProviderPrev = Gtk::CssProvider::create();
-        string previousButtonStyle = previousBtnClass + string("{background: url('/home/xodefender/Apps/XTouch/XTouchClient/res/Windows/ScreenshotWindow/img/") + previousBtnIcon + string("') no-repeat center;\
+        string previousButtonStyle = previousBtnClass + string("{background: url('../../../../XTouchClient/res/Windows/ScreenshotWindow/img/") + previousBtnIcon + string("') no-repeat center;\
                                                 background-color:#e5ecff;\
                                                 background-size: 35px;}");
 
@@ -500,7 +500,7 @@ private:
                                    string currentBtnClass)
     {
         Glib::RefPtr<Gtk::CssProvider> cssProviderCurr = Gtk::CssProvider::create();
-        string currentButtonStyle = currentBtnClass + string("{background: url('/home/xodefender/Apps/XTouch/XTouchClient/res/Windows/ScreenshotWindow/img/") + currentBtnIcon + string("') no-repeat center;\
+        string currentButtonStyle = currentBtnClass + string("{background: url('../../../../XTouchClient/res/Windows/ScreenshotWindow/img/") + currentBtnIcon + string("') no-repeat center;\
                                                 background-color:#e5ecff;\
                                                 background-size: 35px;}");
 
@@ -515,7 +515,7 @@ private:
                                 string previousBtnClass)
     {
         Glib::RefPtr<Gtk::CssProvider> cssProviderPrev = Gtk::CssProvider::create();
-        string previousButtonStyle = previousBtnClass + string("{background: url('/home/xodefender/Apps/XTouch/XTouchClient/res/Windows/ScreenshotWindow/img/") + previousBtnIcon + string("') no-repeat center;\
+        string previousButtonStyle = previousBtnClass + string("{background: url('../../../../XTouchClient/res/Windows/ScreenshotWindow/img/") + previousBtnIcon + string("') no-repeat center;\
                                                 border-radius: 10px;\
                                                 border: 2px solid rgb(219, 219, 219);\
                                                 background-size: 35px;}");
@@ -531,7 +531,7 @@ private:
                                string currentBtnClass)
     {
         Glib::RefPtr<Gtk::CssProvider> cssProviderCurr = Gtk::CssProvider::create();
-        string currentButtonStyle = currentBtnClass + string("{background: url('/home/xodefender/Apps/XTouch/XTouchClient/res/Windows/ScreenshotWindow/img/") + currentBtnIcon + string("') no-repeat center;\
+        string currentButtonStyle = currentBtnClass + string("{background: url('../../../../XTouchClient/res/Windows/ScreenshotWindow/img/") + currentBtnIcon + string("') no-repeat center;\
                                                 border-radius: 10px;\
                                                 border: 2px solid #4B6EEE;\
                                                 background-size: 35px;}");
@@ -545,7 +545,7 @@ private:
 public:
     MyWindow()
     {
-        uiBuilder = Gtk::Builder::create_from_file("/home/xodefender/Apps/XTouch/XTouchClient/res/Windows/ScreenshotWindow/ScreenshotWindow.glade");
+        uiBuilder = Gtk::Builder::create_from_file("../../../../XTouchClient/res/Windows/ScreenshotWindow/ScreenshotWindow.glade");
 
         uiBuilder->get_widget<Gtk::EventBox>("CloseScreen", closeWindow);
         uiBuilder->get_widget<Gtk::Fixed>("ScreenshotScreen", container);
@@ -808,7 +808,7 @@ public:
         SetActiveToolBtnStyle(drawPencilBtn, "pencilA.png", ".Pencil");
 
         GtkCssProvider *cssProvider = gtk_css_provider_new();
-        gtk_css_provider_load_from_path(cssProvider, "/home/xodefender/Apps/XTouch/XTouchClient/res/Windows/ScreenshotWindow/style.css", NULL);
+        gtk_css_provider_load_from_path(cssProvider, "../../../../XTouchClient/res/Windows/ScreenshotWindow/style.css", NULL);
         gtk_style_context_add_provider_for_screen(gdk_screen_get_default(),
                                                   GTK_STYLE_PROVIDER(cssProvider),
                                                   GTK_STYLE_PROVIDER_PRIORITY_USER);

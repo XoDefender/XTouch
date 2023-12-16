@@ -843,7 +843,7 @@ bool OcctGtkViewer::MakeScreenshot()
     screen = gdk_pixbuf_get_from_surface(surface, x, y, width, height);
     gdk_pixbuf_save(screen, "/tmp/file.png", "png", NULL, "quality", "100", NULL);
 
-    system("/home/xodefender/Apps/XTouch/build/bin/client/paint/paint");
+    system("./paint/paint");
   }
 
   myGLArea->hide();

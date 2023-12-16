@@ -63,28 +63,7 @@ void ModelFileManager::GetDataFromServer()
     }
 
     net::message<MsgTypes> oMsg = Client::GetInstance().SendRequestToServer(MsgTypes::GetModelFile, iMsg);
-
-    char fileData[oMsg.size()];
-
-    int sizeToCopy = oMsg.size();
-
-    // Physically copy the data from the vector into the user variable
-    std::memcpy(fileData, oMsg.body.data(), sizeToCopy);
-
-    // Shrink the vector to remove read bytes, and reset end position
-    oMsg.body.resize(0);
-
-    // Recalculate the message size
-    oMsg.header.size = oMsg.size();
-
-    // Write to the file
-    int i = 0;
-    while (i < sizeof(fileData))
-    {
-        stepFile << fileData[i];
-        i++;
-    }
-
+    stepFile.write((char*)oMsg.body.data(), oMsg.body.size());
     isFileReady = true;
 }
 
@@ -274,6 +253,8 @@ void ModelFileManager::ProcessFile()
     }
 
     string relativeFilePath = GetRelativeFilePath();
+
+    cout<<relativeFilePath<<endl;
 
     ifstream file;
     file.open(relativeFilePath);

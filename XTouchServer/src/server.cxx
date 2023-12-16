@@ -46,7 +46,7 @@ public:
 	void ParseConfigData(initializer_list<string *> args)
 	{
 		vector<string> fileData;
-		if (PassFileDataToVector("/home/xodefender/Apps/XTouch/XTouchServer/res/Config", fileData, '#'))
+		if (PassFileDataToVector("../../../XTouchServer/res/Config", fileData, '#'))
 		{
 			int i = 0;
 			for (auto arg : args)
