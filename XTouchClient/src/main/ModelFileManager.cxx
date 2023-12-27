@@ -30,18 +30,11 @@ void ModelFileManager::GetDataFromServer()
 {
     ostringstream relativeFilePathStructure;
 
-    if (!global::downloadStepFile)
-    {
-        if (!(global::currentFileName.find(".txt") != string::npos))
-            relativeFilePathStructure
-                << global::saveFolderPath << inFolderWindow->ToXbfFileExtension(global::currentFileName) << "";
-        else
-            relativeFilePathStructure << global::saveFolderPath << global::currentFileName << "";
-    }
+    if (!(global::currentFileName.find(".txt") != string::npos))
+        relativeFilePathStructure
+            << global::saveModelPath << inFolderWindow->ToXbfFileExtension(global::currentFileName) << "";
     else
-    {
-        relativeFilePathStructure << global::saveFolderPath << global::currentFileName << "";
-    }
+        relativeFilePathStructure << global::saveModelPath << global::currentFileName << "";
 
     string relativeFilePath = relativeFilePathStructure.str();
 
@@ -50,53 +43,14 @@ void ModelFileManager::GetDataFromServer()
 
     net::message<MsgTypes> iMsg;
 
-    if (!global::downloadStepFile)
-    {
-        if (!(global::currentFileName.find(".txt") != string::npos))
-            iMsg << inFolderWindow->ToXbfFileExtension(global::currentFileName).c_str();
-        else
-            iMsg << global::currentFileName.c_str();
-    }
+    if (!(global::currentFileName.find(".txt") != string::npos))
+        iMsg << inFolderWindow->ToXbfFileExtension(global::currentFileName).c_str();
     else
-    {
         iMsg << global::currentFileName.c_str();
-    }
 
     net::message<MsgTypes> oMsg = Client::GetInstance().SendRequestToServer(MsgTypes::GetModelFile, iMsg);
-    stepFile.write((char*)oMsg.body.data(), oMsg.body.size());
+    stepFile.write((char *)oMsg.body.data(), oMsg.body.size());
     isFileReady = true;
-}
-
-void ModelFileManager::DecodeStepFileToUTF8(string relativeFilePath)
-{
-    iconv_wrapper conv{"CP1251"};
-
-    // название для перекодированного файла
-    string encodedFileName = relativeFilePath + "Encoded.STEP";
-
-    fstream infile;
-    ofstream outfile(encodedFileName);
-
-    infile.open(relativeFilePath, ios::in);
-    if (infile.is_open())
-    {
-        string tp;
-        while (getline(infile, tp))
-        {
-            outfile << conv.convert(tp) << endl;
-        }
-
-        // удаляем изначальный файл
-        infile.close();
-        std::remove(relativeFilePath.c_str());
-
-        // переименовываем перекодированный файл
-        outfile.close();
-        rename(encodedFileName.c_str(), relativeFilePath.c_str());
-
-        // глобальная переменная, которая содержит путь к получившемуся файлу
-        pathToFile = relativeFilePath;
-    }
 }
 
 void ModelFileManager::OpenOcctWindow()
@@ -181,17 +135,10 @@ string ModelFileManager::GetRelativeFilePath()
 {
     ostringstream relativeFilePathStructure;
 
-    if (!global::downloadStepFile)
-    {
-        if (!(global::currentFileName.find(".txt") != string::npos))
-            relativeFilePathStructure << global::saveFolderPath << inFolderWindow->ToXbfFileExtension(global::currentFileName) << "";
-        else
-            relativeFilePathStructure << global::saveFolderPath << global::currentFileName << "";
-    }
+    if (!(global::currentFileName.find(".txt") != string::npos))
+        relativeFilePathStructure << global::saveModelPath << inFolderWindow->ToXbfFileExtension(global::currentFileName) << "";
     else
-    {
-        relativeFilePathStructure << global::saveFolderPath << global::currentFileName << "";
-    }
+        relativeFilePathStructure << global::saveModelPath << global::currentFileName << "";
 
     return relativeFilePathStructure.str();
 }
@@ -204,43 +151,20 @@ void ModelFileManager::OpenTestStepFile()
 
 void ModelFileManager::OpenFile(string relativeFilePath)
 {
-    if (!global::downloadStepFile)
+    if (relativeFilePath.find(".xbf") != string::npos)
     {
-        if (relativeFilePath.find(".xbf") != string::npos)
-        {
-            pathToFile = relativeFilePath;
-            OpenOcctWindow();
-        }
-        else if (relativeFilePath.find(".txt") != string::npos)
-        {
-            if (needToDownload)
-                downloadFileThread.join();
-
-            string ProcessFileRequest = "xdg-open " + string("\"") + relativeFilePath + string("\"");
-            system(ProcessFileRequest.c_str());
-
-            inFolderWindow->ResetFileBlockSelection();
-        }
+        pathToFile = relativeFilePath;
+        OpenOcctWindow();
     }
-    else
+    else if (relativeFilePath.find(".txt") != string::npos)
     {
-        if (relativeFilePath.find(".STEP") != string::npos ||
-            relativeFilePath.find(".step") != string::npos ||
-            relativeFilePath.find(".stp") != string::npos)
-        {
-            DecodeStepFileToUTF8(relativeFilePath);
-            OpenOcctWindow();
-        }
-        else if (relativeFilePath.find(".txt") != string::npos)
-        {
-            if (needToDownload)
-                downloadFileThread.join();
+        if (needToDownload)
+            downloadFileThread.join();
 
-            string ProcessFileRequest = "xdg-open " + string("\"") + relativeFilePath + string("\"");
-            system(ProcessFileRequest.c_str());
+        string ProcessFileRequest = "xdg-open " + string("\"") + relativeFilePath + string("\"");
+        system(ProcessFileRequest.c_str());
 
-            inFolderWindow->ResetFileBlockSelection();
-        }
+        inFolderWindow->ResetFileBlockSelection();
     }
 }
 
@@ -254,7 +178,7 @@ void ModelFileManager::ProcessFile()
 
     string relativeFilePath = GetRelativeFilePath();
 
-    cout<<relativeFilePath<<endl;
+    cout << relativeFilePath << endl;
 
     ifstream file;
     file.open(relativeFilePath);

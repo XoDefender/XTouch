@@ -110,11 +110,6 @@ bool MainWindow::ModelCard::OpenInFolderWindow(GdkEventButton *eventData, Gtk::E
     return true;
 }
 
-void MainWindow::ChangeServerStatus(string status)
-{
-    // serverStatus->set_text(status);
-}
-
 bool MainWindow::OnInputFocusIn(GdkEventFocus *focus)
 {
     if (!isInSearch)

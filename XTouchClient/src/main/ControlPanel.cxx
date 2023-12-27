@@ -2,7 +2,6 @@
 #include "global.hxx"
 #include "ControlPanel.hxx"
 
-// Подключение сигналов к панели управления окном
 void ControlPanel::ProcessPanel(Glib::RefPtr<Gtk::Builder> uiBuilder, Gtk::Window *window, std::string screenName)
 {
     if (screenName == "InFolderScreen")
@@ -41,7 +40,5 @@ void ControlPanel::ShowWindow(Gtk::Window *window)
 {
     window->fullscreen();
     window->show_all();
-
-    // Добавляем окно в очередь. Пока очередь не пуста, приложение работает
     global::app->add_window(*window);
 }

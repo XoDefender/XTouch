@@ -14,7 +14,6 @@ InFolderWindow::FileBlock::FileBlock(Gtk::Widget *widget, std::string fileName, 
     this->widget = widget;
     this->fileName = fileName;
     this->categoryName = categoryName;
-    // this->dateName = dateName;
 }
 
 void InFolderWindow::CSSConnection()
@@ -135,17 +134,10 @@ bool InFolderWindow::OnFileBlockClick(GdkEventButton *widget, Gtk::EventBox *cli
     {
         ostringstream relativeFilePathStructure;
 
-        if (!global::downloadStepFile)
-        {
-            if (!(global::currentFileName.find(".txt") != string::npos))
-                relativeFilePathStructure << global::saveFolderPath << ToXbfFileExtension(global::currentFileName) << "";
-            else
-                relativeFilePathStructure << global::saveFolderPath << global::currentFileName << "";
-        }
+        if (!(global::currentFileName.find(".txt") != string::npos))
+            relativeFilePathStructure << global::saveModelPath << ToXbfFileExtension(global::currentFileName) << "";
         else
-        {
-            relativeFilePathStructure << global::saveFolderPath << global::currentFileName << "";
-        }
+            relativeFilePathStructure << global::saveModelPath << global::currentFileName << "";
 
         string relativeFilePath = relativeFilePathStructure.str();
         file.open(relativeFilePath);
@@ -183,16 +175,7 @@ void InFolderWindow::FillGrid(MsgTypes msgType, net::message<MsgTypes> iMsg)
     ClearGrid(grid);
 
     net::message<MsgTypes> oMsg;
-
-    try
-    {
-        oMsg = Client::GetInstance().SendRequestToServer(msgType, iMsg);
-    }
-    catch (...)
-    {
-        mainWindow->ChangeServerStatus("Сервер недоступен");
-        return;
-    }
+    oMsg = Client::GetInstance().SendRequestToServer(msgType, iMsg);
 
     char rowAmountString[1024];
     oMsg >> rowAmountString;
@@ -276,7 +259,7 @@ InFolderWindow::InFolderWindow()
 {
     ProcessWidgets();
     CSSConnection();
-    
+
     mainWindow->GetWindowStack()->add(*inFolderScreen, "InFolderScreen");
     m_headerBar.set_show_close_button(true);
     mainWindow->set_titlebar(m_headerBar);

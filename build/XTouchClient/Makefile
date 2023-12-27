@@ -202,6 +202,30 @@ src/main/ControlPanel.cxx.s:
 	cd /home/xodefender/Apps/XTouch/build && $(MAKE) $(MAKESILENT) -f XTouchClient/CMakeFiles/client.dir/build.make XTouchClient/CMakeFiles/client.dir/src/main/ControlPanel.cxx.s
 .PHONY : src/main/ControlPanel.cxx.s
 
+src/main/DrawHelper.o: src/main/DrawHelper.cxx.o
+.PHONY : src/main/DrawHelper.o
+
+# target to build an object file
+src/main/DrawHelper.cxx.o:
+	cd /home/xodefender/Apps/XTouch/build && $(MAKE) $(MAKESILENT) -f XTouchClient/CMakeFiles/client.dir/build.make XTouchClient/CMakeFiles/client.dir/src/main/DrawHelper.cxx.o
+.PHONY : src/main/DrawHelper.cxx.o
+
+src/main/DrawHelper.i: src/main/DrawHelper.cxx.i
+.PHONY : src/main/DrawHelper.i
+
+# target to preprocess a source file
+src/main/DrawHelper.cxx.i:
+	cd /home/xodefender/Apps/XTouch/build && $(MAKE) $(MAKESILENT) -f XTouchClient/CMakeFiles/client.dir/build.make XTouchClient/CMakeFiles/client.dir/src/main/DrawHelper.cxx.i
+.PHONY : src/main/DrawHelper.cxx.i
+
+src/main/DrawHelper.s: src/main/DrawHelper.cxx.s
+.PHONY : src/main/DrawHelper.s
+
+# target to generate assembly for a file
+src/main/DrawHelper.cxx.s:
+	cd /home/xodefender/Apps/XTouch/build && $(MAKE) $(MAKESILENT) -f XTouchClient/CMakeFiles/client.dir/build.make XTouchClient/CMakeFiles/client.dir/src/main/DrawHelper.cxx.s
+.PHONY : src/main/DrawHelper.cxx.s
+
 src/main/InFolderWindow.o: src/main/InFolderWindow.cxx.o
 .PHONY : src/main/InFolderWindow.o
 
@@ -322,6 +346,30 @@ src/main/OcctGtkViewer.cxx.s:
 	cd /home/xodefender/Apps/XTouch/build && $(MAKE) $(MAKESILENT) -f XTouchClient/CMakeFiles/client.dir/build.make XTouchClient/CMakeFiles/client.dir/src/main/OcctGtkViewer.cxx.s
 .PHONY : src/main/OcctGtkViewer.cxx.s
 
+src/main/PaintWindow.o: src/main/PaintWindow.cxx.o
+.PHONY : src/main/PaintWindow.o
+
+# target to build an object file
+src/main/PaintWindow.cxx.o:
+	cd /home/xodefender/Apps/XTouch/build && $(MAKE) $(MAKESILENT) -f XTouchClient/CMakeFiles/client.dir/build.make XTouchClient/CMakeFiles/client.dir/src/main/PaintWindow.cxx.o
+.PHONY : src/main/PaintWindow.cxx.o
+
+src/main/PaintWindow.i: src/main/PaintWindow.cxx.i
+.PHONY : src/main/PaintWindow.i
+
+# target to preprocess a source file
+src/main/PaintWindow.cxx.i:
+	cd /home/xodefender/Apps/XTouch/build && $(MAKE) $(MAKESILENT) -f XTouchClient/CMakeFiles/client.dir/build.make XTouchClient/CMakeFiles/client.dir/src/main/PaintWindow.cxx.i
+.PHONY : src/main/PaintWindow.cxx.i
+
+src/main/PaintWindow.s: src/main/PaintWindow.cxx.s
+.PHONY : src/main/PaintWindow.s
+
+# target to generate assembly for a file
+src/main/PaintWindow.cxx.s:
+	cd /home/xodefender/Apps/XTouch/build && $(MAKE) $(MAKESILENT) -f XTouchClient/CMakeFiles/client.dir/build.make XTouchClient/CMakeFiles/client.dir/src/main/PaintWindow.cxx.s
+.PHONY : src/main/PaintWindow.cxx.s
+
 src/main/ViewerInteractor.o: src/main/ViewerInteractor.cxx.o
 .PHONY : src/main/ViewerInteractor.o
 
@@ -412,6 +460,9 @@ help:
 	@echo "... src/main/ControlPanel.o"
 	@echo "... src/main/ControlPanel.i"
 	@echo "... src/main/ControlPanel.s"
+	@echo "... src/main/DrawHelper.o"
+	@echo "... src/main/DrawHelper.i"
+	@echo "... src/main/DrawHelper.s"
 	@echo "... src/main/InFolderWindow.o"
 	@echo "... src/main/InFolderWindow.i"
 	@echo "... src/main/InFolderWindow.s"
@@ -427,6 +478,9 @@ help:
 	@echo "... src/main/OcctGtkViewer.o"
 	@echo "... src/main/OcctGtkViewer.i"
 	@echo "... src/main/OcctGtkViewer.s"
+	@echo "... src/main/PaintWindow.o"
+	@echo "... src/main/PaintWindow.i"
+	@echo "... src/main/PaintWindow.s"
 	@echo "... src/main/ViewerInteractor.o"
 	@echo "... src/main/ViewerInteractor.i"
 	@echo "... src/main/ViewerInteractor.s"

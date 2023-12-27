@@ -82,32 +82,15 @@ clean: XTouchServer/clean
 
 # Recursive "all" directory target.
 XTouchClient/all: XTouchClient/CMakeFiles/client.dir/all
-XTouchClient/all: XTouchClient/src/paint/all
 .PHONY : XTouchClient/all
 
 # Recursive "preinstall" directory target.
-XTouchClient/preinstall: XTouchClient/src/paint/preinstall
+XTouchClient/preinstall:
 .PHONY : XTouchClient/preinstall
 
 # Recursive "clean" directory target.
 XTouchClient/clean: XTouchClient/CMakeFiles/client.dir/clean
-XTouchClient/clean: XTouchClient/src/paint/clean
 .PHONY : XTouchClient/clean
-
-#=============================================================================
-# Directory level rules for directory XTouchClient/src/paint
-
-# Recursive "all" directory target.
-XTouchClient/src/paint/all: XTouchClient/src/paint/CMakeFiles/paint.dir/all
-.PHONY : XTouchClient/src/paint/all
-
-# Recursive "preinstall" directory target.
-XTouchClient/src/paint/preinstall:
-.PHONY : XTouchClient/src/paint/preinstall
-
-# Recursive "clean" directory target.
-XTouchClient/src/paint/clean: XTouchClient/src/paint/CMakeFiles/paint.dir/clean
-.PHONY : XTouchClient/src/paint/clean
 
 #=============================================================================
 # Directory level rules for directory XTouchServer
@@ -131,12 +114,12 @@ XTouchServer/clean: XTouchServer/CMakeFiles/server.dir/clean
 XTouchClient/CMakeFiles/client.dir/all:
 	$(MAKE) $(MAKESILENT) -f XTouchClient/CMakeFiles/client.dir/build.make XTouchClient/CMakeFiles/client.dir/depend
 	$(MAKE) $(MAKESILENT) -f XTouchClient/CMakeFiles/client.dir/build.make XTouchClient/CMakeFiles/client.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/xodefender/Apps/XTouch/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12 "Built target client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/xodefender/Apps/XTouch/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14 "Built target client"
 .PHONY : XTouchClient/CMakeFiles/client.dir/all
 
 # Build rule for subdir invocation for target.
 XTouchClient/CMakeFiles/client.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xodefender/Apps/XTouch/build/CMakeFiles 12
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xodefender/Apps/XTouch/build/CMakeFiles 14
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 XTouchClient/CMakeFiles/client.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/xodefender/Apps/XTouch/build/CMakeFiles 0
 .PHONY : XTouchClient/CMakeFiles/client.dir/rule
@@ -149,32 +132,6 @@ client: XTouchClient/CMakeFiles/client.dir/rule
 XTouchClient/CMakeFiles/client.dir/clean:
 	$(MAKE) $(MAKESILENT) -f XTouchClient/CMakeFiles/client.dir/build.make XTouchClient/CMakeFiles/client.dir/clean
 .PHONY : XTouchClient/CMakeFiles/client.dir/clean
-
-#=============================================================================
-# Target rules for target XTouchClient/src/paint/CMakeFiles/paint.dir
-
-# All Build rule for target.
-XTouchClient/src/paint/CMakeFiles/paint.dir/all:
-	$(MAKE) $(MAKESILENT) -f XTouchClient/src/paint/CMakeFiles/paint.dir/build.make XTouchClient/src/paint/CMakeFiles/paint.dir/depend
-	$(MAKE) $(MAKESILENT) -f XTouchClient/src/paint/CMakeFiles/paint.dir/build.make XTouchClient/src/paint/CMakeFiles/paint.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/xodefender/Apps/XTouch/build/CMakeFiles --progress-num=13,14 "Built target paint"
-.PHONY : XTouchClient/src/paint/CMakeFiles/paint.dir/all
-
-# Build rule for subdir invocation for target.
-XTouchClient/src/paint/CMakeFiles/paint.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xodefender/Apps/XTouch/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 XTouchClient/src/paint/CMakeFiles/paint.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xodefender/Apps/XTouch/build/CMakeFiles 0
-.PHONY : XTouchClient/src/paint/CMakeFiles/paint.dir/rule
-
-# Convenience name for target.
-paint: XTouchClient/src/paint/CMakeFiles/paint.dir/rule
-.PHONY : paint
-
-# clean rule for target.
-XTouchClient/src/paint/CMakeFiles/paint.dir/clean:
-	$(MAKE) $(MAKESILENT) -f XTouchClient/src/paint/CMakeFiles/paint.dir/build.make XTouchClient/src/paint/CMakeFiles/paint.dir/clean
-.PHONY : XTouchClient/src/paint/CMakeFiles/paint.dir/clean
 
 #=============================================================================
 # Target rules for target XTouchServer/CMakeFiles/server.dir

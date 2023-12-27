@@ -9,7 +9,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "../CMakeLists.txt"
   "../XTouchClient/CMakeLists.txt"
-  "../XTouchClient/src/paint/CMakeLists.txt"
   "../XTouchServer/CMakeLists.txt"
   "CMakeFiles/3.22.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.22.1/CMakeCXXCompiler.cmake"
@@ -66,13 +65,11 @@ set(CMAKE_MAKEFILE_OUTPUTS
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "XTouchClient/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "XTouchClient/src/paint/CMakeFiles/CMakeDirectoryInformation.cmake"
   "XTouchServer/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "XTouchClient/CMakeFiles/client.dir/DependInfo.cmake"
-  "XTouchClient/src/paint/CMakeFiles/paint.dir/DependInfo.cmake"
   "XTouchServer/CMakeFiles/server.dir/DependInfo.cmake"
   )

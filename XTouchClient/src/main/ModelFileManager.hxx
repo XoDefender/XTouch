@@ -13,7 +13,6 @@ private:
     int client = 0;
 
     std::string ConvertToString(char *a, int size);
-    void DecodeStepFileToUTF8(std::string relativeFilePath);
 
     bool ServerConnection();
     void GetDataFromServer();

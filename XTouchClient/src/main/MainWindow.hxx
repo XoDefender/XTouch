@@ -9,7 +9,6 @@ class MainWindow : public Gtk::Window,
 public:
     MainWindow();
     void OpenWindow();
-    void ChangeServerStatus(std::string status);
     void SetSearchInputFocus(bool canFocus);
     void TurnOnSearchMode();
 

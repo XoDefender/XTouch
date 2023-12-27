@@ -130,19 +130,6 @@ client/fast:
 .PHONY : client/fast
 
 #=============================================================================
-# Target rules for targets named paint
-
-# Build rule for target.
-paint: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 paint
-.PHONY : paint
-
-# fast build rule for target.
-paint/fast:
-	$(MAKE) $(MAKESILENT) -f XTouchClient/src/paint/CMakeFiles/paint.dir/build.make XTouchClient/src/paint/CMakeFiles/paint.dir/build
-.PHONY : paint/fast
-
-#=============================================================================
 # Target rules for targets named server
 
 # Build rule for target.
@@ -164,7 +151,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... client"
-	@echo "... paint"
 	@echo "... server"
 .PHONY : help
 

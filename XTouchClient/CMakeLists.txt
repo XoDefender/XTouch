@@ -15,9 +15,6 @@ set (CLIENT_DIR "../XTouchClient/src/client/")
 
 set (USE_GLES2 OFF CACHE BOOL "Use OpenGL ES instead of desktop OpenGL")
 
-#include(${CMAKE_CURRENT_LIST_DIR}/src/paint/CMakeLists.txt)
-add_subdirectory(src/paint)
-
 include(FindPkgConfig)
 if (USE_GLES2)
   add_definitions (-DHAVE_GLES2)
@@ -60,6 +57,8 @@ set(SOURCES
               ./src/main/OcctGtkViewer.cxx
               ./src/main/ViewerInteractor.cxx
 	            ./src/main/ControlPanel.cxx
+              ./src/main/PaintWindow.cxx
+              ./src/main/DrawHelper.cxx
               ${CLIENT_DIR}Client.cxx)
                               
 add_executable(${APP_TARGET} ${SOURCES})

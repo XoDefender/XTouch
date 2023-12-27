@@ -1,166 +1,6 @@
-XTouchClient/CMakeFiles/client.dir/src/main/main.cxx.o: \
- /home/xodefender/Apps/XTouch/XTouchClient/src/main/main.cxx \
- /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
- /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
- /usr/include/features.h /usr/include/features-time64.h \
- /usr/include/x86_64-linux-gnu/bits/wordsize.h \
- /usr/include/x86_64-linux-gnu/bits/timesize.h \
- /usr/include/x86_64-linux-gnu/sys/cdefs.h \
- /usr/include/x86_64-linux-gnu/bits/long-double.h \
- /usr/include/x86_64-linux-gnu/gnu/stubs.h \
- /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h \
- /usr/include/c++/11/pstl/pstl_config.h /usr/include/c++/11/ostream \
- /usr/include/c++/11/ios /usr/include/c++/11/iosfwd \
- /usr/include/c++/11/bits/stringfwd.h \
- /usr/include/c++/11/bits/memoryfwd.h /usr/include/c++/11/bits/postypes.h \
- /usr/include/c++/11/cwchar /usr/include/wchar.h \
- /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
- /usr/include/x86_64-linux-gnu/bits/floatn.h \
- /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
- /usr/include/x86_64-linux-gnu/bits/wchar.h \
- /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
- /usr/include/c++/11/exception /usr/include/c++/11/bits/exception.h \
- /usr/include/c++/11/bits/exception_ptr.h \
- /usr/include/c++/11/bits/exception_defines.h \
- /usr/include/c++/11/bits/cxxabi_init_exception.h \
- /usr/include/c++/11/typeinfo /usr/include/c++/11/bits/hash_bytes.h \
- /usr/include/c++/11/new /usr/include/c++/11/bits/move.h \
- /usr/include/c++/11/type_traits \
- /usr/include/c++/11/bits/nested_exception.h \
- /usr/include/c++/11/bits/char_traits.h \
- /usr/include/c++/11/bits/stl_algobase.h \
- /usr/include/c++/11/bits/functexcept.h \
- /usr/include/c++/11/bits/cpp_type_traits.h \
- /usr/include/c++/11/ext/type_traits.h \
- /usr/include/c++/11/ext/numeric_traits.h \
- /usr/include/c++/11/bits/stl_pair.h /usr/include/c++/11/compare \
- /usr/include/c++/11/concepts \
- /usr/include/c++/11/bits/stl_iterator_base_types.h \
- /usr/include/c++/11/bits/iterator_concepts.h \
- /usr/include/c++/11/bits/ptr_traits.h \
- /usr/include/c++/11/bits/ranges_cmp.h \
- /usr/include/c++/11/bits/stl_iterator_base_funcs.h \
- /usr/include/c++/11/bits/concept_check.h \
- /usr/include/c++/11/debug/assertions.h \
- /usr/include/c++/11/bits/stl_iterator.h \
- /usr/include/c++/11/bits/stl_construct.h \
- /usr/include/c++/11/debug/debug.h \
- /usr/include/c++/11/bits/predefined_ops.h /usr/include/c++/11/cstdint \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
- /usr/include/x86_64-linux-gnu/bits/types.h \
- /usr/include/x86_64-linux-gnu/bits/typesizes.h \
- /usr/include/x86_64-linux-gnu/bits/time64.h \
- /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
- /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /usr/include/c++/11/bits/localefwd.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h \
- /usr/include/c++/11/clocale /usr/include/locale.h \
- /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/11/cctype \
- /usr/include/ctype.h /usr/include/x86_64-linux-gnu/bits/endian.h \
- /usr/include/x86_64-linux-gnu/bits/endianness.h \
- /usr/include/c++/11/bits/ios_base.h /usr/include/c++/11/ext/atomicity.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/gthr.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/gthr-default.h \
- /usr/include/pthread.h /usr/include/sched.h \
- /usr/include/x86_64-linux-gnu/bits/types/time_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
- /usr/include/x86_64-linux-gnu/bits/sched.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h \
- /usr/include/x86_64-linux-gnu/bits/cpu-set.h /usr/include/time.h \
- /usr/include/x86_64-linux-gnu/bits/time.h \
- /usr/include/x86_64-linux-gnu/bits/timex.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
- /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
- /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/timer_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
- /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
- /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
- /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
- /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
- /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
- /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
- /usr/include/x86_64-linux-gnu/bits/setjmp.h \
- /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
- /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/atomic_word.h \
- /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
- /usr/include/c++/11/bits/locale_classes.h /usr/include/c++/11/string \
- /usr/include/c++/11/bits/allocator.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h \
- /usr/include/c++/11/ext/new_allocator.h \
- /usr/include/c++/11/bits/ostream_insert.h \
- /usr/include/c++/11/bits/cxxabi_forced.h \
- /usr/include/c++/11/bits/stl_function.h \
- /usr/include/c++/11/backward/binders.h \
- /usr/include/c++/11/bits/stl_algo.h /usr/include/c++/11/cstdlib \
- /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
- /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
- /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/endian.h \
- /usr/include/x86_64-linux-gnu/bits/byteswap.h \
- /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
- /usr/include/x86_64-linux-gnu/sys/select.h \
- /usr/include/x86_64-linux-gnu/bits/select.h \
- /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
- /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /usr/include/c++/11/bits/std_abs.h \
- /usr/include/c++/11/bits/algorithmfwd.h \
- /usr/include/c++/11/initializer_list /usr/include/c++/11/bits/stl_heap.h \
- /usr/include/c++/11/bits/stl_tempbuf.h \
- /usr/include/c++/11/bits/uniform_int_dist.h \
- /usr/include/c++/11/bits/range_access.h \
- /usr/include/c++/11/bits/basic_string.h \
- /usr/include/c++/11/ext/alloc_traits.h \
- /usr/include/c++/11/bits/alloc_traits.h /usr/include/c++/11/string_view \
- /usr/include/c++/11/bits/functional_hash.h \
- /usr/include/c++/11/bits/ranges_base.h \
- /usr/include/c++/11/bits/max_size_type.h /usr/include/c++/11/numbers \
- /usr/include/c++/11/bits/string_view.tcc \
- /usr/include/c++/11/ext/string_conversions.h /usr/include/c++/11/cstdio \
- /usr/include/stdio.h /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
- /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
- /usr/include/c++/11/cerrno /usr/include/errno.h \
- /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
- /usr/include/x86_64-linux-gnu/asm/errno.h \
- /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
- /usr/include/c++/11/bits/charconv.h \
- /usr/include/c++/11/bits/basic_string.tcc \
- /usr/include/c++/11/bits/locale_classes.tcc \
- /usr/include/c++/11/system_error \
- /usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h \
- /usr/include/c++/11/stdexcept /usr/include/c++/11/streambuf \
- /usr/include/c++/11/bits/streambuf.tcc \
- /usr/include/c++/11/bits/basic_ios.h \
- /usr/include/c++/11/bits/locale_facets.h /usr/include/c++/11/cwctype \
- /usr/include/wctype.h /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h \
- /usr/include/c++/11/bits/streambuf_iterator.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h \
- /usr/include/c++/11/bits/locale_facets.tcc \
- /usr/include/c++/11/bits/basic_ios.tcc \
- /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
- /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/sstream \
- /usr/include/c++/11/bits/sstream.tcc /usr/include/c++/11/fstream \
- /usr/include/c++/11/bits/codecvt.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
- /usr/include/c++/11/bits/fstream.tcc \
+XTouchClient/CMakeFiles/client.dir/src/main/PaintWindow.cxx.o: \
+ /home/xodefender/Apps/XTouch/XTouchClient/src/main/PaintWindow.cxx \
+ /usr/include/stdc-predef.h \
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/global.hxx \
  /usr/include/gtkmm-3.0/gtkmm.h /usr/include/glibmm-2.4/glibmm.h \
  /usr/lib/x86_64-linux-gnu/glibmm-2.4/include/glibmmconfig.h \
@@ -168,23 +8,78 @@ XTouchClient/CMakeFiles/client.dir/src/main/main.cxx.o: \
  /usr/include/glib-2.0/glib/galloca.h /usr/include/glib-2.0/glib/gtypes.h \
  /usr/lib/x86_64-linux-gnu/glib-2.0/include/glibconfig.h \
  /usr/include/glib-2.0/glib/gmacros.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h \
- /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+ /usr/include/features.h /usr/include/features-time64.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/bits/timesize.h \
+ /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/long-double.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/float.h \
- /usr/include/glib-2.0/glib/gversionmacros.h /usr/include/string.h \
- /usr/include/strings.h /usr/include/glib-2.0/glib/garray.h \
+ /usr/include/glib-2.0/glib/gversionmacros.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+ /usr/include/x86_64-linux-gnu/bits/time64.h \
+ /usr/include/x86_64-linux-gnu/bits/timex.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
+ /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/time_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+ /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/endianness.h \
+ /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/timer_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
+ /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+ /usr/include/string.h /usr/include/strings.h \
+ /usr/include/glib-2.0/glib/garray.h \
  /usr/include/glib-2.0/glib/gasyncqueue.h \
  /usr/include/glib-2.0/glib/gthread.h \
  /usr/include/glib-2.0/glib/gatomic.h \
- /usr/include/glib-2.0/glib/glib-typeof.h \
- /usr/include/glib-2.0/glib/gerror.h /usr/include/glib-2.0/glib/gquark.h \
- /usr/include/glib-2.0/glib/gutils.h /usr/include/c++/11/stdlib.h \
+ /usr/include/glib-2.0/glib/glib-typeof.h /usr/include/c++/11/type_traits \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h \
+ /usr/include/c++/11/pstl/pstl_config.h \
+ /usr/include/glib-2.0/glib/gerror.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
+ /usr/include/glib-2.0/glib/gquark.h /usr/include/glib-2.0/glib/gutils.h \
+ /usr/include/c++/11/stdlib.h /usr/include/c++/11/cstdlib \
+ /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-intn.h /usr/include/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+ /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+ /usr/include/x86_64-linux-gnu/sys/select.h \
+ /usr/include/x86_64-linux-gnu/bits/select.h \
+ /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+ /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
+ /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
+ /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
+ /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+ /usr/include/c++/11/bits/std_abs.h \
  /usr/include/glib-2.0/glib/gbacktrace.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum-generic.h \
  /usr/include/x86_64-linux-gnu/bits/signum-arch.h \
@@ -261,7 +156,11 @@ XTouchClient/CMakeFiles/client.dir/src/main/main.cxx.o: \
  /usr/include/glib-2.0/glib/gstrfuncs.h \
  /usr/include/glib-2.0/glib/gstringchunk.h \
  /usr/include/glib-2.0/glib/gstrvbuilder.h \
- /usr/include/glib-2.0/glib/gtestutils.h \
+ /usr/include/glib-2.0/glib/gtestutils.h /usr/include/errno.h \
+ /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
+ /usr/include/x86_64-linux-gnu/asm/errno.h \
+ /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
+ /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/glib-2.0/glib/gthreadpool.h \
  /usr/include/glib-2.0/glib/gtimer.h \
  /usr/include/glib-2.0/glib/gtrashstack.h \
@@ -272,13 +171,110 @@ XTouchClient/CMakeFiles/client.dir/src/main/main.cxx.o: \
  /usr/include/glib-2.0/glib/deprecated/gcompletion.h \
  /usr/include/glib-2.0/glib/deprecated/gmain.h \
  /usr/include/glib-2.0/glib/deprecated/grel.h \
- /usr/include/glib-2.0/glib/deprecated/gthread.h \
+ /usr/include/glib-2.0/glib/deprecated/gthread.h /usr/include/pthread.h \
+ /usr/include/sched.h /usr/include/x86_64-linux-gnu/bits/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h \
+ /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
+ /usr/include/x86_64-linux-gnu/bits/setjmp.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
  /usr/include/glib-2.0/glib/glib-autocleanups.h \
  /usr/include/glibmm-2.4/glibmm/error.h \
  /usr/include/glibmm-2.4/glibmm/exception.h \
  /usr/include/glibmm-2.4/glibmm/ustring.h \
- /usr/include/glibmm-2.4/glibmm/unicode.h /usr/include/c++/11/iterator \
+ /usr/include/glibmm-2.4/glibmm/unicode.h /usr/include/c++/11/cctype \
+ /usr/include/ctype.h /usr/include/c++/11/iosfwd \
+ /usr/include/c++/11/bits/stringfwd.h \
+ /usr/include/c++/11/bits/memoryfwd.h /usr/include/c++/11/bits/postypes.h \
+ /usr/include/c++/11/cwchar /usr/include/wchar.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h \
+ /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/c++/11/iterator \
+ /usr/include/c++/11/bits/stl_iterator_base_types.h \
+ /usr/include/c++/11/bits/iterator_concepts.h \
+ /usr/include/c++/11/concepts /usr/include/c++/11/bits/ptr_traits.h \
+ /usr/include/c++/11/bits/move.h /usr/include/c++/11/bits/ranges_cmp.h \
+ /usr/include/c++/11/bits/stl_iterator_base_funcs.h \
+ /usr/include/c++/11/bits/concept_check.h \
+ /usr/include/c++/11/debug/assertions.h \
+ /usr/include/c++/11/bits/stl_iterator.h \
+ /usr/include/c++/11/bits/cpp_type_traits.h \
+ /usr/include/c++/11/ext/type_traits.h /usr/include/c++/11/compare \
+ /usr/include/c++/11/new /usr/include/c++/11/bits/exception.h \
+ /usr/include/c++/11/bits/exception_defines.h \
+ /usr/include/c++/11/bits/stl_construct.h \
  /usr/include/c++/11/bits/stream_iterator.h \
+ /usr/include/c++/11/debug/debug.h \
+ /usr/include/c++/11/bits/streambuf_iterator.h \
+ /usr/include/c++/11/streambuf /usr/include/c++/11/bits/localefwd.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h \
+ /usr/include/c++/11/clocale /usr/include/locale.h \
+ /usr/include/x86_64-linux-gnu/bits/locale.h \
+ /usr/include/c++/11/bits/ios_base.h /usr/include/c++/11/ext/atomicity.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/gthr.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/gthr-default.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/atomic_word.h \
+ /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+ /usr/include/c++/11/bits/locale_classes.h /usr/include/c++/11/string \
+ /usr/include/c++/11/bits/char_traits.h \
+ /usr/include/c++/11/bits/stl_algobase.h \
+ /usr/include/c++/11/bits/functexcept.h \
+ /usr/include/c++/11/ext/numeric_traits.h \
+ /usr/include/c++/11/bits/stl_pair.h \
+ /usr/include/c++/11/bits/predefined_ops.h /usr/include/c++/11/cstdint \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+ /usr/include/c++/11/bits/allocator.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h \
+ /usr/include/c++/11/ext/new_allocator.h \
+ /usr/include/c++/11/bits/ostream_insert.h \
+ /usr/include/c++/11/bits/cxxabi_forced.h \
+ /usr/include/c++/11/bits/stl_function.h \
+ /usr/include/c++/11/backward/binders.h \
+ /usr/include/c++/11/bits/stl_algo.h \
+ /usr/include/c++/11/bits/algorithmfwd.h \
+ /usr/include/c++/11/initializer_list /usr/include/c++/11/bits/stl_heap.h \
+ /usr/include/c++/11/bits/stl_tempbuf.h \
+ /usr/include/c++/11/bits/uniform_int_dist.h \
+ /usr/include/c++/11/bits/range_access.h \
+ /usr/include/c++/11/bits/basic_string.h \
+ /usr/include/c++/11/ext/alloc_traits.h \
+ /usr/include/c++/11/bits/alloc_traits.h /usr/include/c++/11/string_view \
+ /usr/include/c++/11/bits/functional_hash.h \
+ /usr/include/c++/11/bits/hash_bytes.h \
+ /usr/include/c++/11/bits/ranges_base.h \
+ /usr/include/c++/11/bits/max_size_type.h /usr/include/c++/11/numbers \
+ /usr/include/c++/11/bits/string_view.tcc \
+ /usr/include/c++/11/ext/string_conversions.h /usr/include/c++/11/cstdio \
+ /usr/include/stdio.h /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/c++/11/cerrno /usr/include/c++/11/bits/charconv.h \
+ /usr/include/c++/11/bits/basic_string.tcc \
+ /usr/include/c++/11/bits/locale_classes.tcc \
+ /usr/include/c++/11/system_error \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h \
+ /usr/include/c++/11/stdexcept /usr/include/c++/11/exception \
+ /usr/include/c++/11/bits/exception_ptr.h \
+ /usr/include/c++/11/bits/cxxabi_init_exception.h \
+ /usr/include/c++/11/typeinfo /usr/include/c++/11/bits/nested_exception.h \
+ /usr/include/c++/11/bits/streambuf.tcc /usr/include/c++/11/sstream \
+ /usr/include/c++/11/istream /usr/include/c++/11/ios \
+ /usr/include/c++/11/bits/basic_ios.h \
+ /usr/include/c++/11/bits/locale_facets.h /usr/include/c++/11/cwctype \
+ /usr/include/wctype.h /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h \
+ /usr/include/c++/11/bits/locale_facets.tcc \
+ /usr/include/c++/11/bits/basic_ios.tcc /usr/include/c++/11/ostream \
+ /usr/include/c++/11/bits/ostream.tcc \
+ /usr/include/c++/11/bits/istream.tcc \
+ /usr/include/c++/11/bits/sstream.tcc \
  /usr/include/glibmm-2.4/glibmm/value.h \
  /usr/include/glibmm-2.4/glibmm/refptr.h /usr/include/c++/11/utility \
  /usr/include/c++/11/bits/stl_relops.h \
@@ -1493,43 +1489,503 @@ XTouchClient/CMakeFiles/client.dir/src/main/main.cxx.o: \
  /usr/include/gtkmm-3.0/gtkmm/uimanager.h \
  /usr/include/gtkmm-3.0/gtkmm/viewport.h \
  /usr/include/gtkmm-3.0/gtkmm/volumebutton.h \
- /home/xodefender/Apps/XTouch/XTouchClient/../XTouchClient/src/client/Client.hxx \
- /home/xodefender/Apps/XTouch/XTouchClient/../XTouchClient/src/client/net_modules.hxx \
- /home/xodefender/Apps/XTouch/XTouchClient/../XTouchClient/src/client/net_common.hxx \
- /usr/include/c++/11/cstring /usr/include/arpa/inet.h \
- /usr/include/netinet/in.h /usr/include/x86_64-linux-gnu/sys/socket.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
- /usr/include/x86_64-linux-gnu/bits/socket.h \
- /usr/include/x86_64-linux-gnu/bits/socket_type.h \
- /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
- /usr/include/x86_64-linux-gnu/asm/socket.h \
- /usr/include/asm-generic/socket.h \
- /usr/include/x86_64-linux-gnu/asm/sockios.h \
- /usr/include/asm-generic/sockios.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
- /usr/include/x86_64-linux-gnu/bits/in.h /usr/include/netdb.h \
- /usr/include/rpc/netdb.h /usr/include/x86_64-linux-gnu/bits/netdb.h \
- /usr/include/x86_64-linux-gnu/sys/epoll.h \
- /usr/include/x86_64-linux-gnu/bits/epoll.h /usr/include/fcntl.h \
- /usr/include/x86_64-linux-gnu/bits/fcntl.h \
- /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
- /usr/include/linux/falloc.h \
- /home/xodefender/Apps/XTouch/XTouchClient/../XTouchClient/src/client/net_message_types.hxx \
- /home/xodefender/Apps/XTouch/XTouchClient/../XTouchClient/src/client/net_message.hxx \
- /home/xodefender/Apps/XTouch/XTouchClient/../XTouchClient/src/client/net_client.hxx \
- /home/xodefender/Apps/XTouch/XTouchClient/src/main/LoginWindow.hxx \
- /home/xodefender/Apps/XTouch/XTouchClient/src/main/AdminWindow.hxx \
- /home/xodefender/Apps/XTouch/XTouchClient/src/main/MainWindow.hxx \
+ /home/xodefender/Apps/XTouch/XTouchClient/src/main/OcctGtkViewer.hxx \
+ /usr/local/include/opencascade/AIS_InteractiveContext.hxx \
+ /usr/local/include/opencascade/AIS_DataMapOfIOStatus.hxx \
+ /usr/local/include/opencascade/AIS_InteractiveObject.hxx \
+ /usr/local/include/opencascade/AIS_KindOfInteractive.hxx \
+ /usr/local/include/opencascade/AIS_DragAction.hxx \
+ /usr/local/include/opencascade/SelectMgr_SelectableObject.hxx \
+ /usr/local/include/opencascade/PrsMgr_PresentableObject.hxx \
+ /usr/local/include/opencascade/Aspect_TypeOfFacingModel.hxx \
+ /usr/local/include/opencascade/gp_GTrsf.hxx \
+ /usr/local/include/opencascade/gp_Ax1.hxx \
+ /usr/local/include/opencascade/gp_Pnt.hxx \
+ /usr/local/include/opencascade/Standard.hxx \
+ /usr/local/include/opencascade/Standard_DefineAlloc.hxx \
+ /usr/local/include/opencascade/Standard_Address.hxx \
+ /usr/local/include/opencascade/Standard_Integer.hxx \
+ /usr/local/include/opencascade/Standard_Std.hxx \
+ /usr/local/include/opencascade/Standard_TypeDef.hxx \
+ /usr/include/inttypes.h \
+ /usr/local/include/opencascade/Standard_Macro.hxx \
+ /usr/local/include/opencascade/Standard_values.h \
+ /usr/local/include/opencascade/Standard_Size.hxx \
+ /usr/local/include/opencascade/Standard_Transient.hxx \
+ /usr/local/include/opencascade/Standard_PrimitiveTypes.hxx \
+ /usr/local/include/opencascade/Standard_Boolean.hxx \
+ /usr/local/include/opencascade/Standard_Real.hxx \
+ /usr/local/include/opencascade/Standard_math.hxx \
+ /usr/local/include/opencascade/Standard_Character.hxx \
+ /usr/local/include/opencascade/Standard_ExtCharacter.hxx \
+ /usr/local/include/opencascade/Standard_CString.hxx \
+ /usr/local/include/opencascade/Standard_ExtString.hxx \
+ /usr/local/include/opencascade/Standard_Handle.hxx \
+ /usr/local/include/opencascade/Standard_Stream.hxx \
+ /usr/include/c++/11/iostream /usr/include/c++/11/iomanip \
+ /usr/include/c++/11/locale \
+ /usr/include/c++/11/bits/locale_facets_nonio.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/11/bits/codecvt.h \
+ /usr/include/c++/11/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/11/bits/locale_conv.h \
+ /usr/include/c++/11/bits/quoted_string.h /usr/include/c++/11/fstream \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
+ /usr/include/c++/11/bits/fstream.tcc \
+ /usr/local/include/opencascade/gp_XYZ.hxx \
+ /usr/local/include/opencascade/gp.hxx \
+ /usr/local/include/opencascade/gp_Mat.hxx \
+ /usr/local/include/opencascade/Standard_OutOfRange.hxx \
+ /usr/local/include/opencascade/Standard_Type.hxx \
+ /usr/local/include/opencascade/Standard_OStream.hxx \
+ /usr/include/c++/11/tr2/type_traits \
+ /usr/local/include/opencascade/Standard_SStream.hxx \
+ /usr/local/include/opencascade/Standard_RangeError.hxx \
+ /usr/local/include/opencascade/Standard_DomainError.hxx \
+ /usr/local/include/opencascade/Standard_DefineException.hxx \
+ /usr/local/include/opencascade/Standard_Failure.hxx \
+ /usr/local/include/opencascade/Standard_ConstructionError.hxx \
+ /usr/local/include/opencascade/gp_Trsf.hxx \
+ /usr/local/include/opencascade/gp_TrsfForm.hxx \
+ /usr/local/include/opencascade/NCollection_Mat4.hxx \
+ /usr/local/include/opencascade/NCollection_Vec4.hxx \
+ /usr/local/include/opencascade/NCollection_Vec3.hxx \
+ /usr/include/c++/11/cstring \
+ /usr/local/include/opencascade/NCollection_Vec2.hxx \
+ /usr/local/include/opencascade/Standard_Dump.hxx \
+ /usr/local/include/opencascade/NCollection_IndexedDataMap.hxx \
+ /usr/local/include/opencascade/NCollection_BaseMap.hxx \
+ /usr/local/include/opencascade/NCollection_BaseAllocator.hxx \
+ /usr/local/include/opencascade/NCollection_TypeDef.hxx \
+ /usr/local/include/opencascade/NCollection_DefineAlloc.hxx \
+ /usr/local/include/opencascade/NCollection_ListNode.hxx \
+ /usr/local/include/opencascade/NCollection_TListNode.hxx \
+ /usr/local/include/opencascade/Standard_TypeMismatch.hxx \
+ /usr/local/include/opencascade/Standard_NoSuchObject.hxx \
+ /usr/local/include/opencascade/NCollection_StlIterator.hxx \
+ /usr/local/include/opencascade/Standard_Assert.hxx \
+ /usr/local/include/opencascade/Standard_ProgramError.hxx \
+ /usr/local/include/opencascade/NCollection_DefaultHasher.hxx \
+ /usr/local/include/opencascade/NCollection_List.hxx \
+ /usr/local/include/opencascade/NCollection_TListIterator.hxx \
+ /usr/local/include/opencascade/NCollection_BaseList.hxx \
+ /usr/local/include/opencascade/TCollection_AsciiString.hxx \
+ /usr/local/include/opencascade/Standard_PCharacter.hxx \
+ /usr/local/include/opencascade/Standard_IStream.hxx \
+ /usr/local/include/opencascade/TCollection_AsciiString.lxx \
+ /usr/local/include/opencascade/NCollection_Mat3.hxx \
+ /usr/local/include/opencascade/gp_Trsf2d.hxx \
+ /usr/local/include/opencascade/gp_Mat2d.hxx \
+ /usr/local/include/opencascade/gp_XY.hxx \
+ /usr/local/include/opencascade/gp_Pnt2d.hxx \
+ /usr/local/include/opencascade/gp_Vec2d.hxx \
+ /usr/local/include/opencascade/gp_VectorWithNullMagnitude.hxx \
+ /usr/local/include/opencascade/gp_Dir2d.hxx \
+ /usr/local/include/opencascade/gp_Ax2d.hxx \
+ /usr/local/include/opencascade/gp_Vec.hxx \
+ /usr/local/include/opencascade/gp_Dir.hxx \
+ /usr/local/include/opencascade/gp_Ax2.hxx \
+ /usr/local/include/opencascade/Precision.hxx \
+ /usr/local/include/opencascade/Graphic3d_ClipPlane.hxx \
+ /usr/local/include/opencascade/gp_Pln.hxx \
+ /usr/local/include/opencascade/gp_Ax3.hxx \
+ /usr/local/include/opencascade/gp_Lin.hxx \
+ /usr/local/include/opencascade/Graphic3d_AspectFillArea3d.hxx \
+ /usr/local/include/opencascade/Graphic3d_Aspects.hxx \
+ /usr/local/include/opencascade/Aspect_InteriorStyle.hxx \
+ /usr/local/include/opencascade/Aspect_TypeOfDisplayText.hxx \
+ /usr/local/include/opencascade/Aspect_TypeOfLine.hxx \
+ /usr/local/include/opencascade/Aspect_TypeOfStyleText.hxx \
+ /usr/local/include/opencascade/Font_FontAspect.hxx \
+ /usr/local/include/opencascade/Graphic3d_AlphaMode.hxx \
+ /usr/local/include/opencascade/Graphic3d_MarkerImage.hxx \
+ /usr/local/include/opencascade/Aspect_TypeOfMarker.hxx \
+ /usr/local/include/opencascade/Graphic3d_Vec4.hxx \
+ /usr/local/include/opencascade/TColStd_HArray1OfByte.hxx \
+ /usr/local/include/opencascade/TColStd_Array1OfByte.hxx \
+ /usr/local/include/opencascade/NCollection_Array1.hxx \
+ /usr/local/include/opencascade/Standard_DimensionMismatch.hxx \
+ /usr/local/include/opencascade/Standard_DimensionError.hxx \
+ /usr/local/include/opencascade/Standard_OutOfMemory.hxx \
+ /usr/local/include/opencascade/NCollection_DefineHArray1.hxx \
+ /usr/local/include/opencascade/NCollection_DefineArray1.hxx \
+ /usr/local/include/opencascade/Graphic3d_MaterialAspect.hxx \
+ /usr/local/include/opencascade/Graphic3d_BSDF.hxx \
+ /usr/local/include/opencascade/Graphic3d_Vec3.hxx \
+ /usr/local/include/opencascade/Graphic3d_PBRMaterial.hxx \
+ /usr/local/include/opencascade/Image_PixMap.hxx \
+ /usr/local/include/opencascade/Image_CompressedFormat.hxx \
+ /usr/local/include/opencascade/Image_Format.hxx \
+ /usr/local/include/opencascade/Image_PixMapData.hxx \
+ /usr/local/include/opencascade/Image_Color.hxx \
+ /usr/local/include/opencascade/NCollection_Buffer.hxx \
+ /usr/local/include/opencascade/Quantity_ColorRGBA.hxx \
+ /usr/local/include/opencascade/Quantity_Color.hxx \
+ /usr/local/include/opencascade/Standard_ShortReal.hxx \
+ /usr/local/include/opencascade/Quantity_NameOfColor.hxx \
+ /usr/local/include/opencascade/Quantity_TypeOfColor.hxx \
+ /usr/local/include/opencascade/Graphic3d_Vec2.hxx \
+ /usr/local/include/opencascade/Graphic3d_NameOfMaterial.hxx \
+ /usr/local/include/opencascade/Graphic3d_TypeOfMaterial.hxx \
+ /usr/local/include/opencascade/Graphic3d_TypeOfReflection.hxx \
+ /usr/local/include/opencascade/Graphic3d_HatchStyle.hxx \
+ /usr/local/include/opencascade/Aspect_HatchStyle.hxx \
+ /usr/local/include/opencascade/Graphic3d_PolygonOffset.hxx \
+ /usr/local/include/opencascade/Aspect_PolygonOffsetMode.hxx \
+ /usr/local/include/opencascade/Graphic3d_ShaderProgram.hxx \
+ /usr/local/include/opencascade/Graphic3d_RenderTransparentMethod.hxx \
+ /usr/local/include/opencascade/Graphic3d_ShaderAttribute.hxx \
+ /usr/local/include/opencascade/Graphic3d_ShaderObject.hxx \
+ /usr/local/include/opencascade/Graphic3d_TypeOfShaderObject.hxx \
+ /usr/local/include/opencascade/NCollection_Sequence.hxx \
+ /usr/local/include/opencascade/NCollection_BaseSequence.hxx \
+ /usr/local/include/opencascade/OSD_Path.hxx \
+ /usr/local/include/opencascade/OSD_SysType.hxx \
+ /usr/local/include/opencascade/Graphic3d_ShaderVariable.hxx \
+ /usr/local/include/opencascade/Graphic3d_Vec.hxx \
+ /usr/local/include/opencascade/Graphic3d_Mat4.hxx \
+ /usr/local/include/opencascade/Graphic3d_Mat4d.hxx \
+ /usr/local/include/opencascade/Graphic3d_ShaderVariable.lxx \
+ /usr/local/include/opencascade/Graphic3d_TextureParams.hxx \
+ /usr/local/include/opencascade/Graphic3d_LevelOfTextureAnisotropy.hxx \
+ /usr/local/include/opencascade/Graphic3d_TextureUnit.hxx \
+ /usr/local/include/opencascade/Graphic3d_TypeOfTextureFilter.hxx \
+ /usr/local/include/opencascade/Graphic3d_TypeOfTextureMode.hxx \
+ /usr/local/include/opencascade/Graphic3d_TextureSet.hxx \
+ /usr/local/include/opencascade/Graphic3d_TextureMap.hxx \
+ /usr/local/include/opencascade/Graphic3d_TextureRoot.hxx \
+ /usr/local/include/opencascade/Graphic3d_TypeOfTexture.hxx \
+ /usr/local/include/opencascade/Graphic3d_TypeOfBackfacingModel.hxx \
+ /usr/local/include/opencascade/Graphic3d_TypeOfShadingModel.hxx \
+ /usr/local/include/opencascade/TCollection_HAsciiString.hxx \
+ /usr/local/include/opencascade/TCollection_HAsciiString.lxx \
+ /usr/local/include/opencascade/Graphic3d_BndBox3d.hxx \
+ /usr/local/include/opencascade/BVH_Box.hxx \
+ /usr/local/include/opencascade/BVH_Constants.hxx \
+ /usr/local/include/opencascade/BVH_Types.hxx \
+ /usr/local/include/opencascade/Bnd_Box.hxx \
+ /usr/local/include/opencascade/NCollection_Vector.hxx \
+ /usr/local/include/opencascade/NCollection_BaseVector.hxx \
+ /usr/local/include/opencascade/Graphic3d_CappingFlags.hxx \
+ /usr/local/include/opencascade/Prs3d_Drawer.hxx \
+ /usr/local/include/opencascade/Aspect_TypeOfDeflection.hxx \
+ /usr/local/include/opencascade/Graphic3d_GroupAspect.hxx \
+ /usr/local/include/opencascade/Graphic3d_PresentationAttributes.hxx \
+ /usr/local/include/opencascade/Aspect_TypeOfHighlightMethod.hxx \
+ /usr/local/include/opencascade/Graphic3d_ZLayerId.hxx \
+ /usr/local/include/opencascade/Prs3d_VertexDrawMode.hxx \
+ /usr/local/include/opencascade/Prs3d_DimensionUnits.hxx \
+ /usr/local/include/opencascade/Prs3d_TypeOfHLR.hxx \
+ /usr/local/include/opencascade/GeomAbs_Shape.hxx \
+ /usr/local/include/opencascade/PrsMgr_ListOfPresentableObjects.hxx \
+ /usr/local/include/opencascade/PrsMgr_Presentation.hxx \
+ /usr/local/include/opencascade/Prs3d_Presentation.hxx \
+ /usr/local/include/opencascade/Graphic3d_Structure.hxx \
+ /usr/local/include/opencascade/Graphic3d_CStructure.hxx \
+ /usr/local/include/opencascade/Graphic3d_DisplayPriority.hxx \
+ /usr/local/include/opencascade/Graphic3d_SequenceOfGroup.hxx \
+ /usr/local/include/opencascade/Graphic3d_Group.hxx \
+ /usr/local/include/opencascade/Graphic3d_BndBox4f.hxx \
+ /usr/local/include/opencascade/Graphic3d_MapOfAspectsToAspects.hxx \
+ /usr/local/include/opencascade/NCollection_DataMap.hxx \
+ /usr/local/include/opencascade/Graphic3d_Vertex.hxx \
+ /usr/local/include/opencascade/Graphic3d_TextPath.hxx \
+ /usr/local/include/opencascade/Graphic3d_HorizontalTextAlignment.hxx \
+ /usr/local/include/opencascade/Graphic3d_VerticalTextAlignment.hxx \
+ /usr/local/include/opencascade/Graphic3d_TypeOfPrimitiveArray.hxx \
+ /usr/local/include/opencascade/Graphic3d_IndexBuffer.hxx \
+ /usr/local/include/opencascade/Graphic3d_Buffer.hxx \
+ /usr/local/include/opencascade/Graphic3d_BufferRange.hxx \
+ /usr/local/include/opencascade/Standard_NotImplemented.hxx \
+ /usr/local/include/opencascade/Graphic3d_BoundBuffer.hxx \
+ /usr/local/include/opencascade/TCollection_ExtendedString.hxx \
+ /usr/local/include/opencascade/Standard_PExtCharacter.hxx \
+ /usr/local/include/opencascade/Graphic3d_SequenceOfHClipPlane.hxx \
+ /usr/local/include/opencascade/Graphic3d_ViewAffinity.hxx \
+ /usr/local/include/opencascade/Graphic3d_TransformPers.hxx \
+ /usr/local/include/opencascade/Aspect_TypeOfTriedronPosition.hxx \
+ /usr/local/include/opencascade/Graphic3d_Camera.hxx \
+ /usr/local/include/opencascade/Aspect_Eye.hxx \
+ /usr/local/include/opencascade/Aspect_FrustumLRBT.hxx \
+ /usr/local/include/opencascade/Graphic3d_CameraTile.hxx \
+ /usr/local/include/opencascade/Graphic3d_WorldViewProjState.hxx \
+ /usr/local/include/opencascade/NCollection_Lerp.hxx \
+ /usr/local/include/opencascade/Graphic3d_TransformUtils.hxx \
+ /usr/local/include/opencascade/Graphic3d_TransModeFlags.hxx \
+ /usr/local/include/opencascade/TopLoc_Datum3D.hxx \
+ /usr/local/include/opencascade/NCollection_IndexedMap.hxx \
+ /usr/local/include/opencascade/Graphic3d_MapOfStructure.hxx \
+ /usr/local/include/opencascade/NCollection_Map.hxx \
+ /usr/local/include/opencascade/Graphic3d_TypeOfConnection.hxx \
+ /usr/local/include/opencascade/Graphic3d_TypeOfStructure.hxx \
+ /usr/local/include/opencascade/PrsMgr_Presentations.hxx \
+ /usr/local/include/opencascade/PrsMgr_DisplayStatus.hxx \
+ /usr/local/include/opencascade/PrsMgr_TypeOfPresentation3d.hxx \
+ /usr/local/include/opencascade/TColStd_ListOfInteger.hxx \
+ /usr/local/include/opencascade/SelectMgr_IndexedMapOfOwner.hxx \
+ /usr/local/include/opencascade/NCollection_Shared.hxx \
+ /usr/local/include/opencascade/SelectMgr_SequenceOfSelection.hxx \
+ /usr/local/include/opencascade/SelectMgr_Selection.hxx \
+ /usr/local/include/opencascade/SelectMgr_SensitiveEntity.hxx \
+ /usr/local/include/opencascade/Select3D_SensitiveEntity.hxx \
+ /usr/local/include/opencascade/Select3D_BndBox3d.hxx \
+ /usr/local/include/opencascade/SelectMgr_SelectingVolumeManager.hxx \
+ /usr/local/include/opencascade/SelectBasics_SelectingVolumeManager.hxx \
+ /usr/local/include/opencascade/TColgp_HArray1OfPnt.hxx \
+ /usr/local/include/opencascade/TColgp_Array1OfPnt.hxx \
+ /usr/local/include/opencascade/SelectBasics_PickResult.hxx \
+ /usr/local/include/opencascade/SelectMgr_SelectionType.hxx \
+ /usr/local/include/opencascade/SelectMgr_BaseIntersector.hxx \
+ /usr/local/include/opencascade/Select3D_TypeOfSensitivity.hxx \
+ /usr/local/include/opencascade/SelectMgr_VectorTypes.hxx \
+ /usr/local/include/opencascade/TColgp_Array1OfPnt2d.hxx \
+ /usr/local/include/opencascade/SelectMgr_ViewClipRange.hxx \
+ /usr/local/include/opencascade/Bnd_Range.hxx \
+ /usr/local/include/opencascade/TopLoc_Location.hxx \
+ /usr/local/include/opencascade/TopLoc_SListOfItemLocation.hxx \
+ /usr/local/include/opencascade/TopLoc_Location.lxx \
+ /usr/local/include/opencascade/TopLoc_ItemLocation.hxx \
+ /usr/local/include/opencascade/SelectMgr_StateOfSelection.hxx \
+ /usr/local/include/opencascade/SelectMgr_TypeOfBVHUpdate.hxx \
+ /usr/local/include/opencascade/SelectMgr_TypeOfUpdate.hxx \
+ /usr/local/include/opencascade/SelectMgr_SequenceOfOwner.hxx \
+ /usr/local/include/opencascade/AIS_GlobalStatus.hxx \
+ /usr/local/include/opencascade/TColStd_MapTransientHasher.hxx \
+ /usr/local/include/opencascade/AIS_DisplayMode.hxx \
+ /usr/local/include/opencascade/AIS_DisplayStatus.hxx \
+ /usr/local/include/opencascade/AIS_ListOfInteractive.hxx \
+ /usr/local/include/opencascade/AIS_Selection.hxx \
+ /usr/local/include/opencascade/AIS_NArray1OfEntityOwner.hxx \
+ /usr/local/include/opencascade/SelectMgr_EntityOwner.hxx \
+ /usr/local/include/opencascade/AIS_SelectionScheme.hxx \
+ /usr/local/include/opencascade/Aspect_VKey.hxx \
+ /usr/local/include/opencascade/Aspect_VKeyFlags.hxx \
+ /usr/local/include/opencascade/PrsMgr_PresentationManager.hxx \
+ /usr/local/include/opencascade/Graphic3d_StructureManager.hxx \
+ /usr/local/include/opencascade/Aspect_GenId.hxx \
+ /usr/local/include/opencascade/Graphic3d_CView.hxx \
+ /usr/local/include/opencascade/Aspect_RenderingContext.hxx \
+ /usr/local/include/opencascade/Aspect_SkydomeBackground.hxx \
+ /usr/local/include/opencascade/Aspect_Window.hxx \
+ /usr/local/include/opencascade/Aspect_Background.hxx \
+ /usr/local/include/opencascade/Aspect_GradientBackground.hxx \
+ /usr/local/include/opencascade/Aspect_GradientFillMethod.hxx \
+ /usr/local/include/opencascade/Aspect_FBConfig.hxx \
+ /usr/local/include/opencascade/Aspect_FillMethod.hxx \
+ /usr/local/include/opencascade/Aspect_TypeOfResize.hxx \
+ /usr/local/include/opencascade/Aspect_Drawable.hxx \
+ /usr/local/include/opencascade/Graphic3d_BufferType.hxx \
+ /usr/local/include/opencascade/Graphic3d_CubeMap.hxx \
+ /usr/local/include/opencascade/Graphic3d_CubeMapOrder.hxx \
+ /usr/local/include/opencascade/Graphic3d_CubeMapSide.hxx \
+ /usr/local/include/opencascade/Graphic3d_DataStructureManager.hxx \
+ /usr/local/include/opencascade/Graphic3d_DiagnosticInfo.hxx \
+ /usr/local/include/opencascade/Graphic3d_GraduatedTrihedron.hxx \
+ /usr/local/include/opencascade/Graphic3d_NMapOfTransient.hxx \
+ /usr/local/include/opencascade/Graphic3d_RenderingParams.hxx \
+ /usr/local/include/opencascade/Font_Hinting.hxx \
+ /usr/local/include/opencascade/Font_NameOfFont.hxx \
+ /usr/local/include/opencascade/Graphic3d_AspectText3d.hxx \
+ /usr/local/include/opencascade/Graphic3d_RenderingMode.hxx \
+ /usr/local/include/opencascade/Graphic3d_StereoMode.hxx \
+ /usr/local/include/opencascade/Graphic3d_ToneMappingMethod.hxx \
+ /usr/local/include/opencascade/Graphic3d_SequenceOfStructure.hxx \
+ /usr/local/include/opencascade/Graphic3d_TextureEnv.hxx \
+ /usr/local/include/opencascade/Graphic3d_NameOfTextureEnv.hxx \
+ /usr/local/include/opencascade/Graphic3d_TypeOfAnswer.hxx \
+ /usr/local/include/opencascade/Graphic3d_TypeOfBackground.hxx \
+ /usr/local/include/opencascade/Graphic3d_TypeOfVisualization.hxx \
+ /usr/local/include/opencascade/Graphic3d_ZLayerSettings.hxx \
+ /usr/local/include/opencascade/Graphic3d_LightSet.hxx \
+ /usr/local/include/opencascade/Graphic3d_CLight.hxx \
+ /usr/local/include/opencascade/Graphic3d_TypeOfLightSource.hxx \
+ /usr/local/include/opencascade/TColStd_IndexedDataMapOfStringString.hxx \
+ /usr/local/include/opencascade/Graphic3d_MapOfObject.hxx \
+ /usr/local/include/opencascade/TColStd_Array2OfReal.hxx \
+ /usr/local/include/opencascade/NCollection_Array2.hxx \
+ /usr/local/include/opencascade/PrsMgr_ListOfPresentations.hxx \
+ /usr/local/include/opencascade/AIS_NListOfEntityOwner.hxx \
+ /usr/local/include/opencascade/AIS_SelectStatus.hxx \
+ /usr/local/include/opencascade/AIS_SelectionModesConcurrency.hxx \
+ /usr/local/include/opencascade/AIS_StatusOfDetection.hxx \
+ /usr/local/include/opencascade/AIS_StatusOfPick.hxx \
+ /usr/local/include/opencascade/AIS_TypeOfIso.hxx \
+ /usr/local/include/opencascade/Prs3d_TypeOfHighlight.hxx \
+ /usr/local/include/opencascade/SelectMgr_AndOrFilter.hxx \
+ /usr/local/include/opencascade/SelectMgr_CompositionFilter.hxx \
+ /usr/local/include/opencascade/SelectMgr_ListOfFilter.hxx \
+ /usr/local/include/opencascade/SelectMgr_Filter.hxx \
+ /usr/local/include/opencascade/TopAbs_ShapeEnum.hxx \
+ /usr/local/include/opencascade/SelectMgr_FilterType.hxx \
+ /usr/local/include/opencascade/SelectMgr_PickingStrategy.hxx \
+ /usr/local/include/opencascade/SelectMgr_SelectionManager.hxx \
+ /usr/local/include/opencascade/SelectMgr_ViewerSelector.hxx \
+ /usr/local/include/opencascade/OSD_Chronometer.hxx \
+ /usr/local/include/opencascade/SelectMgr_BVHThreadPool.hxx \
+ /usr/local/include/opencascade/OSD_Thread.hxx \
+ /usr/local/include/opencascade/OSD_ThreadFunction.hxx \
+ /usr/local/include/opencascade/OSD_PThread.hxx \
+ /usr/local/include/opencascade/Standard_ThreadId.hxx \
+ /usr/local/include/opencascade/Standard_Mutex.hxx \
+ /usr/local/include/opencascade/Standard_ErrorHandler.hxx \
+ /usr/local/include/opencascade/Standard_PErrorHandler.hxx \
+ /usr/local/include/opencascade/Standard_JmpBuf.hxx \
+ /usr/local/include/opencascade/Standard_HandlerStatus.hxx \
+ /usr/local/include/opencascade/Standard_Condition.hxx \
+ /usr/local/include/opencascade/Message_Messenger.hxx \
+ /usr/local/include/opencascade/Message_SequenceOfPrinters.hxx \
+ /usr/local/include/opencascade/Message_Printer.hxx \
+ /usr/local/include/opencascade/Message_Gravity.hxx \
+ /usr/local/include/opencascade/TCollection_HExtendedString.hxx \
+ /usr/local/include/opencascade/SelectMgr_IndexedDataMapOfOwnerCriterion.hxx \
+ /usr/local/include/opencascade/SelectMgr_SortCriterion.hxx \
+ /usr/local/include/opencascade/SelectMgr_SelectableObjectSet.hxx \
+ /usr/local/include/opencascade/NCollection_Handle.hxx \
+ /usr/local/include/opencascade/Select3D_BVHBuilder3d.hxx \
+ /usr/local/include/opencascade/BVH_Builder.hxx \
+ /usr/local/include/opencascade/BVH_Set.hxx \
+ /usr/local/include/opencascade/BVH_BinaryTree.hxx \
+ /usr/local/include/opencascade/BVH_QuadTree.hxx \
+ /usr/local/include/opencascade/BVH_Tree.hxx \
+ /usr/local/include/opencascade/SelectMgr_ToleranceMap.hxx \
+ /usr/local/include/opencascade/SelectMgr_TypeOfDepthTolerance.hxx \
+ /usr/local/include/opencascade/StdSelect_TypeOfSelectionImage.hxx \
+ /usr/local/include/opencascade/TColStd_HArray1OfInteger.hxx \
+ /usr/local/include/opencascade/TColStd_Array1OfInteger.hxx \
+ /usr/local/include/opencascade/StdSelect_ViewerSelector3d.hxx \
+ /usr/local/include/opencascade/TColStd_SequenceOfInteger.hxx \
+ /usr/local/include/opencascade/AIS_ViewController.hxx \
+ /usr/local/include/opencascade/Aspect_WindowInputListener.hxx \
+ /usr/local/include/opencascade/Aspect_VKeySet.hxx \
+ /usr/local/include/opencascade/OSD_Timer.hxx \
+ /usr/local/include/opencascade/Aspect_TouchMap.hxx \
+ /usr/local/include/opencascade/Aspect_Touch.hxx \
+ /usr/local/include/opencascade/Aspect_XRHapticActionData.hxx \
+ /usr/local/include/opencascade/Aspect_XRTrackedDeviceRole.hxx \
+ /usr/local/include/opencascade/AIS_MouseGesture.hxx \
+ /usr/local/include/opencascade/AIS_NavigationMode.hxx \
+ /usr/local/include/opencascade/AIS_ViewInputBuffer.hxx \
+ /usr/local/include/opencascade/Aspect_ScrollDelta.hxx \
+ /usr/local/include/opencascade/V3d_TypeOfOrientation.hxx \
+ /usr/local/include/opencascade/AIS_RotationMode.hxx \
+ /usr/local/include/opencascade/AIS_WalkDelta.hxx \
+ /usr/local/include/opencascade/AIS_ViewCube.hxx \
+ /usr/local/include/opencascade/Prs3d_DatumParts.hxx \
+ /usr/local/include/opencascade/Prs3d_ShadingAspect.hxx \
+ /usr/local/include/opencascade/Prs3d_BasicAspect.hxx \
+ /usr/local/include/opencascade/Prs3d_TextAspect.hxx \
+ /usr/local/include/opencascade/Select3D_SensitivePrimitiveArray.hxx \
+ /usr/local/include/opencascade/Select3D_SensitiveSet.hxx \
+ /usr/local/include/opencascade/BVH_PrimitiveSet3d.hxx \
+ /usr/local/include/opencascade/BVH_PrimitiveSet.hxx \
+ /usr/local/include/opencascade/BVH_Object.hxx \
+ /usr/local/include/opencascade/BVH_Properties.hxx \
+ /usr/local/include/opencascade/BVH_BinnedBuilder.hxx \
+ /usr/local/include/opencascade/BVH_QueueBuilder.hxx \
+ /usr/local/include/opencascade/BVH_BuildThread.hxx \
+ /usr/local/include/opencascade/BVH_BuildQueue.hxx \
+ /usr/local/include/opencascade/Select3D_BVHIndexBuffer.hxx \
+ /usr/local/include/opencascade/TColStd_HPackedMapOfInteger.hxx \
+ /usr/local/include/opencascade/TColStd_PackedMapOfInteger.hxx \
+ /usr/local/include/opencascade/TColStd_HPackedMapOfInteger.lxx \
+ /usr/local/include/opencascade/AIS_Shape.hxx \
+ /usr/local/include/opencascade/TopoDS_Shape.hxx \
+ /usr/local/include/opencascade/TopoDS_TShape.hxx \
+ /usr/local/include/opencascade/TopAbs.hxx \
+ /usr/local/include/opencascade/TopAbs_Orientation.hxx \
+ /usr/local/include/opencascade/TopAbs_State.hxx \
+ /usr/local/include/opencascade/TopoDS_ListOfShape.hxx \
+ /usr/local/include/opencascade/AIS_ConnectedInteractive.hxx \
+ /usr/local/include/opencascade/Aspect_NeutralWindow.hxx \
+ /usr/local/include/opencascade/V3d_Viewer.hxx \
+ /usr/local/include/opencascade/Aspect_GridDrawMode.hxx \
+ /usr/local/include/opencascade/Aspect_GridType.hxx \
+ /usr/local/include/opencascade/TColStd_MapOfInteger.hxx \
+ /usr/local/include/opencascade/TColStd_MapIntegerHasher.hxx \
+ /usr/local/include/opencascade/V3d_ListOfLight.hxx \
+ /usr/local/include/opencascade/V3d_Light.hxx \
+ /usr/local/include/opencascade/V3d_ListOfView.hxx \
+ /usr/local/include/opencascade/V3d_TypeOfView.hxx \
+ /usr/local/include/opencascade/V3d_TypeOfVisualization.hxx \
+ /usr/local/include/opencascade/V3d_View.hxx \
+ /usr/local/include/opencascade/Graphic3d_Texture2D.hxx \
+ /usr/local/include/opencascade/Graphic3d_NameOfTexture2D.hxx \
+ /usr/local/include/opencascade/V3d_ImageDumpOptions.hxx \
+ /usr/local/include/opencascade/V3d_StereoDumpOptions.hxx \
+ /usr/local/include/opencascade/V3d_Trihedron.hxx \
+ /usr/local/include/opencascade/Prs3d_LineAspect.hxx \
+ /usr/local/include/opencascade/Graphic3d_AspectLine3d.hxx \
+ /usr/local/include/opencascade/V3d_TypeOfAxe.hxx \
+ /usr/local/include/opencascade/TopoDS_Solid.hxx \
+ /usr/local/include/opencascade/TopoDS_Solid.lxx \
+ /usr/local/include/opencascade/TDocStd_Application.hxx \
+ /usr/local/include/opencascade/CDF_Application.hxx \
+ /usr/local/include/opencascade/PCDM_ReaderStatus.hxx \
+ /usr/local/include/opencascade/CDF_TypeOfActivation.hxx \
+ /usr/local/include/opencascade/CDF_MetaDataDriver.hxx \
+ /usr/local/include/opencascade/CDM_Application.hxx \
+ /usr/local/include/opencascade/CDM_MetaDataLookUpTable.hxx \
+ /usr/local/include/opencascade/Message_ProgressRange.hxx \
+ /usr/local/include/opencascade/Message_ProgressIndicator.hxx \
+ /usr/local/include/opencascade/Message_ProgressScope.hxx \
+ /usr/local/include/opencascade/CDM_CanCloseStatus.hxx \
+ /usr/local/include/opencascade/TColStd_SequenceOfAsciiString.hxx \
+ /usr/local/include/opencascade/PCDM_StoreStatus.hxx \
+ /usr/local/include/opencascade/TDocStd_Document.hxx \
+ /usr/local/include/opencascade/TDF_Transaction.hxx \
+ /usr/local/include/opencascade/TDF_Transaction.lxx \
+ /usr/local/include/opencascade/TDF_DeltaList.hxx \
+ /usr/local/include/opencascade/TDF_Delta.hxx \
+ /usr/local/include/opencascade/TDF_AttributeDeltaList.hxx \
+ /usr/local/include/opencascade/TDF_AttributeDelta.hxx \
+ /usr/local/include/opencascade/TDF_Label.hxx \
+ /usr/local/include/opencascade/TDF_LabelNodePtr.hxx \
+ /usr/local/include/opencascade/TDF_AttributeIndexedMap.hxx \
+ /usr/local/include/opencascade/TDF_Label.lxx \
+ /usr/local/include/opencascade/TDF_LabelNode.hxx \
+ /usr/local/include/opencascade/TDF_Attribute.hxx \
+ /usr/local/include/opencascade/TDF_Attribute.lxx \
+ /usr/local/include/opencascade/TDF_HAllocator.hxx \
+ /usr/include/c++/11/atomic \
+ /usr/local/include/opencascade/TDF_TagSource.hxx \
+ /usr/local/include/opencascade/TDF_Data.hxx \
+ /usr/local/include/opencascade/TDF_Data.lxx \
+ /usr/local/include/opencascade/TDF_LabelList.hxx \
+ /usr/local/include/opencascade/TDF_Delta.lxx \
+ /usr/local/include/opencascade/CDM_Document.hxx \
+ /usr/local/include/opencascade/CDM_ListOfReferences.hxx \
+ /usr/local/include/opencascade/CDM_Reference.hxx \
+ /usr/local/include/opencascade/CDM_DocumentPointer.hxx \
+ /usr/local/include/opencascade/TColStd_SequenceOfExtendedString.hxx \
+ /usr/local/include/opencascade/CDM_ListOfDocument.hxx \
+ /usr/local/include/opencascade/TDF_LabelMap.hxx \
+ /usr/local/include/opencascade/TDF_LabelMapHasher.hxx \
+ /usr/local/include/opencascade/TDocStd_FormatVersion.hxx \
+ /usr/local/include/opencascade/TDocStd_Document.lxx \
+ /usr/local/include/opencascade/TDataStd_Name.hxx \
+ /usr/local/include/opencascade/TDataStd_GenericExtString.hxx \
+ /usr/local/include/opencascade/TDF_DerivedAttribute.hxx \
+ /usr/local/include/opencascade/Standard_GUID.hxx \
+ /usr/local/include/opencascade/Standard_UUID.hxx \
+ /usr/local/include/opencascade/XCAFPrs_DocumentExplorer.hxx \
+ /usr/local/include/opencascade/XCAFPrs_DocumentNode.hxx \
+ /usr/local/include/opencascade/XCAFPrs_Style.hxx \
+ /usr/local/include/opencascade/Quantity_ColorRGBAHasher.hxx \
+ /usr/local/include/opencascade/Quantity_ColorHasher.hxx \
+ /usr/local/include/opencascade/XCAFDoc_VisMaterial.hxx \
+ /usr/local/include/opencascade/XCAFDoc_VisMaterialCommon.hxx \
+ /usr/local/include/opencascade/Image_Texture.hxx \
+ /usr/local/include/opencascade/XCAFDoc_VisMaterialPBR.hxx \
+ /usr/local/include/opencascade/TDF_ChildIterator.hxx \
+ /usr/local/include/opencascade/TDF_ChildIterator.lxx \
+ /usr/local/include/opencascade/TDF_LabelSequence.hxx \
+ /home/xodefender/Apps/XTouch/XTouchClient/src/main/ViewerInteractor.hxx \
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/ControlPanel.hxx \
- /home/xodefender/Apps/XTouch/XTouchClient/src/main/InFolderWindow.hxx \
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/PaintWindow.hxx \
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/DrawHelper.hxx \
- /usr/include/cairo/cairo.h \
- /home/xodefender/Apps/XTouch/XTouchClient/src/main/ModelFileManager.hxx \
- /usr/include/c++/11/thread /usr/include/c++/11/stop_token \
- /usr/include/c++/11/atomic /usr/include/c++/11/bits/std_thread.h \
- /usr/include/c++/11/semaphore /usr/include/c++/11/bits/semaphore_base.h \
- /usr/include/c++/11/bits/atomic_timed_wait.h \
- /usr/include/c++/11/bits/this_thread_sleep.h \
- /usr/include/x86_64-linux-gnu/sys/time.h /usr/include/semaphore.h \
- /usr/include/x86_64-linux-gnu/bits/semaphore.h
+ /usr/include/cairo/cairo.h /usr/include/c++/11/filesystem \
+ /usr/include/c++/11/bits/fs_fwd.h /usr/include/c++/11/bits/fs_path.h \
+ /usr/include/c++/11/codecvt /usr/include/c++/11/bits/fs_dir.h \
+ /usr/include/c++/11/bits/fs_ops.h

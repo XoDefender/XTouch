@@ -9,6 +9,7 @@
 #include "AdminWindow.hxx"
 #include "MainWindow.hxx"
 #include "InFolderWindow.hxx"
+#include "PaintWindow.hxx"
 #include "ModelFileManager.hxx"
 
 using namespace std;
@@ -40,21 +41,24 @@ bool PassFileDataToVector(string filePath, vector<string> &data, char ignoreStin
     return false;
 }
 
-void ParseGladeData()
+void GetUIData()
 {
     vector<string> fileData;
-    PassFileDataToVector("../../../XTouchClient/res/UIData", fileData);
+    PassFileDataToVector("../../../XTouchClient/res/UIData", fileData, '#');
 
     global::loginWindowUI = fileData[0];
     global::adminWindowUI = fileData[1];
     global::mainWindowUI = fileData[2];
     global::viewportWindowUI = fileData[3];
-    global::mainWindowCSS = fileData[4];
-    global::inFolderWindowCSS = fileData[5];
-    global::viewportWindowCSS = fileData[6];
+    global::paintWindowUI = fileData[4];
+
+    global::mainWindowCSS = fileData[5];
+    global::inFolderWindowCSS = fileData[6];
+    global::viewportWindowCSS = fileData[7];
+    global::paintWindowCSS = fileData[8];
 }
 
-void ParseGlobalData()
+void GetConfigData()
 {
     vector<string> fileData;
     PassFileDataToVector("../../../XTouchClient/res/Config", fileData, '#');
@@ -62,19 +66,17 @@ void ParseGlobalData()
     global::serverIp = GetSubstringAfterSeparator('=', fileData[0], 2);
     global::serverPort = stoi(GetSubstringAfterSeparator('=', fileData[1], 2));
 
-    global::saveFolderPath = GetSubstringAfterSeparator('=', fileData[2], 2);
+    global::saveModelPath = GetSubstringAfterSeparator('=', fileData[2], 2);
     global::testModelFolder = GetSubstringAfterSeparator('=', fileData[3], 2);
 
-    global::loginFilePath = GetSubstringAfterSeparator('=', fileData[6], 2);
-
-    string toBool = GetSubstringAfterSeparator('=', fileData[7], 2);
-    global::downloadStepFile = (toBool.at(0) == '1');
+    global::saveImagePath = GetSubstringAfterSeparator('=', fileData[4], 2);
+    global::saveImagePrefix = GetSubstringAfterSeparator('=', fileData[5], 2);
 }
 
-void ParseData()
+void GetApplicationData()
 {
-    ParseGlobalData();
-    ParseGladeData();
+    GetConfigData();
+    GetUIData();
 }
 
 void InitWindows()
@@ -84,6 +86,7 @@ void InitWindows()
     mainWindow = new MainWindow();
     inFolderWindow = new InFolderWindow();
     modelFileManager = new ModelFileManager();
+    paintWindow = new PaintWindow();
 }
 
 int main(int argc, char *argv[])
@@ -92,7 +95,7 @@ int main(int argc, char *argv[])
 
     global::app = Gtk::Application::create(argc, argv, "");
 
-    ParseData();
+    GetApplicationData();
     InitWindows();
 
     try

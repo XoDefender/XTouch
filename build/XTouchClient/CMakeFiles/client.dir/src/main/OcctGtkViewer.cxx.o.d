@@ -2111,4 +2111,7 @@ XTouchClient/CMakeFiles/client.dir/src/main/OcctGtkViewer.cxx.o: \
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/../client/net_message.hxx \
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/../client/net_client.hxx \
  /home/xodefender/Apps/XTouch/XTouchClient/src/main/../client/Client.hxx \
- /home/xodefender/Apps/XTouch/XTouchClient/src/main/MainWindow.hxx
+ /home/xodefender/Apps/XTouch/XTouchClient/src/main/MainWindow.hxx \
+ /home/xodefender/Apps/XTouch/XTouchClient/src/main/PaintWindow.hxx \
+ /home/xodefender/Apps/XTouch/XTouchClient/src/main/DrawHelper.hxx \
+ /usr/include/cairo/cairo.h

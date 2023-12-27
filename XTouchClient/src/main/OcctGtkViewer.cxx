@@ -31,6 +31,7 @@
 
 #include "InFolderWindow.hxx"
 #include "MainWindow.hxx"
+#include "PaintWindow.hxx"
 
 using namespace std;
 
@@ -843,7 +844,8 @@ bool OcctGtkViewer::MakeScreenshot()
     screen = gdk_pixbuf_get_from_surface(surface, x, y, width, height);
     gdk_pixbuf_save(screen, "/tmp/file.png", "png", NULL, "quality", "100", NULL);
 
-    system("./paint/paint");
+    paintWindow->OpenWindow();
+    HideWindow();
   }
 
   myGLArea->hide();
@@ -990,22 +992,8 @@ void OcctGtkViewer::InitializeOcctDoc(string pathToFile)
   occtApp->NewDocument("BinXCAF", occtDoc);
   BinXCAFDrivers::DefineFormat(occtApp);
 
-  if (!global::downloadStepFile)
-  {
-    occtApp->Open(pathToFile.c_str(), occtDoc);
-    occtApp->Close(occtDoc);
-  }
-  else
-  {
-    if (pathToFile == "")
-      pathToFile = global::testModelFolder;
-
-    STEPCAFControl_Reader aStepReader;
-    aStepReader.Perform(pathToFile.c_str(), occtDoc);
-
-    // occtApp->SaveAs(occtDoc, "./ 1.xbf");
-    // Проверить, нужен ли occtApp->Close(occtDoc); в этом блоке
-  }
+  occtApp->Open(pathToFile.c_str(), occtDoc);
+  occtApp->Close(occtDoc);
 }
 
 void OcctGtkViewer::RestoreUI()

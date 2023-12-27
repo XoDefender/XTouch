@@ -209,10 +209,38 @@ XTouchClient/CMakeFiles/client.dir/src/main/ControlPanel.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/src/main/ControlPanel.cxx.s"
 	cd /home/xodefender/Apps/XTouch/build/XTouchClient && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xodefender/Apps/XTouch/XTouchClient/src/main/ControlPanel.cxx -o CMakeFiles/client.dir/src/main/ControlPanel.cxx.s
 
+XTouchClient/CMakeFiles/client.dir/src/main/PaintWindow.cxx.o: XTouchClient/CMakeFiles/client.dir/flags.make
+XTouchClient/CMakeFiles/client.dir/src/main/PaintWindow.cxx.o: ../XTouchClient/src/main/PaintWindow.cxx
+XTouchClient/CMakeFiles/client.dir/src/main/PaintWindow.cxx.o: XTouchClient/CMakeFiles/client.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xodefender/Apps/XTouch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object XTouchClient/CMakeFiles/client.dir/src/main/PaintWindow.cxx.o"
+	cd /home/xodefender/Apps/XTouch/build/XTouchClient && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT XTouchClient/CMakeFiles/client.dir/src/main/PaintWindow.cxx.o -MF CMakeFiles/client.dir/src/main/PaintWindow.cxx.o.d -o CMakeFiles/client.dir/src/main/PaintWindow.cxx.o -c /home/xodefender/Apps/XTouch/XTouchClient/src/main/PaintWindow.cxx
+
+XTouchClient/CMakeFiles/client.dir/src/main/PaintWindow.cxx.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/src/main/PaintWindow.cxx.i"
+	cd /home/xodefender/Apps/XTouch/build/XTouchClient && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xodefender/Apps/XTouch/XTouchClient/src/main/PaintWindow.cxx > CMakeFiles/client.dir/src/main/PaintWindow.cxx.i
+
+XTouchClient/CMakeFiles/client.dir/src/main/PaintWindow.cxx.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/src/main/PaintWindow.cxx.s"
+	cd /home/xodefender/Apps/XTouch/build/XTouchClient && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xodefender/Apps/XTouch/XTouchClient/src/main/PaintWindow.cxx -o CMakeFiles/client.dir/src/main/PaintWindow.cxx.s
+
+XTouchClient/CMakeFiles/client.dir/src/main/DrawHelper.cxx.o: XTouchClient/CMakeFiles/client.dir/flags.make
+XTouchClient/CMakeFiles/client.dir/src/main/DrawHelper.cxx.o: ../XTouchClient/src/main/DrawHelper.cxx
+XTouchClient/CMakeFiles/client.dir/src/main/DrawHelper.cxx.o: XTouchClient/CMakeFiles/client.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xodefender/Apps/XTouch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object XTouchClient/CMakeFiles/client.dir/src/main/DrawHelper.cxx.o"
+	cd /home/xodefender/Apps/XTouch/build/XTouchClient && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT XTouchClient/CMakeFiles/client.dir/src/main/DrawHelper.cxx.o -MF CMakeFiles/client.dir/src/main/DrawHelper.cxx.o.d -o CMakeFiles/client.dir/src/main/DrawHelper.cxx.o -c /home/xodefender/Apps/XTouch/XTouchClient/src/main/DrawHelper.cxx
+
+XTouchClient/CMakeFiles/client.dir/src/main/DrawHelper.cxx.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/src/main/DrawHelper.cxx.i"
+	cd /home/xodefender/Apps/XTouch/build/XTouchClient && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xodefender/Apps/XTouch/XTouchClient/src/main/DrawHelper.cxx > CMakeFiles/client.dir/src/main/DrawHelper.cxx.i
+
+XTouchClient/CMakeFiles/client.dir/src/main/DrawHelper.cxx.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/src/main/DrawHelper.cxx.s"
+	cd /home/xodefender/Apps/XTouch/build/XTouchClient && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xodefender/Apps/XTouch/XTouchClient/src/main/DrawHelper.cxx -o CMakeFiles/client.dir/src/main/DrawHelper.cxx.s
+
 XTouchClient/CMakeFiles/client.dir/src/client/Client.cxx.o: XTouchClient/CMakeFiles/client.dir/flags.make
 XTouchClient/CMakeFiles/client.dir/src/client/Client.cxx.o: ../XTouchClient/src/client/Client.cxx
 XTouchClient/CMakeFiles/client.dir/src/client/Client.cxx.o: XTouchClient/CMakeFiles/client.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xodefender/Apps/XTouch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object XTouchClient/CMakeFiles/client.dir/src/client/Client.cxx.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xodefender/Apps/XTouch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object XTouchClient/CMakeFiles/client.dir/src/client/Client.cxx.o"
 	cd /home/xodefender/Apps/XTouch/build/XTouchClient && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT XTouchClient/CMakeFiles/client.dir/src/client/Client.cxx.o -MF CMakeFiles/client.dir/src/client/Client.cxx.o.d -o CMakeFiles/client.dir/src/client/Client.cxx.o -c /home/xodefender/Apps/XTouch/XTouchClient/src/client/Client.cxx
 
 XTouchClient/CMakeFiles/client.dir/src/client/Client.cxx.i: cmake_force
@@ -235,6 +263,8 @@ client_OBJECTS = \
 "CMakeFiles/client.dir/src/main/OcctGtkViewer.cxx.o" \
 "CMakeFiles/client.dir/src/main/ViewerInteractor.cxx.o" \
 "CMakeFiles/client.dir/src/main/ControlPanel.cxx.o" \
+"CMakeFiles/client.dir/src/main/PaintWindow.cxx.o" \
+"CMakeFiles/client.dir/src/main/DrawHelper.cxx.o" \
 "CMakeFiles/client.dir/src/client/Client.cxx.o"
 
 # External object files for target client
@@ -250,6 +280,8 @@ bin/client/client: XTouchClient/CMakeFiles/client.dir/src/main/ModelFileManager.
 bin/client/client: XTouchClient/CMakeFiles/client.dir/src/main/OcctGtkViewer.cxx.o
 bin/client/client: XTouchClient/CMakeFiles/client.dir/src/main/ViewerInteractor.cxx.o
 bin/client/client: XTouchClient/CMakeFiles/client.dir/src/main/ControlPanel.cxx.o
+bin/client/client: XTouchClient/CMakeFiles/client.dir/src/main/PaintWindow.cxx.o
+bin/client/client: XTouchClient/CMakeFiles/client.dir/src/main/DrawHelper.cxx.o
 bin/client/client: XTouchClient/CMakeFiles/client.dir/src/client/Client.cxx.o
 bin/client/client: XTouchClient/CMakeFiles/client.dir/build.make
 bin/client/client: /usr/local/lib/libTKXDEIGES.so.7.8.0
@@ -315,7 +347,7 @@ bin/client/client: /usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so
 bin/client/client: /usr/lib/x86_64-linux-gnu/libgobject-2.0.so
 bin/client/client: /usr/lib/x86_64-linux-gnu/libglib-2.0.so
 bin/client/client: XTouchClient/CMakeFiles/client.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/xodefender/Apps/XTouch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable ../bin/client/client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/xodefender/Apps/XTouch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable ../bin/client/client"
 	cd /home/xodefender/Apps/XTouch/build/XTouchClient && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/client.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
