@@ -330,7 +330,7 @@ void PaintWindow::ConnectCSS()
 PaintWindow::PaintWindow()
 {
     ProcessWidgets();
-    ConnectCSS();te
+    ConnectCSS();
     m_drawArea.parentContainer = drawContainer;
 }
 
