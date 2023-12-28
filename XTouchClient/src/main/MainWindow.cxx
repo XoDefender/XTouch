@@ -6,8 +6,6 @@
 #include "InFolderWindow.hxx"
 #include "../client/Client.hxx"
 
-using namespace std;
-
 MainWindow::ModelCard::ModelCard(Gtk::Grid *grid,
                                  int column,
                                  int row,
@@ -41,7 +39,7 @@ MainWindow::ModelCard::ModelCard(Gtk::Grid *grid,
 void MainWindow::ModelCard::MakeFavoriteBtnOn()
 {
     Glib::RefPtr<Gtk::CssProvider> css_provider = Gtk::CssProvider::create();
-    string favButtonStyle = ".StarButton {background: url('../../../XTouchClient/res/Windows/MainWindow/MainScreen/Img/star2.png') no-repeat center;\
+    std::string favButtonStyle = ".StarButton {background: url('../../../XTouchClient/res/Windows/MainWindow/MainScreen/Img/star2.png') no-repeat center;\
                                                 outline: none;\
                                                 border: none;\
                                                 margin-right: 10px;}";
@@ -59,7 +57,7 @@ Gtk::Stack *MainWindow::GetWindowStack()
     return mainWindowStack;
 }
 
-void MainWindow::ModelCard::ChangeFavoriteState(const bool &isFavState, const string &isFavImg)
+void MainWindow::ModelCard::ChangeFavoriteState(const bool &isFavState, const std::string &isFavImg)
 {
     std::string action;
     if(isFavState) action = "add";
@@ -70,7 +68,7 @@ void MainWindow::ModelCard::ChangeFavoriteState(const bool &isFavState, const st
     net::message<MsgTypes> oMsg = Client::GetInstance().SendRequestToServer(MsgTypes::ChangeModelFavState, iMsg);
 
     Glib::RefPtr<Gtk::CssProvider> css_provider = Gtk::CssProvider::create();
-    string favButtonStyle = ".StarButton {background: url('../../../XTouchClient/res/Windows/MainWindow/MainScreen/Img/" + isFavImg + string("') no-repeat center;\
+    std::string favButtonStyle = ".StarButton {background: url('../../../XTouchClient/res/Windows/MainWindow/MainScreen/Img/" + isFavImg + std::string("') no-repeat center;\
                                                 outline: none;\
                                                 border: none;\
                                                 margin-right: 10px;}");
@@ -192,7 +190,7 @@ void MainWindow::FillGrid(MsgTypes msgType, net::message<MsgTypes> iMsg)
 
             ModelCard model(grid, column, row, fileName, categoryName, dateName);
 
-            string isFavoriteStr = isFavorite;
+            std::string isFavoriteStr = isFavorite;
             if (isFavoriteStr == "true")
                 model.MakeFavoriteBtnOn();
 

@@ -9,16 +9,16 @@ public:
     void OpenWindow();
 
 private:
-    Gtk::EventBox *colorBtn1;
-    Gtk::EventBox *colorBtn2;
-    Gtk::EventBox *colorBtn3;
-    Gtk::EventBox *colorBtn4;
-    Gtk::EventBox *colorBtn5;
+    Gtk::EventBox *colorBtnRed;
+    Gtk::EventBox *colorBtnGreen;
+    Gtk::EventBox *colorBtnBlue;
+    Gtk::EventBox *colorBtnWhite;
+    Gtk::EventBox *colorBtnBlack;
 
-    Gtk::EventBox *sizeBtn1;
-    Gtk::EventBox *sizeBtn2;
-    Gtk::EventBox *sizeBtn3;
-    Gtk::EventBox *sizeBtn4;
+    Gtk::EventBox *sizeBtnThin;
+    Gtk::EventBox *sizeBtnMedium;
+    Gtk::EventBox *sizeBtnBold;
+    Gtk::EventBox *sizeBtnBoldPlus;
 
     Gtk::EventBox *eraseBtn;
     Gtk::EventBox *drawRectangleBtn;
@@ -70,7 +70,28 @@ private:
                                std::string currentBtnIcon,
                                std::string currentBtnClass);
 
+    void SelectDrawColor();
+
+    bool SetDrawSizeBtnActive(GdkEventButton *widget);
+    bool SetDrawShapeBtnActive(GdkEventButton *widget);
+
+    bool SetRectBtnActive(GdkEventButton *widget);
+    bool SetCircleBtnActive(GdkEventButton *widget);
+    bool SetLineBtnActive(GdkEventButton *widget);
+    bool SetPencilBtnActive(GdkEventButton *widget);
+
+    bool SetSizeThinBtnActive(GdkEventButton *widget);
+    bool SetSizeMediumBtnActive(GdkEventButton *widget);
+    bool SetSizeBoldBtnActive(GdkEventButton *widget);
+    bool SetSizeBoldPlusBtnActive(GdkEventButton *widget);
+
+    bool OnGoBackBtnClick(GdkEventButton *widget);
+
+    bool OnSaveImgBtnClick(GdkEventButton *widget); 
+    bool OnEraseShapesBtnClick(GdkEventButton *widget);
+
     void ProcessWidgets();
+    void ProcessEvents();
     void ConnectCSS();
 
     void CalculateLastFileIndex();

@@ -1,16 +1,10 @@
-enum class LoginState : uint32_t
-{
-    Local,
-    Server,
-};
-
 class LoginWindow
 {
 public:
     Gtk::Window *window;
 
 public:
-    void OpenWindow(LoginState loginState);
+    void OpenWindow();
     LoginWindow();
 
 private:
@@ -20,10 +14,9 @@ private:
     Gtk::Entry *passwordInput;
     Gtk::Label *loginStatus;
 
-    LoginState loginState;
-
 private:
-    void ProcessQueries();
+    bool ProcessLoginInput();
+    void LoginUser();
     void ProcessWidgets();
     void OnLoginClick();
 };

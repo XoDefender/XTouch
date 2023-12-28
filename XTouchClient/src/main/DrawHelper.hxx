@@ -76,26 +76,6 @@ public:
 
     std::vector<std::unique_ptr<class IShape>> m_alreadyDrawn;
 
-    float prevX;
-    float prevY;
-    bool isFirstInit = true;
-
-    Cairo::RefPtr<Cairo::Context> currentContext;
-    Glib::RefPtr<Gdk::Pixbuf> m_buffer;
-
-    struct DrawParams
-    {
-        Gdk::RGBA color;
-        double lineWidth = 8.0;
-    };
-
-    DrawParams drawParams;
-
-    int ImgOffsetX, ImgOffsetY;
-    int defaultWidth = 1920;
-    int defaultHeight = 820;
-    Gtk::Fixed* parentContainer;
-
 private:
     float curX;
     float curY;
@@ -111,9 +91,40 @@ private:
 
     Shape m_currentShape = Shape::Pencil;
 
+    Gtk::Fixed *parentContainer;
+
+    struct DrawParams
+    {
+        Gdk::RGBA color;
+        double lineWidth = 8.0;
+    };
+
+    DrawParams drawParams;
+
+    Cairo::RefPtr<Cairo::Context> currentContext;
+    Glib::RefPtr<Gdk::Pixbuf> m_buffer;
+
+    int ImgOffsetX, ImgOffsetY;
+    int defaultWidth = 1920;
+    int defaultHeight = 820;
+
+    float prevX;
+    float prevY;
+    bool isFirstInit = true;
+
 public:
     DrawHelper();
+
     void SetCurrentShape(Shape p_shape);
+    void SetParentContainer(Gtk::Fixed *drawContainer);
+    void SetColor(Gdk::RGBA color);
+    void SetLineWidth(double lineWidth);
+
+    Cairo::RefPtr<Cairo::Context> GetDrawContext();
+    int GetImgOffsetX();
+    int GetImgOffsetY();
+
+    void ClearDrawBuffer();
 
 private:
     bool on_draw(const Cairo::RefPtr<Cairo::Context> &p_context) override;

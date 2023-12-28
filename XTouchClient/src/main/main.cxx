@@ -12,21 +12,19 @@
 #include "PaintWindow.hxx"
 #include "ModelFileManager.hxx"
 
-using namespace std;
-
-string GetSubstringAfterSeparator(char separator, string data, int offsetAfterSeparator = 0)
+std::string GetSubstringAfterSeparator(char separator, std::string data, int offsetAfterSeparator = 0)
 {
     return data.substr(data.find(separator) + offsetAfterSeparator);
 }
 
-bool PassFileDataToVector(string filePath, vector<string> &data, char ignoreStingSymbol = ' ')
+bool PassFileDataToVector(std::string filePath, std::vector<std::string> &data, char ignoreStingSymbol = ' ')
 {
-    fstream dataFile;
+    std::fstream dataFile;
     dataFile.open(filePath);
 
     if (dataFile.is_open())
     {
-        string tp;
+        std::string tp;
         while (getline(dataFile, tp))
         {
             if (tp[0] != ignoreStingSymbol && tp != "")
@@ -43,7 +41,7 @@ bool PassFileDataToVector(string filePath, vector<string> &data, char ignoreStin
 
 void GetUIData()
 {
-    vector<string> fileData;
+    std::vector<std::string> fileData;
     PassFileDataToVector("../../../XTouchClient/res/UIData", fileData, '#');
 
     global::loginWindowUI = fileData[0];
@@ -60,7 +58,7 @@ void GetUIData()
 
 void GetConfigData()
 {
-    vector<string> fileData;
+    std::vector<std::string> fileData;
     PassFileDataToVector("../../../XTouchClient/res/Config", fileData, '#');
 
     global::serverIp = GetSubstringAfterSeparator('=', fileData[0], 2);
@@ -98,15 +96,8 @@ int main(int argc, char *argv[])
     GetApplicationData();
     InitWindows();
 
-    try
-    {
-        Client::GetInstance().Connect(global::serverIp.c_str(), to_string(global::serverPort).c_str());
-        loginWindow->OpenWindow(LoginState::Server);
-    }
-    catch (...)
-    {
-        loginWindow->OpenWindow(LoginState::Local);
-    }
+    Client::GetInstance().Connect(global::serverIp.c_str(), std::to_string(global::serverPort).c_str());
+    loginWindow->OpenWindow();
 
     return global::app->run(*loginWindow->window);
 }

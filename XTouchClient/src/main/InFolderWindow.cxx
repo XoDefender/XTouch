@@ -7,8 +7,6 @@
 #include "InFolderWindow.hxx"
 #include "ModelFileManager.hxx"
 
-using namespace std;
-
 InFolderWindow::FileBlock::FileBlock(Gtk::Widget *widget, std::string fileName, std::string categoryName, std::string dateName)
 {
     this->widget = widget;
@@ -35,10 +33,10 @@ void InFolderWindow::CreateFileBlockOnGrid(int row, std::string fileName, std::s
     ui_builder_temp->get_widget<Gtk::Label>("FileCategoryName", this->categoryName);
     ui_builder_temp->get_widget<Gtk::Label>("FileDateName", this->dateName);
 
-    if (!(fileName.find(".txt") != string::npos))
+    if (!(fileName.find(".txt") != std::string::npos))
     {
         Glib::RefPtr<Gtk::CssProvider> css_provider = Gtk::CssProvider::create();
-        string favButtonStyle = ".FileTypeIcon {background: url('../src/Windows/MainWindow/InFolderScreen/Img/fileIcon3D.jpeg') no-repeat center;}";
+        std::string favButtonStyle = ".FileTypeIcon {background: url('../src/Windows/MainWindow/InFolderScreen/Img/fileIcon3D.jpeg') no-repeat center;}";
 
         css_provider->load_from_data(favButtonStyle);
         fileTypeIcon->get_style_context()
@@ -50,7 +48,7 @@ void InFolderWindow::CreateFileBlockOnGrid(int row, std::string fileName, std::s
     else
     {
         Glib::RefPtr<Gtk::CssProvider> css_provider = Gtk::CssProvider::create();
-        string favButtonStyle = ".FileTypeIcon {background: url('../src/Windows/MainWindow/InFolderScreen/Img/textIcon.png') no-repeat center;}";
+        std::string favButtonStyle = ".FileTypeIcon {background: url('../src/Windows/MainWindow/InFolderScreen/Img/textIcon.png') no-repeat center;}";
 
         css_provider->load_from_data(favButtonStyle);
         fileTypeIcon->get_style_context()
@@ -62,7 +60,6 @@ void InFolderWindow::CreateFileBlockOnGrid(int row, std::string fileName, std::s
 
     this->fileName->set_text(fileName);
     this->categoryName->set_text(categoryName);
-    // this->dateName->set_text(dateName);
 
     fileBlock->set_events(Gdk::BUTTON_PRESS_MASK);
     fileBlock->signal_button_press_event().connect(sigc::bind(sigc::mem_fun(*this, &InFolderWindow::OnFileBlockClick), fileBlock));
@@ -80,22 +77,22 @@ bool InFolderWindow::OpenSelectedFile()
     return false;
 }
 
+bool InFolderWindow::ChangeDownloadAnimationImgs()
+{
+    if (animationIter == downloadAnimImages.size() - 1)
+        animationIter = 0;
+
+    downloadImage->set(downloadAnimImages[animationIter]);
+    animationIter++;
+
+    return true;
+}
+
 void InFolderWindow::StartDownloadAnimation()
 {
     downloadRevealer->set_reveal_child(true);
     animationIter = 0;
-
-    downloadAnimationConn = Glib::signal_timeout().connect([this]()
-                                                           {
-        if(animationIter == downloadAnimImages.size() - 1)
-            animationIter = 0;
-
-        downloadImage->set(downloadAnimImages[animationIter]);
-
-        animationIter++;
-
-        return true; },
-                                                           50);
+    downloadAnimationConn = Glib::signal_timeout().connect(sigc::mem_fun(*this, &InFolderWindow::ChangeDownloadAnimationImgs), 50);
 }
 
 bool InFolderWindow::OnFileBlockClick(GdkEventButton *widget, Gtk::EventBox *clickedWidget)
@@ -109,22 +106,13 @@ bool InFolderWindow::OnFileBlockClick(GdkEventButton *widget, Gtk::EventBox *cli
             global::currentFileName = files[i].fileName;
 
             files[i].widget->set_sensitive(false);
-
             clickedFileBlock = files[i].widget;
-
-            Glib::RefPtr<Gtk::StyleContext> context;
-            context = clickedFileBlock->get_style_context();
-            context->add_class("ClickedFileBlock");
-
-            Glib::RefPtr<Gtk::CssProvider> css_provider = Gtk::CssProvider::create();
-            css_provider->load_from_data(".ClickedFileBlock {border: 5px solid red;}");
-            context->add_provider(css_provider, GTK_STYLE_PROVIDER_PRIORITY_USER);
 
             Glib::signal_timeout().connect(sigc::mem_fun(*this, &InFolderWindow::OpenSelectedFile), 2700);
         }
     }
 
-    ifstream file;
+    std::ifstream file;
 
     if (global::testModelFolder != "nullptr")
     {
@@ -132,42 +120,37 @@ bool InFolderWindow::OnFileBlockClick(GdkEventButton *widget, Gtk::EventBox *cli
     }
     else
     {
-        ostringstream relativeFilePathStructure;
+        std::ostringstream relativeFilePathStructure;
 
-        if (!(global::currentFileName.find(".txt") != string::npos))
-            relativeFilePathStructure << global::saveModelPath << ToXbfFileExtension(global::currentFileName) << "";
+        if (!(global::currentFileName.find(".txt") != std::string::npos))
+            relativeFilePathStructure << global::saveModelPath << ConvertExtensionToXbf(global::currentFileName) << "";
         else
             relativeFilePathStructure << global::saveModelPath << global::currentFileName << "";
 
-        string relativeFilePath = relativeFilePathStructure.str();
+        std::string relativeFilePath = relativeFilePathStructure.str();
         file.open(relativeFilePath);
     }
-
-    if (!file)
-        downloadStatus->set_text("Файл загружается...");
-    else
-        downloadStatus->set_text("Файл открывается...");
 
     return true;
 }
 
-void InFolderWindow::ResetFileBlockSelection(string downloadStatusText)
+void InFolderWindow::StopDownloadAnimation()
 {
-    Glib::RefPtr<Gtk::StyleContext> context;
-    context = clickedFileBlock->get_style_context();
-    context->add_class("ClickedFileBlock");
-
-    Glib::RefPtr<Gtk::CssProvider> css_provider = Gtk::CssProvider::create();
-    css_provider->load_from_data(".ClickedFileBlock {border: 0px solid red;}");
-    context->add_provider(css_provider, GTK_STYLE_PROVIDER_PRIORITY_USER);
-
-    downloadStatus->set_text(downloadStatusText);
-
     clickedFileBlock->set_sensitive(true);
-
     downloadRevealer->set_reveal_child(false);
     downloadAnimationConn.disconnect();
 }
+
+void InFolderWindow::ClearGrid(Gtk::Grid *grid)
+{
+    while (true)
+    {
+        if (grid->get_child_at(1, 1) != nullptr)
+            grid->remove_row(1);
+        else
+            break;
+    }
+};
 
 void InFolderWindow::FillGrid(MsgTypes msgType, net::message<MsgTypes> iMsg)
 {
@@ -212,9 +195,9 @@ void InFolderWindow::FillGrid(MsgTypes msgType, net::message<MsgTypes> iMsg)
     }
 }
 
-string InFolderWindow::ToXbfFileExtension(string fileName)
+std::string InFolderWindow::ConvertExtensionToXbf(std::string fileName)
 {
-    string fileNameWithoutExtension = fileName.substr(0, fileName.find("."));
+    std::string fileNameWithoutExtension = fileName.substr(0, fileName.find("."));
     return (fileNameWithoutExtension + ".xbf");
 }
 
@@ -233,7 +216,6 @@ void InFolderWindow::ProcessWidgets()
     uiBuilder->get_widget<Gtk::Box>("InFolderScreen", inFolderScreen);
     uiBuilder->get_widget<Gtk::Grid>("GridForFiles", grid);
     uiBuilder->get_widget<Gtk::Label>("MainFileName", fileNameInHeader);
-    uiBuilder->get_widget<Gtk::Label>("DownloadStatus", downloadStatus);
     uiBuilder->get_widget<Gtk::EventBox>("BackBtn", goBackBtn);
     uiBuilder->get_widget<Gtk::Revealer>("DownloadRevealer", downloadRevealer);
     uiBuilder->get_widget<Gtk::Image>("DownloadImage", downloadImage);
@@ -247,14 +229,13 @@ void InFolderWindow::CacheDownloadAnimationFrames(int framesAmount)
 {
     for (int i = 1; i < framesAmount + 1; i++)
     {
-        string imgName = to_string(i) + ".png";
-        string path = "../../../XTouchClient/res/Windows/MainWindow/InFolderScreen/Img/DownloadAnimation/" + imgName;
+        std::string imgName = std::to_string(i) + ".png";
+        std::string path = "../../../XTouchClient/res/Windows/MainWindow/InFolderScreen/Img/DownloadAnimation/" + imgName;
         Glib::RefPtr<Gdk::Pixbuf> img = Gdk::Pixbuf::create_from_file(path);
         downloadAnimImages.push_back(img);
     }
 }
 
-// после срабатывания данного конструктора, можно снова нажать на файл и открыть новое окно
 InFolderWindow::InFolderWindow()
 {
     ProcessWidgets();
@@ -274,7 +255,6 @@ void InFolderWindow::OpenWindow()
 
     FillGrid(MsgTypes::GetModelFiles, iMsg);
 
-    downloadStatus->set_text("");
     fileNameInHeader->set_text(global::currentModelName);
     mainWindow->GetWindowStack()->set_visible_child("InFolderScreen");
 }

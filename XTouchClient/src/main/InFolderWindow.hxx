@@ -11,8 +11,8 @@ public:
 public:
     InFolderWindow();
     void OpenWindow();
-    void ResetFileBlockSelection(std::string downloadStatusText = "");
-    std::string ToXbfFileExtension(std::string fileName);
+    void StopDownloadAnimation();
+    std::string ConvertExtensionToXbf(std::string fileName);
 
 private:
     Glib::RefPtr<Gtk::Builder> uiBuilder;
@@ -40,16 +40,7 @@ private:
     void ProcessWidgets();
 
     void FillGrid(MsgTypes msgType, net::message<MsgTypes> iMsg = Client::GetInstance().GetEmptyMessage());
-    void ClearGrid(Gtk::Grid *grid)
-    {
-        while (true)
-        {
-            if (grid->get_child_at(1, 1) != nullptr)
-                grid->remove_row(1);
-            else
-                break;
-        }
-    };
+    void ClearGrid(Gtk::Grid *grid);
 
     void CreateFileBlockOnGrid(int row, std::string fileName, std::string categoryName, std::string dateName);
     bool OnFileBlockClick(GdkEventButton *widget, Gtk::EventBox *clickedWidget);
@@ -60,6 +51,7 @@ private:
     bool OpenSelectedFile();
 
     void StartDownloadAnimation();
+    bool ChangeDownloadAnimationImgs();
     void CacheDownloadAnimationFrames(int framesAmount);
 
 private:

@@ -32,7 +32,7 @@ void ModelFileManager::GetDataFromServer()
 
     if (!(global::currentFileName.find(".txt") != string::npos))
         relativeFilePathStructure
-            << global::saveModelPath << inFolderWindow->ToXbfFileExtension(global::currentFileName) << "";
+            << global::saveModelPath << inFolderWindow->ConvertExtensionToXbf(global::currentFileName) << "";
     else
         relativeFilePathStructure << global::saveModelPath << global::currentFileName << "";
 
@@ -44,7 +44,7 @@ void ModelFileManager::GetDataFromServer()
     net::message<MsgTypes> iMsg;
 
     if (!(global::currentFileName.find(".txt") != string::npos))
-        iMsg << inFolderWindow->ToXbfFileExtension(global::currentFileName).c_str();
+        iMsg << inFolderWindow->ConvertExtensionToXbf(global::currentFileName).c_str();
     else
         iMsg << global::currentFileName.c_str();
 
@@ -115,9 +115,7 @@ void ModelFileManager::OpenOcctWindow()
 bool ModelFileManager::HideMainWindow()
 {
     mainWindow->hide();
-
-    inFolderWindow->ResetFileBlockSelection();
-
+    inFolderWindow->StopDownloadAnimation();
     return false;
 }
 
@@ -136,7 +134,7 @@ string ModelFileManager::GetRelativeFilePath()
     ostringstream relativeFilePathStructure;
 
     if (!(global::currentFileName.find(".txt") != string::npos))
-        relativeFilePathStructure << global::saveModelPath << inFolderWindow->ToXbfFileExtension(global::currentFileName) << "";
+        relativeFilePathStructure << global::saveModelPath << inFolderWindow->ConvertExtensionToXbf(global::currentFileName) << "";
     else
         relativeFilePathStructure << global::saveModelPath << global::currentFileName << "";
 
@@ -164,7 +162,7 @@ void ModelFileManager::OpenFile(string relativeFilePath)
         string ProcessFileRequest = "xdg-open " + string("\"") + relativeFilePath + string("\"");
         system(ProcessFileRequest.c_str());
 
-        inFolderWindow->ResetFileBlockSelection();
+        inFolderWindow->StopDownloadAnimation();
     }
 }
 

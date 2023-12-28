@@ -262,3 +262,39 @@ void DrawHelper::ClearShapeData()
 
     isFirstInit = true;
 }
+
+void DrawHelper::SetParentContainer(Gtk::Fixed *drawContainer)
+{
+    parentContainer = drawContainer;
+}
+
+void DrawHelper::ClearDrawBuffer()
+{
+    m_buffer.reset();
+    m_alreadyDrawn.clear();
+}
+
+void DrawHelper::SetColor(Gdk::RGBA color)
+{
+    drawParams.color = color;
+}
+
+void DrawHelper::SetLineWidth(double lineWidth)
+{
+    drawParams.lineWidth = lineWidth;
+}
+
+Cairo::RefPtr<Cairo::Context> DrawHelper::GetDrawContext()
+{
+    return currentContext;
+}
+
+int DrawHelper::GetImgOffsetX()
+{
+    return ImgOffsetX;
+}
+
+int DrawHelper::GetImgOffsetY()
+{
+    return ImgOffsetY;
+}
