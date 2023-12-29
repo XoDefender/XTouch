@@ -175,9 +175,6 @@ void ModelFileManager::ProcessFile()
     }
 
     string relativeFilePath = GetRelativeFilePath();
-
-    cout << relativeFilePath << endl;
-
     ifstream file;
     file.open(relativeFilePath);
 

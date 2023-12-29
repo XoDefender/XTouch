@@ -57,6 +57,7 @@ namespace net
 
 		void Disconnect()
 		{
+			close(clientfd);
 		}
 
 	public:

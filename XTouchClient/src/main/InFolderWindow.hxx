@@ -40,7 +40,7 @@ private:
     void ProcessWidgets();
 
     void FillGrid(MsgTypes msgType, net::message<MsgTypes> iMsg = Client::GetInstance().GetEmptyMessage());
-    void ClearGrid(Gtk::Grid *grid);
+    void ClearGrid();
 
     void CreateFileBlockOnGrid(int row, std::string fileName, std::string categoryName, std::string dateName);
     bool OnFileBlockClick(GdkEventButton *widget, Gtk::EventBox *clickedWidget);

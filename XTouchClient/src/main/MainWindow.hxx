@@ -36,16 +36,8 @@ private:
     void ProcessWidgets();
 
     void FillGrid(MsgTypes msgType, net::message<MsgTypes> iMsg = Client::GetInstance().GetEmptyMessage());
-    void ClearGrid(Gtk::Grid *grid)
-    {
-        while (true)
-        {
-            if (grid->get_child_at(1, 1) != nullptr)
-                grid->remove_row(1);
-            else
-                break;
-        }
-    };
+
+    void ClearGrid();
 
     bool ScrollModelListView(GdkEventMotion *theEvent, int scrollStep);
 
@@ -73,16 +65,17 @@ public:
         Gtk::EventBox *modelBlock;
 
         std::string modelName;
-        std::string dateName;
+        std::string modelDate;
         std::string modelFolderPath;
 
     public:
         ModelCard(Gtk::Grid *grid,
                   int column,
                   int row,
-                  const char *model_name,
-                  const char *category_name,
-                  const char *date_name);
+                  const char *modelName,
+                  const char *modelFolderPath,
+                  const char *modelDate,
+                  bool isFav);
 
         void ProcessModelFavoriteState(Gtk::EventBox *clickedWidget);
         void ChangeFavoriteState(const bool &isFavState, const std::string &isFavImg);
@@ -91,5 +84,19 @@ public:
         bool OpenInFolderWindow(GdkEventButton *eventData, Gtk::EventBox *clickedWidget);
     };
 
+private:
+    struct ModelData
+    {
+        ModelData(std::string modelName, std::string modelCreateDate, std::string modelPath, int isFav) :
+                 modelName(modelName), modelCreateDate(modelCreateDate), modelPath(modelPath), isFav(isFav){};;
+
+        std::string modelName;
+        std::string modelCreateDate;
+        std::string modelPath;
+        bool isFav = false;
+    };
+
+    void FillGrid(std::vector<ModelData> modelData);
+    static inline std::vector<MainWindow::ModelData> modelData;
     static inline std::vector<MainWindow::ModelCard> modelCards;
 };

@@ -100,7 +100,7 @@ scrollbar trough {
 .StarButton {
     border: none;
     outline: none;
-    background: url('./Img/star1.png') no-repeat center;
+    background: url('./Img/starNotFav.png') no-repeat center;
     margin-right: 10px;
 }
 

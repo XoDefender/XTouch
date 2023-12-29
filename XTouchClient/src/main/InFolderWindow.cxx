@@ -141,7 +141,7 @@ void InFolderWindow::StopDownloadAnimation()
     downloadAnimationConn.disconnect();
 }
 
-void InFolderWindow::ClearGrid(Gtk::Grid *grid)
+void InFolderWindow::ClearGrid()
 {
     while (true)
     {
@@ -150,12 +150,13 @@ void InFolderWindow::ClearGrid(Gtk::Grid *grid)
         else
             break;
     }
+
+    fileNames.clear();
 };
 
 void InFolderWindow::FillGrid(MsgTypes msgType, net::message<MsgTypes> iMsg)
 {
-    fileNames.clear();
-    ClearGrid(grid);
+    ClearGrid();
 
     net::message<MsgTypes> oMsg;
     oMsg = Client::GetInstance().SendRequestToServer(msgType, iMsg);

@@ -1,6 +1,18 @@
 #pragma once
 #include "net_common.hxx"
 
+enum class MsgTypes : uint32_t
+{
+	ServerAccept,
+	ServerDeny,
+	PasswordLogin,
+	GetModels,
+	GetModelFiles,
+	ChangeModelFavState,
+	GetFavoriteModels,
+	GetModelFile,
+};
+
 namespace net
 {
 	template <typename T>

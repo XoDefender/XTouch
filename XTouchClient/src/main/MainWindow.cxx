@@ -9,29 +9,29 @@
 MainWindow::ModelCard::ModelCard(Gtk::Grid *grid,
                                  int column,
                                  int row,
-                                 const char *model_name,
-                                 const char *category_name,
-                                 const char *date_name)
+                                 const char *modelName,
+                                 const char *modelFolderPath,
+                                 const char *modelDate,
+                                 bool isFav) : modelName(modelName), modelFolderPath(modelFolderPath), modelDate(modelDate)
 {
-    auto ui_builder_temp = Gtk::Builder::create_from_file(global::mainWindowUI);
+    auto uiBuilderModelCard = Gtk::Builder::create_from_file(global::mainWindowUI);
 
-    ui_builder_temp->get_widget<Gtk::Label>("ModelName", modelNameLabel);
-    ui_builder_temp->get_widget<Gtk::Label>("CategoryName", modelFolderPathLabel);
-    ui_builder_temp->get_widget<Gtk::Label>("DateName", dateNameLabel);
-    ui_builder_temp->get_widget<Gtk::Button>("FavoriteBtn", favoriteBtn);
-    ui_builder_temp->get_widget<Gtk::EventBox>("ModelBlock", modelBlock);
+    uiBuilderModelCard->get_widget<Gtk::Label>("ModelName", modelNameLabel);
+    uiBuilderModelCard->get_widget<Gtk::Label>("CategoryName", modelFolderPathLabel);
+    uiBuilderModelCard->get_widget<Gtk::Label>("DateName", dateNameLabel);
+    uiBuilderModelCard->get_widget<Gtk::Button>("FavoriteBtn", favoriteBtn);
+    uiBuilderModelCard->get_widget<Gtk::EventBox>("ModelBlock", modelBlock);
 
-    modelNameLabel->set_text(model_name);
-    dateNameLabel->set_text(date_name);
-    modelFolderPathLabel->set_text(category_name);
-
-    modelName = model_name;
-    dateName = date_name;
-    modelFolderPath = category_name;
+    modelNameLabel->set_text(modelName);
+    dateNameLabel->set_text(modelDate);
+    modelFolderPathLabel->set_text(modelFolderPath);
 
     modelBlock->set_events(Gdk::BUTTON_PRESS_MASK);
     modelBlock->signal_button_press_event().connect(sigc::bind(sigc::mem_fun(*this, &ModelCard::OpenInFolderWindow), modelBlock));
     favoriteBtn->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &ModelCard::ProcessModelFavoriteState), modelBlock));
+
+    if (isFav)
+        MakeFavoriteBtnOn();
 
     grid->attach(*modelBlock, column, row);
 }
@@ -39,7 +39,7 @@ MainWindow::ModelCard::ModelCard(Gtk::Grid *grid,
 void MainWindow::ModelCard::MakeFavoriteBtnOn()
 {
     Glib::RefPtr<Gtk::CssProvider> css_provider = Gtk::CssProvider::create();
-    std::string favButtonStyle = ".StarButton {background: url('../../../XTouchClient/res/Windows/MainWindow/MainScreen/Img/star2.png') no-repeat center;\
+    std::string favButtonStyle = ".StarButton {background: url('../../../XTouchClient/res/Windows/MainWindow/MainScreen/Img/starFav.png') no-repeat center;\
                                                 outline: none;\
                                                 border: none;\
                                                 margin-right: 10px;}";
@@ -59,9 +59,7 @@ Gtk::Stack *MainWindow::GetWindowStack()
 
 void MainWindow::ModelCard::ChangeFavoriteState(const bool &isFavState, const std::string &isFavImg)
 {
-    std::string action;
-    if(isFavState) action = "add";
-    else action = "remove";
+    std::string action = isFavState ? "add" : "remove";
 
     net::message<MsgTypes> iMsg;
     iMsg << action.data() << modelName.c_str();
@@ -81,24 +79,30 @@ void MainWindow::ModelCard::ChangeFavoriteState(const bool &isFavState, const st
 
 void MainWindow::ModelCard::ProcessModelFavoriteState(Gtk::EventBox *clickedWidget)
 {
-    for (int i = 0; i < MainWindow::modelCards.size(); i++)
+    for (int i = 0; i < modelCards.size(); i++)
     {
-        if (MainWindow::modelCards[i].modelBlock != clickedWidget) continue;
+        if (modelCards[i].modelBlock != clickedWidget)
+            continue;
 
-        if (!MainWindow::modelCards[i].isFavoriteClicked) MainWindow::modelCards[i].ChangeFavoriteState(true, "star2.png");
-        else MainWindow::modelCards[i].ChangeFavoriteState(false, "star1.png");
+        std::string favStateIconName = modelCards[i].isFavoriteClicked ? "starNotFav.png" : "starFav.png";
+        modelCards[i].ChangeFavoriteState(!modelCards[i].isFavoriteClicked, favStateIconName);
+
+        for (auto &data : modelData)
+        {
+            if (data.modelName == modelCards[i].modelName)
+                data.isFav = modelCards[i].isFavoriteClicked;
+        }
     }
 }
 
 bool MainWindow::ModelCard::OpenInFolderWindow(GdkEventButton *eventData, Gtk::EventBox *clickedWidget)
 {
-    for (int i = 0; i < MainWindow::modelCards.size(); i++)
+    for (int i = 0; i < modelCards.size(); i++)
     {
-        if (MainWindow::modelCards[i].modelBlock == (Gtk::Widget *)clickedWidget)
+        if (modelCards[i].modelBlock == (Gtk::Widget *)clickedWidget)
         {
-            // получаем данные о модели, на которую кликнули
-            global::currentModelName = MainWindow::modelCards[i].modelName;
-            global::currentModelFolder = MainWindow::modelCards[i].modelFolderPath;
+            global::currentModelName = modelCards[i].modelName;
+            global::currentModelFolder = modelCards[i].modelFolderPath;
         }
     }
 
@@ -116,7 +120,7 @@ bool MainWindow::OnInputFocusIn(GdkEventFocus *focus)
         searchResultsText->show();
         clearInputBtn->show();
 
-        ClearGrid(grid);
+        ClearGrid();
     }
 
     isInSearch = true;
@@ -124,23 +128,8 @@ bool MainWindow::OnInputFocusIn(GdkEventFocus *focus)
     return true;
 }
 
-void MainWindow::OnInputKeyPress()
-{
-    if (search_input->get_text().size() >= 3)
-    {
-        ClearGrid(grid);
-
-        net::message<MsgTypes> iMsg;
-        iMsg << search_input->get_text().c_str();
-
-        FillGrid(MsgTypes::GetModelByName, iMsg);
-    }
-}
-
 void MainWindow::OnQuitSearchBtnClick()
 {
-    FillGrid(MsgTypes::GetModels);
-
     quitSearch->hide();
     searchResultsText->hide();
     clearInputBtn->hide();
@@ -148,54 +137,124 @@ void MainWindow::OnQuitSearchBtnClick()
     search_input->set_text("");
 
     isInSearch = false;
+
+    FillGrid(MsgTypes::GetModels);
+}
+
+void MainWindow::ClearGrid()
+{
+    while (true)
+    {
+        if (grid->get_child_at(1, 1) != nullptr)
+            grid->remove_row(1);
+        else
+            break;
+    }
+
+    modelCards.clear();
+}
+
+void MainWindow::OnInputKeyPress()
+{
+    if (search_input->get_text() == "")
+    {
+        ClearGrid();
+        return;
+    }
+
+    std::vector<ModelData> foundData;
+    for (auto data : modelData)
+    {
+        if (data.modelName.find(search_input->get_text()) != std::string::npos)
+        {
+            foundData.push_back(data);
+        }
+    }
+
+    FillGrid(foundData);
+}
+
+void MainWindow::FillGrid(std::vector<ModelData> modelData)
+{
+    ClearGrid();
+
+    int columns = (int)ceil((double)modelData.size() / 2.0);
+    int rows = 3;
+    int currColumn = 1;
+    int currRow = 1;
+
+    grid->insert_column(currColumn);
+    grid->insert_row(currRow);
+
+    for (const auto &data : modelData)
+    {
+        if (currRow > rows)
+        {
+            currColumn++;
+            currRow = 1;
+            grid->insert_column(currColumn);
+        }
+
+        ModelCard model(grid, currColumn, currRow,
+                        data.modelName.c_str(),
+                        data.modelPath.c_str(),
+                        data.modelCreateDate.c_str(),
+                        data.isFav);
+
+        modelCards.push_back(model);
+
+        currRow++;
+        grid->insert_row(currRow);
+    }
 }
 
 void MainWindow::FillGrid(MsgTypes msgType, net::message<MsgTypes> iMsg)
 {
-    ClearGrid(grid);
+    ClearGrid();
 
-    MainWindow::modelCards.clear();
+    modelData.clear();
 
     net::message<MsgTypes> oMsg = Client::GetInstance().SendRequestToServer(msgType, iMsg);
 
-    int columns = 0;
-    int rows = 3;
-
     char modelsAmount[1024];
-
     oMsg >> modelsAmount;
 
-    double modelsAmountDouble = (double)atoi(modelsAmount);
+    int columns = (int)ceil((double)atoi(modelsAmount) / 2.0);
+    int rows = 3;
+    int currColumn = 1;
+    int currRow = 1;
 
-    columns = (int)ceil(modelsAmountDouble / 2.0);
+    grid->insert_column(currColumn);
+    grid->insert_row(currRow);
 
-    grid->insert_row(1);
-    grid->insert_row(2);
-
-    for (int column = 1; column < columns + 1; column++)
+    for (int i = 0; i < atoi(modelsAmount); i++)
     {
-        grid->insert_column(column);
-
-        for (int row = 1; row < rows + 1; row++)
+        if (currRow > rows)
         {
-            char fileName[1024];
-            char categoryName[1024];
-            char dateName[1024];
-            char isFavorite[1024];
-
-            if (oMsg.size() <= 0)
-                break;
-
-            oMsg >> isFavorite >> dateName >> categoryName >> fileName;
-
-            ModelCard model(grid, column, row, fileName, categoryName, dateName);
-
-            std::string isFavoriteStr = isFavorite;
-            if (isFavoriteStr == "true")
-                model.MakeFavoriteBtnOn();
-
-            MainWindow::modelCards.push_back(model);
+            currColumn++;
+            currRow = 1;
+            grid->insert_column(currColumn);
         }
+
+        if (oMsg.size() <= 0)
+            break;
+
+        char modelName[1024];
+        char modelPath[1024];
+        char modelDate[1024];
+        char isFavorite[1024];
+
+        oMsg >> isFavorite >> modelDate >> modelPath >> modelName;
+        bool isFav = !strcmp(isFavorite, "true") ? true : false;
+
+        ModelCard model(grid, currColumn, currRow, modelName, modelPath, modelDate, isFav);
+        ModelData data(modelName, modelDate, modelPath, isFav);
+
+        modelCards.push_back(model);
+        modelData.push_back(data);
+
+        currRow++;
+        grid->insert_row(currRow);
     }
 }
 

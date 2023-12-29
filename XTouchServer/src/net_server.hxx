@@ -120,6 +120,9 @@ public:
 		char buffer[1024];
 		int readlen = read(clientFd, buffer, sizeof(buffer));
 
+		if (errno != EAGAIN && !readlen)
+			return -1;
+
 		int headerVal = 0;
 		int iDataSize = 0;
 		memcpy(&headerVal, buffer, 4);
@@ -129,8 +132,6 @@ public:
 		memcpy(omsg.body.data(), buffer + 8, iDataSize);
 		omsg.header.id = (MsgTypes)headerVal;
 
-		if (errno != EAGAIN && !readlen)
-			return -1;
 		return 0;
 	}
 

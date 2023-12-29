@@ -644,7 +644,6 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
   /usr/include/cppconn/statement.h \
   /usr/include/cppconn/resultset.h \
   ../XTouchServer/src/net_message.hxx \
-  ../XTouchServer/src/net_message_types.hxx \
   ../XTouchServer/src/SessionManager.hxx
 
 
@@ -901,8 +900,6 @@ XTouchServer/CMakeFiles/server.dir/src/server.cxx.o: ../XTouchServer/src/server.
 /usr/include/boost/core/checked_delete.hpp:
 
 /usr/include/c++/11/ext/concurrence.h:
-
-../XTouchServer/src/net_message_types.hxx:
 
 /usr/include/c++/11/bits/ios_base.h:
 
