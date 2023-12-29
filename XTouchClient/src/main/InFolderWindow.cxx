@@ -161,14 +161,12 @@ void InFolderWindow::FillGrid(MsgTypes msgType, net::message<MsgTypes> iMsg)
     net::message<MsgTypes> oMsg;
     oMsg = Client::GetInstance().SendRequestToServer(msgType, iMsg);
 
-    char rowAmountString[1024];
-    oMsg >> rowAmountString;
-    int rowAmountInt = atoi(rowAmountString);
+    char filesAmount[1024];
+    oMsg >> filesAmount;
 
-    for (int row = 1; row < rowAmountInt + 1; row++)
+    for (int row = 1; row < atoi(filesAmount) + 1; row++)
     {
-        if (oMsg.size() <= 0)
-            break;
+        if (oMsg.size() <= 0) break;
 
         grid->insert_row(row);
 
@@ -177,22 +175,9 @@ void InFolderWindow::FillGrid(MsgTypes msgType, net::message<MsgTypes> iMsg)
         char dateName[1024];
         char isFavorite[1024];
 
-        if (msgType != MsgTypes::GetModelFiles)
-        {
-            if (oMsg.size() <= 0)
-                break;
-
-            oMsg >> isFavorite >> dateName >> categoryName >> fileName;
-
-            CreateFileBlockOnGrid(row, fileName, categoryName, dateName);
-        }
-        else
-        {
-            oMsg >> fileName;
-
-            fileNames.push_back(fileName);
-            CreateFileBlockOnGrid(row, fileName, categoryName, dateName);
-        }
+        oMsg >> fileName;
+        fileNames.push_back(fileName);
+        CreateFileBlockOnGrid(row, fileName, categoryName, dateName);
     }
 }
 

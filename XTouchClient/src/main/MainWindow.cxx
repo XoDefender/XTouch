@@ -219,7 +219,6 @@ void MainWindow::FillGrid(MsgTypes msgType, net::message<MsgTypes> iMsg)
     char modelsAmount[1024];
     oMsg >> modelsAmount;
 
-    int columns = (int)ceil((double)atoi(modelsAmount) / 2.0);
     int rows = 3;
     int currColumn = 1;
     int currRow = 1;
