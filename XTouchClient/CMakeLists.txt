@@ -55,6 +55,8 @@ set(SOURCES
                               
 add_executable(${APP_TARGET} ${SOURCES})
 
+target_link_libraries(${APP_TARGET} PRIVATE stdc++fs)
+
 target_include_directories(${APP_TARGET} PRIVATE ${CLIENT_DIR})
 
 if (USE_GLES2)
