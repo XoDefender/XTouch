@@ -120,7 +120,7 @@ public:
 		char buffer[1024];
 		int readlen = read(clientFd, buffer, sizeof(buffer));
 
-		if (errno != EAGAIN && !readlen)
+		if (!readlen)
 			return -1;
 
 		int headerVal = 0;
