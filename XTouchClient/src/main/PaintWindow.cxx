@@ -7,12 +7,14 @@
 #include <fstream>
 #include <filesystem>
 
+namespace fs = std::filesystem;
+
 void PaintWindow::CalculateLastFileIndex()
 {
     savedFileIndex = 0;
 
     std::vector<std::string> fileNames = {};
-    for (const auto &entry : std::filesystem::directory_iterator(global::saveImagePath))
+    for (const auto &entry : fs::directory_iterator(global::saveImagePath))
         fileNames.push_back(entry.path());
 
     for (std::string fileName : fileNames)
@@ -243,6 +245,9 @@ bool PaintWindow::OnSaveImgBtnClick(GdkEventButton *widget)
         m_drawArea.GetImgOffsetY() + 88,
         m_drawArea.get_width(),
         m_drawArea.get_height());
+
+    if (!fs::exists(global::saveImagePath)) 
+        fs::create_directory(global::saveImagePath);
 
     CalculateLastFileIndex();
     std::string path = global::saveImagePath + global::saveImagePrefix + "_" + std::to_string(savedFileIndex + 1) + ".jpeg";

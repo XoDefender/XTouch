@@ -9,8 +9,11 @@
 
 #include <OSD.hxx>
 #include <OSD_Environment.hxx>
+#include <filesystem>
 
 using namespace std;
+
+namespace fs = std::filesystem;
 
 string ModelFileManager::ConvertToString(char *a, int size)
 {
@@ -30,9 +33,11 @@ void ModelFileManager::GetDataFromServer()
 {
     ostringstream relativeFilePathStructure;
 
+    if (!fs::exists(global::saveModelPath)) 
+        fs::create_directory(global::saveModelPath);
+
     if (!(global::currentFileName.find(".txt") != string::npos))
-        relativeFilePathStructure
-            << global::saveModelPath << inFolderWindow->ConvertExtensionToXbf(global::currentFileName) << "";
+        relativeFilePathStructure << global::saveModelPath << inFolderWindow->ConvertExtensionToXbf(global::currentFileName) << "";
     else
         relativeFilePathStructure << global::saveModelPath << global::currentFileName << "";
 
