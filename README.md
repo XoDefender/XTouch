@@ -33,4 +33,3 @@ sudo apt-get install gcc10-c++ gcc-c++ freetype2-devel tk tk-devel libtk fontcon
 ![изображение](https://github.com/XoDefender/XTouch/assets/90552397/a1b5379d-b2c8-429d-9889-5985ac744c5d)
 ![изображение](https://github.com/XoDefender/XTouch/assets/90552397/4a90c463-ff81-477a-9fe0-6e1530d8691f)
 ![изображение](https://github.com/XoDefender/XTouch/assets/90552397/89fb5a25-7516-4dbf-b213-b870332ca88b)
-![изображение](https://github.com/XoDefender/XTouch/assets/90552397/d1b60d89-0252-4e59-80dc-cdf57e1b222f)
