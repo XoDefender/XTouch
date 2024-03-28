@@ -27,3 +27,6 @@ sudo apt-get install gcc10-c++ gcc-c++ freetype2-devel tk tk-devel libtk fontcon
 1. Execute "git clone https://github.com/Open-Cascade-SAS/OCCT" in OCCT active dirrectory
 2. Add "cmake_policy (SET CMP0054 NEW)" in CMakeLists.txt
 3. In the cloned OCCT folder create the "build" dir and execute "cmake ../" , "sudo make install"
+
+# Demo
+![изображение](https://github.com/XoDefender/XTouch/assets/90552397/9b154f22-515c-4d9a-aaf3-588c2aa525e2)
