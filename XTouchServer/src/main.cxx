@@ -58,8 +58,6 @@ int main(int argc, char* argv[])
     if(!config_path.size()) {
         config_path = "../../../XTouchServer/res/Config";
     }
-
-    cout<<config_path<<endl;
     
     ParseConfigData(config_path, {&ip, &name, &password, &schema});
 
