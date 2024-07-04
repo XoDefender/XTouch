@@ -27,6 +27,9 @@ set(SOURCES
         ${SOURCES_DIR}Server.cxx)
 
 add_executable(${APP_TARGET} ${SOURCES})
+
+install(TARGETS ${APP_TARGET}
+        DESTINATION bin)
                 
 target_include_directories(${APP_TARGET} PRIVATE ${LIBMYSQLCLIENT_INCLUDE_DIRS})
 target_link_libraries(${APP_TARGET} PUBLIC ${LIBMYSQLCLIENT_LIBRARIES})

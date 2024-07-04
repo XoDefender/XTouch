@@ -27,10 +27,10 @@ string GetSubstringAfterSeparator(char separator, string data, int offsetAfterSe
     return data.substr(data.find(separator) + offsetAfterSeparator);
 }
 
-void ParseConfigData(initializer_list<string *> args)
+void ParseConfigData(string config_path, initializer_list<string *> args)
 {
     vector<string> fileData;
-    if (PassFileDataToVector("../../../XTouchServer/res/Config", fileData, '#'))
+    if (PassFileDataToVector(config_path, fileData, '#'))
     {
         int i = 0;
         for (auto arg : args)
@@ -41,10 +41,27 @@ void ParseConfigData(initializer_list<string *> args)
     }
 }
 
-int main()
+int main(int argc, char* argv[])
 {
     string ip, name, password, schema;
-    ParseConfigData({&ip, &name, &password, &schema});
+    string config_path;
+    string option;
+    
+    if(argc > 1) 
+    {
+        option = argv[1];
+        if (option == "-c") {
+            config_path = string(argv[2]);
+        }
+    }
+
+    if(!config_path.size()) {
+        config_path = "../../../XTouchServer/res/Config";
+    }
+
+    cout<<config_path<<endl;
+    
+    ParseConfigData(config_path, {&ip, &name, &password, &schema});
 
     Server server(60000);
     server.ConnectToMySQL(ip, name, password, schema);
