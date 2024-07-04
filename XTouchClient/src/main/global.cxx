@@ -39,3 +39,5 @@ string global::testModelFolder;
 
 string global::saveImagePath;
 string global::saveImagePrefix;
+
+string global::res_dir_path;

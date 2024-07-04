@@ -216,7 +216,7 @@ void InFolderWindow::CacheDownloadAnimationFrames(int framesAmount)
     for (int i = 1; i < framesAmount + 1; i++)
     {
         std::string imgName = std::to_string(i) + ".png";
-        std::string path = "../../../XTouchClient/res/Windows/MainWindow/InFolderScreen/Img/DownloadAnimation/" + imgName;
+        std::string path = global::res_dir_path + "Windows/MainWindow/InFolderScreen/Img/DownloadAnimation/" + imgName;
         Glib::RefPtr<Gdk::Pixbuf> img = Gdk::Pixbuf::create_from_file(path);
         downloadAnimImages.push_back(img);
     }

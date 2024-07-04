@@ -3,9 +3,9 @@ ip = 127.0.0.1
 port = 60000
 
 # Model
-saveFolder = ../../../XTouchClient/res/models/
+saveFolder = models/
 testModelFolder = nullptr
 
 # Screenshot
-saveScreenshotFolder = ../../../XTouchClient/res/screenshots/
+saveScreenshotFolder = screenshots/
 saveScreenshotPrefix = img

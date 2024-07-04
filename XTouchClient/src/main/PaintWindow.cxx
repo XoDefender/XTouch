@@ -32,7 +32,7 @@ void PaintWindow::SetPassiveToolTypeBtnStyle(Gtk::EventBox *previousBtn,
                                              std::string previousBtnClass)
 {
     Glib::RefPtr<Gtk::CssProvider> cssProviderPrev = Gtk::CssProvider::create();
-    std::string previousButtonStyle = previousBtnClass + std::string("{background: url('../../../XTouchClient/res/Windows/PaintWindow/img/") + previousBtnIcon + std::string("') no-repeat center;\
+    std::string previousButtonStyle = previousBtnClass + std::string("{background: url('" + global::res_dir_path + "Windows/PaintWindow/img/") + previousBtnIcon + std::string("') no-repeat center;\
                                                 background-color:#e5ecff;\
                                                 background-size: 35px;}");
 
@@ -47,7 +47,7 @@ void PaintWindow::SetActiveToolTypeBtnStyle(Gtk::EventBox *currentBtn,
                                             std::string currentBtnClass)
 {
     Glib::RefPtr<Gtk::CssProvider> cssProviderCurr = Gtk::CssProvider::create();
-    std::string currentButtonStyle = currentBtnClass + std::string("{background: url('../../../XTouchClient/res/Windows/PaintWindow/img/") + currentBtnIcon + std::string("') no-repeat center;\
+    std::string currentButtonStyle = currentBtnClass + std::string("{background: url('" + global::res_dir_path + "Windows/PaintWindow/img/") + currentBtnIcon + std::string("') no-repeat center;\
                                                 background-color:#e5ecff;\
                                                 background-size: 35px;}");
 
@@ -62,7 +62,7 @@ void PaintWindow::SetPassiveToolBtnStyle(Gtk::EventBox *previousBtn,
                                          std::string previousBtnClass)
 {
     Glib::RefPtr<Gtk::CssProvider> cssProviderPrev = Gtk::CssProvider::create();
-    std::string previousButtonStyle = previousBtnClass + std::string("{background: url('../../../XTouchClient/res/Windows/PaintWindow/img/") + previousBtnIcon + std::string("') no-repeat center;\
+    std::string previousButtonStyle = previousBtnClass + std::string("{background: url('" + global::res_dir_path + "Windows/PaintWindow/img/") + previousBtnIcon + std::string("') no-repeat center;\
                                                 border-radius: 10px;\
                                                 border: 2px solid rgb(219, 219, 219);\
                                                 background-size: 35px;}");
@@ -78,7 +78,7 @@ void PaintWindow::SetActiveToolBtnStyle(Gtk::EventBox *currentBtn,
                                         std::string currentBtnClass)
 {
     Glib::RefPtr<Gtk::CssProvider> cssProviderCurr = Gtk::CssProvider::create();
-    std::string currentButtonStyle = currentBtnClass + std::string("{background: url('../../../XTouchClient/res/Windows/PaintWindow/img/") + currentBtnIcon + std::string("') no-repeat center;\
+    std::string currentButtonStyle = currentBtnClass + std::string("{background: url('" + global::res_dir_path + "Windows/PaintWindow/img/") + currentBtnIcon + std::string("') no-repeat center;\
                                                 border-radius: 10px;\
                                                 border: 2px solid #4B6EEE;\
                                                 background-size: 35px;}");

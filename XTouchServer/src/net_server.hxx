@@ -11,7 +11,7 @@ template <typename T>
 class net_server
 {
 public:
-	net_server(uint16_t port, int maxConnections)
+	net_server(uint16_t port, int maxConnections, std::string res_dir_path) : res_dir_path(res_dir_path)
 	{
 		try
 		{
@@ -286,7 +286,7 @@ public:
 			char modelName[256];
 			imsg >> modelName;
 
-			string pathToFile = "../../../XTouchServer/res/models/";
+			string pathToFile = res_dir_path + "models/";
 			pathToFile += modelName;
 
 			std::ifstream modelFile(pathToFile.c_str(), std::ios::binary | std::ios::ate);
@@ -349,4 +349,5 @@ protected:
 	struct epoll_event *events;
 	sockaddr_in serverAddr;
 	sql::Statement *stmt;
+	std::string res_dir_path;
 };

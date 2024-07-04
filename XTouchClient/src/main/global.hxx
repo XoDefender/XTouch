@@ -38,4 +38,6 @@ namespace global
     extern std::string inFolderWindowCSS;
     extern std::string viewportWindowCSS;
     extern std::string paintWindowCSS;
+
+    extern std::string res_dir_path;
 }

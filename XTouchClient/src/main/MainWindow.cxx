@@ -39,7 +39,7 @@ MainWindow::ModelCard::ModelCard(Gtk::Grid *grid,
 void MainWindow::ModelCard::MakeFavoriteBtnOn()
 {
     Glib::RefPtr<Gtk::CssProvider> css_provider = Gtk::CssProvider::create();
-    std::string favButtonStyle = ".StarButton {background: url('../../../XTouchClient/res/Windows/MainWindow/MainScreen/Img/starFav.png') no-repeat center;\
+    std::string favButtonStyle = ".StarButton {background: url('" + global::res_dir_path + "Windows/MainWindow/MainScreen/Img/starFav.png') no-repeat center;\
                                                 outline: none;\
                                                 border: none;\
                                                 margin-right: 10px;}";
@@ -66,7 +66,7 @@ void MainWindow::ModelCard::ChangeFavoriteState(const bool &isFavState, const st
     net::message<MsgTypes> oMsg = Client::GetInstance().SendRequestToServer(MsgTypes::ChangeModelFavState, iMsg);
 
     Glib::RefPtr<Gtk::CssProvider> css_provider = Gtk::CssProvider::create();
-    std::string favButtonStyle = ".StarButton {background: url('../../../XTouchClient/res/Windows/MainWindow/MainScreen/Img/" + isFavImg + std::string("') no-repeat center;\
+    std::string favButtonStyle = ".StarButton {background: url('" + global::res_dir_path + "Windows/MainWindow/MainScreen/Img/" + isFavImg + std::string("') no-repeat center;\
                                                 outline: none;\
                                                 border: none;\
                                                 margin-right: 10px;}");

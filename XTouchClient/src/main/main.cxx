@@ -42,32 +42,32 @@ bool PassFileDataToVector(std::string filePath, std::vector<std::string> &data, 
 void GetUIData()
 {
     std::vector<std::string> fileData;
-    PassFileDataToVector("../../../XTouchClient/res/UIData", fileData, '#');
+    PassFileDataToVector(global::res_dir_path + "UIData", fileData, '#');
 
-    global::loginWindowUI = fileData[0];
-    global::adminWindowUI = fileData[1];
-    global::mainWindowUI = fileData[2];
-    global::viewportWindowUI = fileData[3];
-    global::paintWindowUI = fileData[4];
+    global::loginWindowUI = global::res_dir_path + fileData[0];
+    global::adminWindowUI = global::res_dir_path + fileData[1];
+    global::mainWindowUI = global::res_dir_path + fileData[2];
+    global::viewportWindowUI = global::res_dir_path + fileData[3];
+    global::paintWindowUI = global::res_dir_path + fileData[4];
 
-    global::mainWindowCSS = fileData[5];
-    global::inFolderWindowCSS = fileData[6];
-    global::viewportWindowCSS = fileData[7];
-    global::paintWindowCSS = fileData[8];
+    global::mainWindowCSS = global::res_dir_path + fileData[5];
+    global::inFolderWindowCSS = global::res_dir_path + fileData[6];
+    global::viewportWindowCSS = global::res_dir_path + fileData[7];
+    global::paintWindowCSS = global::res_dir_path + fileData[8];
 }
 
 void GetConfigData()
 {
     std::vector<std::string> fileData;
-    PassFileDataToVector("../../../XTouchClient/res/Config", fileData, '#');
+    PassFileDataToVector(global::res_dir_path + "Config", fileData, '#');
 
     global::serverIp = GetSubstringAfterSeparator('=', fileData[0], 2);
     global::serverPort = stoi(GetSubstringAfterSeparator('=', fileData[1], 2));
 
-    global::saveModelPath = GetSubstringAfterSeparator('=', fileData[2], 2);
+    global::saveModelPath = global::res_dir_path + GetSubstringAfterSeparator('=', fileData[2], 2);
     global::testModelFolder = GetSubstringAfterSeparator('=', fileData[3], 2);
 
-    global::saveImagePath = GetSubstringAfterSeparator('=', fileData[4], 2);
+    global::saveImagePath = global::res_dir_path + GetSubstringAfterSeparator('=', fileData[4], 2);
     global::saveImagePrefix = GetSubstringAfterSeparator('=', fileData[5], 2);
 }
 
@@ -91,7 +91,20 @@ int main(int argc, char *argv[])
 {
     Gtk::Main kit(argc, argv);
 
-    global::app = Gtk::Application::create(argc, argv, "");
+    global::app = Gtk::Application::create();
+
+    std::string options;
+    if(argc > 1) 
+    {
+        options = argv[1];
+        if(options == "--res-dir") {
+            global::res_dir_path = argv[2];
+        }
+    }
+
+    if(!global::res_dir_path.size()) {
+        global::res_dir_path = "../../../XTouchClient/res/";
+    }
 
     GetApplicationData();
     InitWindows();

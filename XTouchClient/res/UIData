@@ -1,12 +1,12 @@
 # Glade files
-../../../XTouchClient/res/Windows/LoginWindow/LoginWindow.glade
-../../../XTouchClient/res/Windows/AdminWindow/AdminWindow.glade
-../../../XTouchClient/res/Windows/MainWindow/MainWindow.glade
-../../../XTouchClient/res/Windows/ViewportWindow/ViewportWindow.glade
-../../../XTouchClient/res/Windows/PaintWindow/PaintWindow.glade
+Windows/LoginWindow/LoginWindow.glade
+Windows/AdminWindow/AdminWindow.glade
+Windows/MainWindow/MainWindow.glade
+Windows/ViewportWindow/ViewportWindow.glade
+Windows/PaintWindow/PaintWindow.glade
 
 # Css files
-../../../XTouchClient/res/Windows/MainWindow/MainScreen/style.css
-../../../XTouchClient/res/Windows/MainWindow/InFolderScreen/style.css
-../../../XTouchClient/res/Windows/ViewportWindow/style.css
-../../../XTouchClient/res/Windows/PaintWindow/style.css
+Windows/MainWindow/MainScreen/style.css
+Windows/MainWindow/InFolderScreen/style.css
+Windows/ViewportWindow/style.css
+Windows/PaintWindow/style.css

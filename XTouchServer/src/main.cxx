@@ -44,24 +44,24 @@ void ParseConfigData(string config_path, initializer_list<string *> args)
 int main(int argc, char* argv[])
 {
     string ip, name, password, schema;
-    string config_path;
+    string res_dir_path;
     string option;
     
     if(argc > 1) 
     {
         option = argv[1];
-        if (option == "-c") {
-            config_path = string(argv[2]);
+        if (option == "--res-dir") {
+            res_dir_path = string(argv[2]);
         }
     }
 
-    if(!config_path.size()) {
-        config_path = "../../../XTouchServer/res/Config";
+    if(!res_dir_path.size()) {
+        res_dir_path = "../../../XTouchServer/res/";
     }
     
-    ParseConfigData(config_path, {&ip, &name, &password, &schema});
+    ParseConfigData(res_dir_path + "Config", {&ip, &name, &password, &schema});
 
-    Server server(60000);
+    Server server(60000, res_dir_path);
     server.ConnectToMySQL(ip, name, password, schema);
     server.Start();
 
