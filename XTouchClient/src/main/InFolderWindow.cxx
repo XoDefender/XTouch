@@ -36,7 +36,7 @@ void InFolderWindow::CreateFileBlockOnGrid(int row, std::string fileName, std::s
     if (!(fileName.find(".txt") != std::string::npos))
     {
         Glib::RefPtr<Gtk::CssProvider> css_provider = Gtk::CssProvider::create();
-        std::string favButtonStyle = ".FileTypeIcon {background: url('../src/Windows/MainWindow/InFolderScreen/Img/fileIcon3D.jpeg') no-repeat center;}";
+        std::string favButtonStyle = ".FileTypeIcon {background: url('" + global::res_dir_path + "Windows/MainWindow/InFolderScreen/Img/fileIcon3D.jpeg') no-repeat center;}";
 
         css_provider->load_from_data(favButtonStyle);
         fileTypeIcon->get_style_context()
@@ -48,7 +48,7 @@ void InFolderWindow::CreateFileBlockOnGrid(int row, std::string fileName, std::s
     else
     {
         Glib::RefPtr<Gtk::CssProvider> css_provider = Gtk::CssProvider::create();
-        std::string favButtonStyle = ".FileTypeIcon {background: url('../src/Windows/MainWindow/InFolderScreen/Img/textIcon.png') no-repeat center;}";
+        std::string favButtonStyle = ".FileTypeIcon {background: url('" + global::res_dir_path + "Windows/MainWindow/InFolderScreen/Img/textIcon.png') no-repeat center;}";
 
         css_provider->load_from_data(favButtonStyle);
         fileTypeIcon->get_style_context()
