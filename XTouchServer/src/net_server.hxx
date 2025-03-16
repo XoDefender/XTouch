@@ -300,6 +300,8 @@ public:
 			memcpy(imsg.body.data(), buffer, fileSize);
 
 			SendMessage(imsg, MsgTypes::ServerAccept, clientFd);
+
+			break;
 		}
 		case MsgTypes::AddUser:
 		{
