@@ -320,7 +320,7 @@ void PaintWindow::ProcessWidgets()
     uiBuilder = Gtk::Builder::create_from_file(global::paintWindowUI);
 
     uiBuilder->get_widget<Gtk::EventBox>("BackBtn", goBackBtn);
-    uiBuilder->get_widget<Gtk::Fixed>("ScreenshotScreen", container);
+    uiBuilder->get_widget<Gtk::Box>("ScreenshotScreen", container);
     uiBuilder->get_widget<Gtk::Fixed>("DrawContainer", drawContainer);
 
     uiBuilder->get_widget<Gtk::EventBox>("ColorBtnRed", colorBtnRed);

@@ -28,7 +28,7 @@ private:
 
     Gtk::EventBox *saveNewBtn;
     Gtk::EventBox *goBackBtn;
-    Gtk::Fixed *container;
+    Gtk::Box *container;
     Gtk::Fixed *drawContainer;
 
     Gtk::EventBox *showSizes;
