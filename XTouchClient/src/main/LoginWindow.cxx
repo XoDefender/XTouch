@@ -19,11 +19,19 @@ void LoginWindow::LoginUser()
 
     if (oMsg.header.id == MsgTypes::ServerAccept)
     {
+        char userGroup[1024];
+        oMsg >> userGroup;
+
+        if (!strcmp(userGroup, "user")) {
+            mainWindow->OpenWindow();
+        }
+        else if (!strcmp(userGroup, "admin")) {
+            adminWindow->OpenWindow();
+        }
+
         window->hide();
-        mainWindow->OpenWindow();
     }
-    else if (oMsg.header.id == MsgTypes::ServerDeny)
-    {
+    else if (oMsg.header.id == MsgTypes::ServerDeny) {
         loginStatus->set_text("Incorrect login or password");
     }
 }
@@ -45,8 +53,9 @@ bool LoginWindow::ProcessLoginInput()
 
 void LoginWindow::OnLoginClick()
 {
-    if(ProcessLoginInput())
+    if(ProcessLoginInput()) {
         LoginUser();
+    }
 }
 
 void LoginWindow::ProcessWidgets()

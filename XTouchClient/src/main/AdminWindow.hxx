@@ -1,3 +1,9 @@
+enum class ProcessUserActions : uint32_t
+{
+	AddUser,
+	RemoveUser,
+};
+
 class AdminWindow
 {
 public:
@@ -12,8 +18,10 @@ private:
     Gtk::Entry *loginInput;
     Gtk::Entry *passwordInput;
     Gtk::Button *addUserBtn;
+    Gtk::Button *removeUserBtn;
+    Gtk::Label *status;
 
 private:
-    void AddUser();
+    void ProcessUser(ProcessUserActions action);
     void ProcessWidgets();
 };

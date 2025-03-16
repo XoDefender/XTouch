@@ -159,6 +159,8 @@ public:
 					user->name = userName;
 					user->password = userPassword;
 					user->group = res->getString(1);
+
+					imsg << user->group.c_str();
 					SendMessage(imsg, MsgTypes::ServerAccept, clientFd);
 				}
 			}
@@ -298,6 +300,56 @@ public:
 			memcpy(imsg.body.data(), buffer, fileSize);
 
 			SendMessage(imsg, MsgTypes::ServerAccept, clientFd);
+		}
+		case MsgTypes::AddUser:
+		{
+			char userName[1024];
+			char userPassword[1024];
+
+			imsg >> userPassword >> userName;
+
+			std::ostringstream queryStruct;
+			queryStruct << "select user_group from users where user_name='" << userName << "' and user_password='" << userPassword << "'";
+			std::string query = queryStruct.str();
+
+			sql::ResultSet *res = stmt->executeQuery(query);
+			if (res->next()) {
+				SendMessage(imsg, MsgTypes::ServerDeny, clientFd);
+			}
+			else 
+			{
+				queryStruct.str("");
+				queryStruct.clear();
+
+            	queryStruct << "INSERT INTO users (user_name, user_password, user_group) VALUES('" 
+							 << userName << "','" << userPassword << "', 'user')";
+
+            	query = queryStruct.str();
+            	stmt->execute(query);
+
+				SendMessage(imsg, MsgTypes::ServerAccept, clientFd);	
+			}
+
+			delete res;
+
+			break;
+		}
+		case MsgTypes::RemoveUser:
+		{
+			char userName[1024];
+			char userPassword[1024];
+
+			imsg >> userPassword >> userName;
+
+			std::ostringstream queryStruct;
+			queryStruct << "DELETE FROM users WHERE user_name='" << userName << "' and user_password='" << userPassword << "'";
+			std::string query = queryStruct.str();
+
+			stmt->execute(query);
+
+			SendMessage(imsg, MsgTypes::ServerAccept, clientFd);
+
+			break;
 		}
 
 		default:

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.39.0 -->
+<!-- Generated with glade 3.40.0 -->
 <interface>
   <requires lib="gtk+" version="3.24"/>
   <object class="GtkWindow" id="Window">
@@ -39,7 +39,7 @@
         </child>
         <child>
           <object class="GtkButton" id="AddUserButton">
-            <property name="label" translatable="yes">Add</property>
+            <property name="label" translatable="yes">Добавить</property>
             <property name="name">Add</property>
             <property name="width-request">100</property>
             <property name="height-request">30</property>
@@ -49,8 +49,40 @@
             <signal name="clicked" handler="add_user" swapped="no"/>
           </object>
           <packing>
-            <property name="x">200</property>
+            <property name="x">150</property>
             <property name="y">300</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="RemoveUserButton">
+            <property name="label" translatable="yes">Удалить</property>
+            <property name="name">Remove</property>
+            <property name="width-request">100</property>
+            <property name="height-request">30</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+          </object>
+          <packing>
+            <property name="x">250</property>
+            <property name="y">300</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="Status">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <attributes>
+              <attribute name="foreground" value="#e0e01b1b2424"/>
+              <attribute name="size" value="10260"/>
+            </attributes>
+            <style>
+              <class name="LoginStatus"/>
+            </style>
+          </object>
+          <packing>
+            <property name="x">205</property>
+            <property name="y">70</property>
           </packing>
         </child>
       </object>

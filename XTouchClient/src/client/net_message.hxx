@@ -10,6 +10,8 @@ enum class MsgTypes : uint32_t
 	ChangeModelFavState,
 	GetFavoriteModels,
 	GetModelFile,
+	AddUser,
+	RemoveUser,
 };
 
 namespace net
