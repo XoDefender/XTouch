@@ -61,7 +61,7 @@ CREATE TABLE `models` (
 
 LOCK TABLES `models` WRITE;
 /*!40000 ALTER TABLE `models` DISABLE KEYS */;
-INSERT INTO `models` VALUES ('monitor','/path/to/saved/model/','2003-07-20','user','monitor.xbf'),('pcb','/path/to/saved/model/','2003-07-20','user','pcb.xbf'),('pieza','/path/to/saved/model/','2003-07-20','user','pieza.xbf');
+INSERT INTO `models` VALUES ('assy','/path/to/saved/model/','2003-07-20','user','assy.xbf'),('FlashHobby','/path/to/saved/model/','2003-07-20','user','FlashHobby.xbf'),('microserva','/path/to/saved/model/','2003-07-20','user','microserva.xbf'),('monitor','/path/to/saved/model/','2003-07-20','user','monitor.xbf'),('motorreductor','/path/to/saved/model/','2003-07-20','user','motorreductor.xbf'),('pcb','/path/to/saved/model/','2003-07-20','user','pcb.xbf'),('pieza','/path/to/saved/model/','2003-07-20','user','pieza.xbf'),('wondom','/path/to/saved/model/','2003-07-20','user','wondom.xbf');
 /*!40000 ALTER TABLE `models` ENABLE KEYS */;
 UNLOCK TABLES;
 
