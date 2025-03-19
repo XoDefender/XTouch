@@ -293,13 +293,20 @@ public:
 
 			std::ifstream modelFile(pathToFile.c_str(), std::ios::binary | std::ios::ate);
 			std::streamsize fileSize = modelFile.tellg();
-			modelFile.seekg(0, std::ios::beg);
-			char *buffer = new char[fileSize];
-			modelFile.read(buffer, fileSize);
-			imsg.body.resize(fileSize);
-			memcpy(imsg.body.data(), buffer, fileSize);
 
-			SendMessage(imsg, MsgTypes::ServerAccept, clientFd);
+			if(fileSize <= 0) {
+				SendMessage(imsg, MsgTypes::ServerDeny, clientFd);
+			}
+			else 
+			{
+				modelFile.seekg(0, std::ios::beg);
+				char *buffer = new char[fileSize];
+				modelFile.read(buffer, fileSize);
+				imsg.body.resize(fileSize);
+				memcpy(imsg.body.data(), buffer, fileSize);
+
+				SendMessage(imsg, MsgTypes::ServerAccept, clientFd);
+			}
 
 			break;
 		}

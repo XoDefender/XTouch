@@ -54,8 +54,14 @@ void ModelFileManager::GetDataFromServer()
         iMsg << global::currentFileName.c_str();
 
     net::message<MsgTypes> oMsg = Client::GetInstance().SendRequestToServer(MsgTypes::GetModelFile, iMsg);
-    stepFile.write((char *)oMsg.body.data(), oMsg.body.size());
-    isFileReady = true;
+    if(oMsg.header.id == MsgTypes::ServerAccept)
+    {
+        stepFile.write((char *)oMsg.body.data(), oMsg.body.size());
+        isFileReady = true;
+    }
+    else {
+        exit(0);
+    }
 }
 
 void ModelFileManager::OpenOcctWindow()
