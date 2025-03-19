@@ -183,18 +183,8 @@ void MainWindow::FillGrid(std::vector<ModelData> modelData)
     int currColumn = 1;
     int currRow = 1;
 
-    grid->insert_column(currColumn);
-    grid->insert_row(currRow);
-
     for (const auto &data : modelData)
     {
-        if (currRow > rows)
-        {
-            currColumn++;
-            currRow = 1;
-            grid->insert_column(currColumn);
-        }
-
         ModelCard model(grid, currColumn, currRow,
                         data.modelName.c_str(),
                         data.modelPath.c_str(),
@@ -204,7 +194,11 @@ void MainWindow::FillGrid(std::vector<ModelData> modelData)
         modelCards.push_back(model);
 
         currRow++;
-        grid->insert_row(currRow);
+        if (currRow > rows)
+        {
+            currColumn++;
+            currRow = 1;
+        }
     }
 }
 
@@ -223,20 +217,11 @@ void MainWindow::FillGrid(MsgTypes msgType, net::message<MsgTypes> iMsg)
     int currColumn = 1;
     int currRow = 1;
 
-    grid->insert_column(currColumn);
-    grid->insert_row(currRow);
-
     for (int i = 0; i < atoi(modelsAmount); i++)
     {
-        if (currRow > rows)
-        {
-            currColumn++;
-            currRow = 1;
-            grid->insert_column(currColumn);
-        }
-
-        if (oMsg.size() <= 0)
+        if (oMsg.size() <= 0) {
             break;
+        }
 
         char modelName[1024];
         char modelPath[1024];
@@ -253,7 +238,11 @@ void MainWindow::FillGrid(MsgTypes msgType, net::message<MsgTypes> iMsg)
         modelData.push_back(data);
 
         currRow++;
-        grid->insert_row(currRow);
+        if (currRow > rows)
+        {
+            currColumn++;
+            currRow = 1;
+        }
     }
 }
 
